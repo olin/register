@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack --watch",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": ""
   },
   "repository": {
     "type": "git",
