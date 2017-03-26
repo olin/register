@@ -42,7 +42,7 @@ module.exports = {
           //CSS loader: Allows you to import CSS files. This version runs postcss to add vendor prefixes. We also run the extract text plugin to bundle the css into its own single file
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'postcss')
+                loader: ExtractTextPlugin.extract('style-loader')
             },
 
             //Loader for .png and .jpg files
@@ -59,16 +59,16 @@ module.exports = {
     ],
 
     resolve: {
-        root: path.join(__dirname, ''),
         // look for modules in node_modules and the client directory for imports
-        modulesDirectories: [
+        modules: [
+          path.join(__dirname, ''),
           'node_modules',
           'client'
         ],
         // resolve below file types
-        extensions: ['', '.js', '.jsx', 'css']
+        extensions: ['.js', '.jsx', 'css']
     },
 
     // configure the postcss loader to user autoprefixer
-    postcss: [ autoprefixer({ browsers:['last 2 versions'] }) ]
+    // postcss: [ autoprefixer({ browsers:['last 2 versions'] }) ]
 }
