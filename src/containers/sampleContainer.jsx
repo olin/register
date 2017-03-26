@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-let DoAThing = ({ dispatch }) => {
+let SampleContainerComponent = ({ dispatch }) => {
   return (
     <div>
+      <p>Sub Component</p>
     </div>
   )
 }
-DoAThing = connect()(DoAThing)
 
-export default DoAThing
+// Connect with Presentational Component
+SampleContainerComponent = connect()(SampleContainerComponent)
+
+export default SampleContainerComponent;

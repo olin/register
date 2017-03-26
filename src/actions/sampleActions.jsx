@@ -1,4 +1,4 @@
-export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
+export const doAThing = (data) => ({
+  type: 'DO_A_THING',
+  data
 })

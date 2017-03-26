@@ -1,10 +1,12 @@
-const visibilityFilter = (state = 'SHOW_ALL', action) => {
+const sampleReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
-      return action.filter
+    case 'DO_A_THING':
+      return Object.assign({}, state, {
+        newthing: action.data
+      });
     default:
-      return state
+      return state;
   }
 }
 
-export default visibilityFilter
+export default sampleReducer;
