@@ -7,6 +7,6 @@ const sampleReducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
 export default sampleReducer;

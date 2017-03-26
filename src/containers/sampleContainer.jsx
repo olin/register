@@ -1,5 +1,5 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
 let SampleContainerComponent = ({ dispatch }) => {
   return (
@@ -7,9 +7,9 @@ let SampleContainerComponent = ({ dispatch }) => {
       <p>Sub Component</p>
     </div>
   )
-}
+};
 
 // Connect with Presentational Component
-SampleContainerComponent = connect()(SampleContainerComponent)
+SampleContainerComponent = connect()(SampleContainerComponent);
 
 export default SampleContainerComponent;
