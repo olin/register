@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-// Create user Schema
+// Create sample Schema
 var sampleSchema = mongoose.Schema({
   sample: String,
 });
