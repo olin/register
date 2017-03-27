@@ -39,10 +39,17 @@ module.exports = {
                 }
             },
 
-          //CSS loader: Allows you to import CSS files. This version runs postcss to add vendor prefixes. We also run the extract text plugin to bundle the css into its own single file
+          //CSS loader: Allows you to import CSS and SASS files. This version runs postcss to add vendor prefixes and uses the CSS module pattern. We also run the extract text plugin to bundle the css into its own single file
+          //
+          //More information about the CSS Module pattern can be found:
+          //https://glenmaddern.com/articles/css-modules
+          //https://github.com/css-modules/css-modules
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+                test: [/\.css$/, /\.scss$/, /\.sass$/],
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader!postcss-loader'
+                })
             },
 
             //Loader for .png and .jpg files
