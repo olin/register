@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-let SampleContainerComponent = ({ dispatch }) => {
+const SamplePresentationalComponent = ({ dispatch }) => {
   return (
     <div>
       <p>Sub Component</p>
     </div>
-  )
+  );
 };
 
 // Connect with Presentational Component
-SampleContainerComponent = connect()(SampleContainerComponent);
+const SampleContainerComponent = connect()(SamplePresentationalComponent);
 
 export default SampleContainerComponent;

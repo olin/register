@@ -24,6 +24,16 @@ module.exports = {
 
     module: {
         loaders: [
+            //eslint loader
+            {
+                //make sure we lint before we transform code
+                enforce: "pre",
+                //only test js and jsx files
+                test: [/\.js$/, /\.jsx$/],
+                //only include files in the client directory (so we don't compile our node modules or server side code)
+                include: APP_DIR,
+                loader: 'eslint-loader',
+            },
             //Babel javascript loader, convert jsx or js files to es5 javascript
             {
                 //only test js and jsx files
