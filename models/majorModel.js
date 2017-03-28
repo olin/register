@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 
 // Create sample Schema
-var sampleSchema = mongoose.Schema({
-  sample: String,
+var majorSchema = mongoose.Schema({
+  name: String,
+  requirements: []
 });
 
-module.exports = mongoose.model("Sample", sampleSchema);
+module.exports = mongoose.model("Major", majorSchema);
