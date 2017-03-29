@@ -6,4 +6,8 @@
   "env": {
     "browser": true,
   },
+  "rules": {
+    "prefer-template": "off",
+    "no-console": "off",
+  },
 }

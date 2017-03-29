@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Create major Schema
-var majorSchema = mongoose.Schema({
+const majorSchema = mongoose.Schema({
   sample: String,
 });
 
-module.exports = major.model("Major", majorSchema);
+module.exports = mongoose.model('Major', majorSchema);
