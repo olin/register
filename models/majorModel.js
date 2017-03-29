@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Create a Major Schema
-var majorSchema = mongoose.Schema({
+const majorSchema = mongoose.Schema({
   name: {
   	type: String,
   	// This default is set mainly to show off what the major is
@@ -48,4 +48,4 @@ var majorSchema = mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model("Major", majorSchema);
+export default mongoose.model("Major", majorSchema);
