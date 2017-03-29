@@ -1,15 +1,13 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-// Create student Schema
-var studentSchema = mongoose.Schema({
+const studentSchema = mongoose.Schema({
   email: String,
   name: String,
   olinId: String,
   entryYear: Number,
   major: String,
-  completedCourses: [Schema.Types.ObjectId],
-  plannedCourses: [Schema.Types.ObjectId]
+  completedCourses: [mongoose.Schema.Types.ObjectId],
+  plannedCourses: [mongoose.Schema.Types.ObjectId]
 });
 
 module.exports = mongoose.model("Student", studentSchema);

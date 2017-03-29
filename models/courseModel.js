@@ -1,7 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// Create course Schema
-var courseSchema = mongoose.Schema({
+const courseSchema = mongoose.Schema({
   registrarId: String,
   title: String,
   credits: Number,

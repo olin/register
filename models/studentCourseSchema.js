@@ -1,10 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-// Create student-course instance Schema
-var studentCourseSchema = mongoose.Schema({
-  studentId: Schema.Types.ObjectId,
-  courseId: Schema.Types.ObjectId,
+const studentCourseSchema = mongoose.Schema({
+  studentId: mongoose.Schema.Types.ObjectId,
+  courseId: mongoose.Schema.Types.ObjectId,
   semester: String,
   grade: String
 });
