@@ -9,13 +9,13 @@ const MajorRequirementsList = ({ requirements }) => (
       <MajorRequirement
         key={req.toString()}
         requirement={req}
-      />
+      />,
     )}
   </ul>
 );
 
 MajorRequirementsList.propTypes = {
-  requirements: PropTypes.array.isRequired,
+  requirements: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default MajorRequirementsList;
