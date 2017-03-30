@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const LocalStrategy = require('passport-local').Strategy;
+
 
 // setting up routes
 const index = require('./routes/index');
