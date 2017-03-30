@@ -3,14 +3,14 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
-import LoginLocal from './components/LoginLocal';
+import Login from './components/Login';
 import reducer from './reducers/sampleReducer';
 
 const store = createStore(reducer);
 
 render(
   <Provider store={store}>
-    <LoginLocal />
+    <Login />
   </Provider>,
   document.getElementById('container'),
 );

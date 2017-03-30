@@ -23,13 +23,14 @@ export default class LoginLocal extends React.Component {
 	}
 	login(e){
 		e.preventDefault();
-		var formData = {
+		let formData = {
 			username: this.state.username,
 			password: this.state.password
 		}
+		let getUser = this.props.getuser;
 		$.post('/login',formData)
 			.done(function(data){
-				//redirect
+				getUser();
 			})
 			.error(function(err, status){
 				console.error(status);
@@ -39,6 +40,7 @@ export default class LoginLocal extends React.Component {
 		return(
 			<div>
 				<form id="local-login" onSubmit={this.login} className="form-signin">
+					<h2>Login with username and password</h2>
 					<input
 						placeholder="Username"
 						type="text"

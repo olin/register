@@ -10,14 +10,21 @@ router.get('/', (req, res) => {
   res.render('index', {});
 });
 
+// log in with local strategy
 router.post('/login', passport.authenticate('local'),
-	function(req, res) {
-		res.json({
-			username: req.user.username,
-			name: req.user.name,
-			id: req.user._id
-		});
-	}
+  (req, res) => {
+    res.json({
+      username: req.user.username,
+      name: req.user.name,
+      id: req.user._id,
+    });
+  }
 );
+
+// register new user
+router.post('/register', (req, res) => {
+  console.log(req);
+  // add User to database here
+});
 
 module.exports = router;
