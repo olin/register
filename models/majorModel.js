@@ -18,7 +18,7 @@ const majorSchema = mongoose.Schema({
       'Probability and Statistics',
       'Biology Foundation',
       'Chemistry/Materials Science',
-      'Physics',
+      'Physics Foundation',
       'Introduction to Sensors, Instrumentation, and Measurement',
       'Principles of Engineering',
       'Engineering Capstone',
