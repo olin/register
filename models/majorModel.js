@@ -12,7 +12,7 @@ const majorSchema = mongoose.Schema({
     // Because these are the same for every student, it makes sense to
     // include default general requirements regardless of major
     default: [
-      'Modelling and Simulation of the Physical World',
+      'Modeling and Simulation of the Physical World',
       'Linearity I',
       'Linearity II',
       'Probability and Statistics',
