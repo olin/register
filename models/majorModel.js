@@ -46,5 +46,6 @@ const majorSchema = mongoose.Schema({
       'Mechanical Engineering Elective',
     ],
   },
+});
 
 module.exports = mongoose.model('Major', majorSchema);
