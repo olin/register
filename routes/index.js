@@ -13,8 +13,7 @@ router.get('/', (req, res) => {
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
     res.json({
-      email: req.user.email,
-      name: req.user.name,
+      username: req.user.username,
       id: req.user._id,
     });
   }
@@ -22,7 +21,7 @@ router.post('/login', passport.authenticate('local'),
 
 // register new user
 router.post('/register', (req) => {
-  Student.register(new Student({ email: req.body.email }),
+  Student.register(new Student({ username: req.body.username }),
     req.body.password, (err, account) => {
       if (err) {
         console.error(err);
@@ -30,7 +29,7 @@ router.post('/register', (req) => {
 
       passport.authenticate('login', (res) => {
         res.json({
-          email: account.email,
+          username: account.username,
           id: account._id,
         });
       });

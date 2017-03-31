@@ -10,7 +10,7 @@ export default class RegisterNewUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      username: '',
       password: '',
       confirmPassword: '',
       passwordMatch: false,
@@ -23,7 +23,7 @@ export default class RegisterNewUser extends React.Component {
   // updates current state to value of email field
   updateEmail(event) {
     this.setState({
-      email: event.target.value,
+      username: event.target.value,
     });
   }
   // updates current state to value of password field
@@ -55,11 +55,11 @@ export default class RegisterNewUser extends React.Component {
     event.preventDefault();
     if (this.state.passwordMatch === false) {
       alert('Passwords do not match, please try again');
-    } else if (this.state.email === '') {
+    } else if (this.state.username === '') {
       alert('An email must be provided');
     } else {
       const formData = {
-        email: this.state.email,
+        username: this.state.username,
         password: this.state.password,
       };
 
@@ -78,7 +78,7 @@ export default class RegisterNewUser extends React.Component {
           <input
             placeholder="Email"
             type="text"
-            value={this.state.email}
+            value={this.state.username}
             onChange={this.updateEmail}
           />
           <br />

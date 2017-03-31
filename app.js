@@ -6,11 +6,15 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
+const mongoose = require('mongoose');
 
 const Student = require('./models/studentModel');
 
 // setting up routes
 const index = require('./routes/index');
+
+//connect to database
+mongoose.connect('mongodb://localhost/register');
 
 const app = express();
 

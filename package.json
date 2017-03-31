@@ -25,7 +25,7 @@
     "debug": "^2.6.0",
     "express": "^4.14.0",
     "express-session": "^1.15.2",
-    "mongoose": "^4.8.1",
+    "mongoose": "^4.9.2",
     "mongoose-findorcreate": "^1.0.1",
     "node": "^0.0.0",
     "nodemon": "^1.11.0",
