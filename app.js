@@ -3,9 +3,11 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const LocalStrategy = require('passport-local').Strategy;
 const passport = require('passport');
 const session = require('express-session');
+
+const User = require("./models/userModel");
+
 
 // setting up routes
 const index = require('./routes/index');
@@ -32,12 +34,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// this is called to authenticate the user's password
+passport.use(new LocalStrategy(User.authenticate()));
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(userId, done) {
+  User.findById(userId, (err, user)=>{done(null, user)})
 });
 
 // Routes for our backend models

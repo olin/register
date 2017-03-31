@@ -27,7 +27,6 @@ export default class LoginLocal extends React.Component {
 			username: this.state.username,
 			password: this.state.password
 		}
-		let getUser = this.props.getuser;
 		$.post('/login',formData)
 			.done(function(data){
 				getUser();

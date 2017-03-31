@@ -5,7 +5,7 @@ export default class Login extends React.Component{
 	render() {
 		return(
 			<div className="wrapper">
-				<LoginLocal getuser={this.props.getuser}/>
+				<LoginLocal/>
 				<br/>
 				<RegisterNewUser/>
 			</div>
