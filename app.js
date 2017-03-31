@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 // setting up routes
-const index = require('./routes/index');
+// const index = require('./routes/index');
 
 const app = express();
 
@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Routes for our backend models
-app.use('/', index);
+app.get('*', (request, response) => {
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 app.listen(app.get('port'), () => {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
