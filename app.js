@@ -5,8 +5,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
+const LocalStrategy = require('passport-local').Strategy;
 
-const User = require("./models/userModel");
+// const User = require("./models/userModel");
 
 
 // setting up routes
