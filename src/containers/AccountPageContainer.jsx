@@ -25,19 +25,15 @@ AccountPage.propTypes = {
 };
 
 // Connect with Presentational Component
-const mapStateToProps = (state) => {
-  return {
-    settings: state.settings,
-  };
-};
+const mapStateToProps = state => ({
+  settings: state.settings,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSettingToggle: (name) => {
-      dispatch(toggleSetting(name));
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onSettingToggle: (name) => {
+    dispatch(toggleSetting(name));
+  },
+});
 
 const AccountPageContainer = connect(
   mapStateToProps,
