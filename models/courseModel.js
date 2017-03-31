@@ -10,7 +10,7 @@ const courseSchema = mongoose.Schema({
   SCICredits: Number,
   ECredits: Number,
   NDGRCredits: Number,
-  requirements: [String]
+  requirements: [String],
 });
 
-module.exports = mongoose.model("Course", courseSchema);
+module.exports = mongoose.model('Course', courseSchema);

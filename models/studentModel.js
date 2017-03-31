@@ -7,7 +7,7 @@ const studentSchema = mongoose.Schema({
   entryYear: Number,
   major: String,
   completedCourses: [mongoose.Schema.Types.ObjectId],
-  plannedCourses: [mongoose.Schema.Types.ObjectId]
+  plannedCourses: [mongoose.Schema.Types.ObjectId],
 });
 
-module.exports = mongoose.model("Student", studentSchema);
+module.exports = mongoose.model('Student', studentSchema);
