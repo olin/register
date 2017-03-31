@@ -1,6 +1,6 @@
 /*
-The form that a new user fills out to register a new account. 
-The user provides their name, a username, a password, and confirms 
+The form that a new user fills out to register a new account.
+The user provides their name, an email, a password, and confirms
 their password.
 */
 import React from 'react';
@@ -10,20 +10,20 @@ export default class RegisterNewUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
       confirmPassword: '',
       passwordMatch: false,
     };
-    this.updateUsername = this.updateUsername.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.matchPasswords = this.matchPasswords.bind(this);
     this.register = this.register.bind(this);
   }
-  // updates current state to value of username field
-  updateUsername(event) {
+  // updates current state to value of email field
+  updateEmail(event) {
     this.setState({
-      username: event.target.value,
+      email: event.target.value,
     });
   }
   // updates current state to value of password field
@@ -55,18 +55,16 @@ export default class RegisterNewUser extends React.Component {
     event.preventDefault();
     if (this.state.passwordMatch === false) {
       alert('Passwords do not match, please try again');
-    } else if (this.state.username === '') {
-      alert('A username must be provided');
+    } else if (this.state.email === '') {
+      alert('An email must be provided');
     } else {
       const formData = {
-        username: this.state.username,
+        email: this.state.email,
         password: this.state.password,
       };
 
       $.post('/register', formData)
-        .done(function (data) {
-        })
-        .error(function (err, status) {
+        .error((err, status) => {
           console.error(err, status);
         });
     }
@@ -78,10 +76,10 @@ export default class RegisterNewUser extends React.Component {
           <h2 >Register an account</h2>
           <br />
           <input
-            placeholder="Username"
+            placeholder="Email"
             type="text"
-            value={this.state.username}
-            onChange={this.updateUsername}
+            value={this.state.email}
+            onChange={this.updateEmail}
           />
           <br />
           <input
