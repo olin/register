@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-// import AccountPageContainer from '../containers/AccountPageContainer';
+import AccountPageContainer from '../containers/AccountPageContainer';
 
 
 const Home = () => (
@@ -11,7 +11,7 @@ const Home = () => (
 
 const Account = () => (
   <div>
-    <p>Account</p>
+    <AccountPageContainer />
   </div>
 );
 
