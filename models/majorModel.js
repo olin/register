@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const majorSchema = mongoose.Schema({
   name: {
     type: String,
@@ -45,6 +46,5 @@ const majorSchema = mongoose.Schema({
       'Mechanical Engineering Elective',
     ],
   },
-});
 
 module.exports = mongoose.model('Major', majorSchema);
