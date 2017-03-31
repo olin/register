@@ -55,12 +55,24 @@ module.exports = {
           //https://glenmaddern.com/articles/css-modules
           //https://github.com/css-modules/css-modules
             {
-                test: [/\.css$/, /\.scss$/, /\.sass$/],
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader!postcss-loader'
-                })
+                test: /\.css$/,
+                loader: 'style-loader'
+            }, 
+            {
+                test: /\.css$/,
+                loader: 'css-loader',
+                query: {
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                }
             },
+            // {
+            //     test: [/\.css$/, /\.scss$/, /\.sass$/],
+            //     loader: ExtractTextPlugin.extract({
+            //         fallback: 'style-loader',
+            //         use: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader!postcss-loader'
+            //     })
+            // },
 
             //Loader for .png and .jpg files
             {
