@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack --watch",
-    "start": "nodemon app.js",
+    "lint": "./node_modules/.bin/eslint --ignore-pattern src/ ./",
+    "start": "nodemon app.js --exec './node_modules/.bin/eslint --ignore-pattern src/ ./; node'",
     "test": ""
   },
   "repository": {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import StudentHome from './StudentHome';
 import AccountPageContainer from '../containers/AccountPageContainer';
 
 
 const Home = () => (
   <div>
-    <h1>Register</h1>
+    <StudentHome />
   </div>
 );
 
