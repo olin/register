@@ -5,7 +5,11 @@ import { Provider } from 'react-redux';
 import Login from './components/Login';
 import reducer from './reducers/sampleReducer';
 
-const store = createStore(reducer);
+
+const store = createStore(
+  reducer,
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 render(
   <Provider store={store}>

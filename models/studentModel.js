@@ -11,6 +11,7 @@ const studentSchema = mongoose.Schema({
   plannedCourses: [mongoose.Schema.Types.ObjectId],
 });
 
+
 studentSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Student', studentSchema);
