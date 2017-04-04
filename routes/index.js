@@ -14,10 +14,9 @@ router.post('/login', passport.authenticate('local'),
   (req, res) => {
     res.json({
       username: req.user.username,
-      id: req.user._id,
+      id: req.user.id,
     });
-  }
-);
+  });
 
 // register new user
 router.post('/register', (req) => {
@@ -30,7 +29,7 @@ router.post('/register', (req) => {
       passport.authenticate('login', (res) => {
         res.json({
           username: account.username,
-          id: account._id,
+          id: account.id,
         });
       });
     });

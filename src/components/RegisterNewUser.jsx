@@ -4,6 +4,7 @@ The user provides their name, an email, a password, and confirms
 their password.
 */
 import React from 'react';
+import $ from 'jquery';
 
 // component for registering as a new user
 export default class RegisterNewUser extends React.Component {

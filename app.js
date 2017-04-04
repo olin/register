@@ -13,7 +13,7 @@ const Student = require('./models/studentModel');
 // setting up routes
 const index = require('./routes/index');
 
-//connect to database
+// connect to database
 mongoose.connect('mongodb://localhost/register');
 
 const app = express();

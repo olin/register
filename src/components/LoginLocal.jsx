@@ -1,10 +1,11 @@
 import React from 'react';
+import $ from 'jquery';
 
 export default class LoginLocal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      username: '',
       password: '',
     };
     this.updateNewUser = this.updateNewUser.bind(this);
@@ -13,7 +14,7 @@ export default class LoginLocal extends React.Component {
   }
   updateNewUser(e) {
     this.setState({
-      email: e.target.value,
+      username: e.target.value,
     });
   }
   updatePassword(e) {
@@ -24,7 +25,7 @@ export default class LoginLocal extends React.Component {
   login(e) {
     e.preventDefault();
     const formData = {
-      email: this.state.email,
+      username: this.state.username,
       password: this.state.password,
     };
     $.post('/login', formData)
@@ -33,14 +34,14 @@ export default class LoginLocal extends React.Component {
       });
   }
   render() {
-    return(
+    return (
       <div>
         <form id="local-login" onSubmit={this.login} className="form-signin">
           <h2>Login with email and password</h2>
           <input
             placeholder="Email"
             type="text"
-            value={this.state.email}
+            value={this.state.username}
             onChange={this.updateNewUser}
           />
           <br />
