@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const studentSchema = mongoose.Schema({
   email: String,
@@ -9,5 +10,7 @@ const studentSchema = mongoose.Schema({
   completedCourses: [mongoose.Schema.Types.ObjectId],
   plannedCourses: [mongoose.Schema.Types.ObjectId],
 });
+
+studentSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Student', studentSchema);
