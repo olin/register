@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 const Student = require('./models/studentModel');
 
 // setting up routes
-const index = require('./routes/index');
+// const index = require('./routes/index');
 
 // connect to database
 mongoose.connect('mongodb://localhost/register');
@@ -49,7 +49,9 @@ passport.deserializeUser((userId, done) => {
 });
 
 // Routes for our backend models
-app.use('/', index);
+app.get('*', (request, response) => {
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 app.listen(app.get('port'), () => {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
