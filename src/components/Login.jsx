@@ -1,10 +1,10 @@
 import React from 'react';
-import LoginLocal from './LoginLocal';
+import LoginContainer from '../containers/LoginContainer';
 import RegisterNewUser from './RegisterNewUser';
 
 const Login = () =>
   <div className="wrapper">
-    <LoginLocal />
+    <LoginContainer />
     <br />
     <RegisterNewUser />
   </div>;
