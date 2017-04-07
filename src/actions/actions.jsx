@@ -1,5 +1,4 @@
-export function toggleSetting(name) {
-  return { type: 'TOGGLE_SETTING', name };
-}
-
-export default toggleSetting;
+export const toggleSetting = name => ({
+	type: 'TOGGLE_SETTING',
+	name,
+});
