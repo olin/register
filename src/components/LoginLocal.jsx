@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 
 export default class LoginLocal extends React.Component {
   constructor(props) {
@@ -22,21 +21,10 @@ export default class LoginLocal extends React.Component {
       password: e.target.value,
     });
   }
-  login(e) {
-    e.preventDefault();
-    const formData = {
-      username: this.state.username,
-      password: this.state.password,
-    };
-    $.post('/login', formData)
-      .error((err, status) => {
-        console.error(status);
-      });
-  }
   render() {
     return (
       <div>
-        <form id="local-login" onSubmit={this.login} className="form-signin">
+        <form id="local-login" className="form-signin">
           <h2>Login with email and password</h2>
           <input
             placeholder="Email"
