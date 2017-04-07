@@ -66,13 +66,6 @@ module.exports = {
                     localIdentName: '[name]__[local]___[hash:base64:5]'
                 }
             },
-            // {
-            //     test: [/\.css$/, /\.scss$/, /\.sass$/],
-            //     loader: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader!postcss-loader'
-            //     })
-            // },
 
             //Loader for .png and .jpg files
             {
