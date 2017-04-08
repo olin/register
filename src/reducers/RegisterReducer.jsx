@@ -14,7 +14,7 @@ const RegisterReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         password: action.password,
       });
-    case 'CONFIRM_PASSWORD':
+    case 'UPDATE_CONFIRM_PASSWORD':
       return Object.assign({}, state, {
         confirmPassword: action.password,
       });
