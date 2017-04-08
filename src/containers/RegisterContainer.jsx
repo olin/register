@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateNewUsername, updateNewPassword, confirmPassword } from '../actions/actions'
+import { updateNewUsername, updateNewPassword, updateConfirmPassword } from '../actions/actions'
 import RegisterNewUser from '../components/RegisterNewUser';
 
 const mapStateToProps = state => ({
@@ -14,6 +14,9 @@ const mapDispatchToProps = dispatch => ({
   },
   updateNewPassword: (e) => {
     dispatch(updateNewPassword(e.target.value));
+  },
+  updateConfirmPassword: (e) => {
+    dispatch(updateConfirmPassword(e.target.value));
   },
 });
 
