@@ -26,7 +26,7 @@ export const updateNewPassword = password => ({
 	password,
 });
 
-export const confirmPassword = password => ({
-	type: 'CONFIRM_PASSWORD',
+export const updateConfirmPassword = password => ({
+	type: 'UPDATE_CONFIRM_PASSWORD',
 	password,
 });
