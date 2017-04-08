@@ -1,8 +1,6 @@
 const initialState = {
-  user: {
-    username: '',
-    password: '',
-  },
+  username: '',
+  password: '',
 };
 
 const LoginReducer = (state = initialState, action) => {
