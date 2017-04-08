@@ -7,7 +7,7 @@ const LoginReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_USERNAME':
       return Object.assign({}, state, {
-        user: action.username,
+        username: action.username,
       });
     case 'UPDATE_PASSWORD':
       return Object.assign({}, state, {
