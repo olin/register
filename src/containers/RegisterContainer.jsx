@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateNewUsername, updateNewPassword, updateConfirmPassword } from '../actions/actions'
+import { updateNewUsername, updateNewPassword, updateConfirmPassword } from '../actions/actions';
 import RegisterNewUser from '../components/RegisterNewUser';
 
 const mapStateToProps = state => ({
@@ -25,4 +25,4 @@ const RegisterContainer = connect(
   mapDispatchToProps,
 )(RegisterNewUser);
 
-export default RegisterNewUser;
+export default RegisterContainer;

@@ -1,8 +1,15 @@
 import React, { PropTypes } from 'react';
 
-const RegisterNewUser = ({ username, password, confirmPasword, updateNewUser, updateNewPassword, updateConfirmPassword }) => (
+const RegisterNewUser = ({
+  username,
+  password,
+  confirmPassword,
+  updateNewUser,
+  updateNewPassword,
+  updateConfirmPassword,
+}) => (
   <div>
-    <form id="register" classname="form-signin">
+    <form id="register" className="form-signin">
       <h2>Register an account</h2>
       <br />
       <input
@@ -31,4 +38,15 @@ const RegisterNewUser = ({ username, password, confirmPasword, updateNewUser, up
       >Register</button>
     </form>
   </div>
-)
+);
+
+RegisterNewUser.propTypes = {
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  confirmPassword: PropTypes.string.isRequired,
+  updateNewUser: PropTypes.func.isRequired,
+  updateNewPassword: PropTypes.func.isRequired,
+  updateConfirmPassword: PropTypes.func.isRequired,
+};
+
+export default RegisterNewUser;

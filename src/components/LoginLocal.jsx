@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const LoginLocal = ({ username, password, updateUser, updatePassword }) => (
   <div>
-    <form id="local-login" classname="form-signin">
+    <form id="local-login" className="form-signin">
       <h2>Login with email and password</h2>
       <input
         placeholder="Email"

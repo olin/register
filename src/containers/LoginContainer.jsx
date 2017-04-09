@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { updateUsername, updatePassword } from '../actions/actions';
-import Login from '../components/Login';
+import LoginLocal from '../components/LoginLocal';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
@@ -10,16 +10,16 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateUser: (e) => {
-  	dispatch(updateUsername(e.target.value));
+    dispatch(updateUsername(e.target.value));
   },
   updatePassword: (e) => {
-  	dispatch(updatePassword(e.target.value));
+    dispatch(updatePassword(e.target.value));
   },
 });
 
 const LoginContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(LoginLocal);
 
 export default LoginContainer;
