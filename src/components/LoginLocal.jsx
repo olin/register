@@ -8,7 +8,7 @@ const LoginLocal = ({ username, password, updateUser, updatePassword }) => (
         placeholder="Email"
         type="text"
         value={username}
-        onChange={updateNewUser}
+        onChange={updateUser}
       />
       <br />
       <input
@@ -31,8 +31,8 @@ const LoginLocal = ({ username, password, updateUser, updatePassword }) => (
 LoginLocal.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  updateNewUser: PropTypes.func.isRequired,
-  updatePassword: propTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
+  updatePassword: PropTypes.func.isRequired,
 };
 
 export default LoginLocal;
