@@ -18,7 +18,7 @@ const RegisterReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         confirmPassword: action.password,
       });
-    default
+    default:
       return state;
   }
 };

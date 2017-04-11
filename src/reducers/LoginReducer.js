@@ -1,6 +1,7 @@
 const initialState = {
   username: '',
   password: '',
+  loggedIn: false,
 };
 
 const LoginReducer = (state = initialState, action) => {
@@ -12,6 +13,10 @@ const LoginReducer = (state = initialState, action) => {
     case 'UPDATE_PASSWORD':
       return Object.assign({}, state, {
         password: action.password,
+      });
+    case 'TOGGLE_LOGGED_IN':
+      return Object.assign({}, state, {
+        loggedIn: !state.loggedIn,
       });
     default:
       return state;

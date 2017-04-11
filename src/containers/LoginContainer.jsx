@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateUsername, updatePassword } from '../actions/actions';
+import { updateUsername, updatePassword, toggleLoggedIn } from '../actions/actions';
 import LoginLocal from '../components/LoginLocal';
 
 // Connect with Presentational Component
@@ -14,6 +14,9 @@ const mapDispatchToProps = dispatch => ({
   },
   updatePassword: (e) => {
     dispatch(updatePassword(e.target.value));
+  },
+  onLogin: (data) => {
+    dispatch(onLogin(data));
   },
 });
 

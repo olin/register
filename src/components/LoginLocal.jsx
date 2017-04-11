@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const LoginLocal = ({ username, password, updateUser, updatePassword }) => (
+const LoginLocal = ({ username, password, updateUser, updatePassword, onLogin }) => (
   <div>
-    <form id="local-login" className="form-signin">
+    <form id="local-login" className="form-signin" onSubmit={onLogin}>
       <h2>Login with email and password</h2>
       <input
         placeholder="Email"
@@ -33,6 +33,8 @@ LoginLocal.propTypes = {
   password: PropTypes.string.isRequired,
   updateUser: PropTypes.func.isRequired,
   updatePassword: PropTypes.func.isRequired,
+  toggleLoggedIn: PropTypes.func.isRequied,
+  onLogin: PropTypes.func.isRequired,
 };
 
 export default LoginLocal;

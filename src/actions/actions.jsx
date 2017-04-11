@@ -15,6 +15,10 @@ export const updateUsername = username => ({
   username,
 });
 
+export const toggleLoggedIn = () => ({
+  type: 'TOGGLE_LOGGED_IN',
+});
+
 // Register Component
 export const updateNewUsername = username => ({
   type: 'UPDATE_NEW_USERNAME',
@@ -32,16 +36,16 @@ export const updateConfirmPassword = password => ({
 });
 
 // Login backend interaction
-export const userLogin = formData => ({
-  type: 'USER_LOGIN',
-  // form data consists of email and password
-  formData,
-});
-
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.username,
-  plannedCourses: json.plannedCourses,
-  completedCourses: json.completedCourses,
+  id: json.id,
 });
 
+export const onLogin = data => {
+  return (dispatch) => {
+    return $.post('/login', data)
+      .done(response => dispatch(receiveUser(response)))
+      .failure((err, status) => console.log(err, status));
+  }
+};
