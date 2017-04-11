@@ -5,6 +5,7 @@ their password.
 */
 import React from 'react';
 import $ from 'jquery';
+import styles from './../../public/stylesheets/register-new-user.css';
 
 // component for registering as a new user
 export default class RegisterNewUser extends React.Component {
@@ -72,9 +73,9 @@ export default class RegisterNewUser extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.registerblock}>
         <form id="register" onSubmit={this.register}>
-          <h2 >Register an account</h2>
+          <h2 >Create a New Account</h2>
           <br />
           <input
             placeholder="Email"

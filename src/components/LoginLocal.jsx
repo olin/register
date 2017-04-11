@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import styles from './../../public/stylesheets/login-local.css';
 
 export default class LoginLocal extends React.Component {
   constructor(props) {
@@ -35,9 +36,9 @@ export default class LoginLocal extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.loginblock}>
         <form id="local-login" onSubmit={this.login} className="form-signin">
-          <h2>Login with email and password</h2>
+          <h2>Login</h2>
           <input
             placeholder="Email"
             type="text"
