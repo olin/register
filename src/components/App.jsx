@@ -1,8 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import LoginPage from './LoginPage';
 import StudentHome from './StudentHome';
 import AccountPageContainer from '../containers/AccountPageContainer';
 
+const Login = () => (
+  <div>
+    <LoginPage />
+  </div>
+);
 
 const Home = () => (
   <div>
@@ -33,6 +39,7 @@ const App = () => (
       <hr />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
         <Route path="/account" component={Account} />
         <Route component={NotFound} />
       </Switch>

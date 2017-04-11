@@ -1,14 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 const Student = require('./../models/studentModel');
+const path = require('path');
 
 
 const router = express.Router();
-
-// returns the home page html, index.html
-router.get('/', (req, res) => {
-  res.render('index', {});
-});
 
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
@@ -34,6 +30,11 @@ router.post('/register', (req) => {
         });
       });
     });
+});
+
+// returns the home page html, index.html
+router.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
 module.exports = router;

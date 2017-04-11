@@ -2,11 +2,11 @@ import React from 'react';
 import LoginLocal from './LoginLocal';
 import RegisterNewUser from './RegisterNewUser';
 
-const Login = () =>
+const LoginPage = () =>
   <div className="wrapper">
     <LoginLocal />
     <br />
     <RegisterNewUser />
   </div>;
 
-export default Login;
+export default LoginPage;
