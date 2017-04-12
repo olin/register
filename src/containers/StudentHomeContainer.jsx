@@ -3,7 +3,7 @@ import StudentHome from '../components/StudentHome';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  username: state.username,
+  username: state.LoginReducer.username,
 });
 
 const StudentHomeContainer = connect(
