@@ -4,19 +4,20 @@ const RegisterNewUser = ({
   username,
   password,
   confirmPassword,
-  updateNewUser,
+  updateNewUsername,
   updateNewPassword,
   updateConfirmPassword,
+  onRegister,
 }) => (
   <div>
-    <form id="register" className="form-signin">
+    <form id="register" className="form-signin" onSubmit={onRegister}>
       <h2>Register an account</h2>
       <br />
       <input
         placeholder="Email"
         type="text"
         value={username}
-        onChange={updateNewUser}
+        onChange={updateNewUsername}
       />
       <br />
       <input
@@ -47,6 +48,7 @@ RegisterNewUser.propTypes = {
   updateNewUser: PropTypes.func.isRequired,
   updateNewPassword: PropTypes.func.isRequired,
   updateConfirmPassword: PropTypes.func.isRequired,
+  onRegister: PropTypes.func.isRequired,
 };
 
 export default RegisterNewUser;
