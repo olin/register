@@ -33,7 +33,6 @@ LoginLocal.propTypes = {
   password: PropTypes.string.isRequired,
   updateUser: PropTypes.func.isRequired,
   updatePassword: PropTypes.func.isRequired,
-  toggleLoggedIn: PropTypes.func.isRequied,
   onLogin: PropTypes.func.isRequired,
 };
 
