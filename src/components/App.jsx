@@ -4,7 +4,6 @@ import StudentHome from './StudentHome';
 import Login from '../components/Login';
 
 
-
 const Home = () => (
   <div>
     <StudentHome />
