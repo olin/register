@@ -1,15 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducers/reducers';
-import thunkMiddleware from 'redux-thunk';
+import thunk from 'redux-thunk';
+
+const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
 
 const store = createStore(
   reducer,
-  applyMiddleware(thunkMiddleware),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  compose(applyMiddleware(thunk), devTools)
 );
 
 render(
