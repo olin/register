@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // Account Page Component
 export const toggleSetting = name => ({
   type: 'TOGGLE_SETTING',
@@ -13,10 +15,6 @@ export const updatePassword = password => ({
 export const updateUsername = username => ({
   type: 'UPDATE_USERNAME',
   username,
-});
-
-export const toggleLoggedIn = () => ({
-  type: 'TOGGLE_LOGGED_IN',
 });
 
 // Register Component
@@ -42,10 +40,30 @@ export const receiveUser = json => ({
   id: json.id,
 });
 
-export const onLogin = data => {
+export const login = (username, password) => {
   return (dispatch) => {
-    return $.post('/login', data)
+    const data = {
+      username: username,
+      password: password,
+    };
+    $.post('/login', data)
       .done(response => dispatch(receiveUser(response)))
-      .failure((err, status) => console.log(err, status));
+      .fail((err, status) => console.log(err, status));
   }
 };
+
+// Register backend interaction
+export const register = (username, password) => {
+  return (dispatch) => {
+    const data = {
+      username: username,
+      password: password,
+    };
+    console.log('here');
+    $.post('/register', data)
+      .done(response => {
+        dispatch(receiveUser(response)
+      )})
+      .fail((err, status) => console.log(err, status));
+  }
+}
