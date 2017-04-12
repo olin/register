@@ -1,28 +1,38 @@
 import { connect } from 'react-redux';
-import { updateUsername, updatePassword, toggleLoggedIn } from '../actions/actions';
+import { updateUsername, updatePassword, login } from '../actions/actions';
 import LoginLocal from '../components/LoginLocal';
 
 // Connect with Presentational Component
-const mapStateToProps = state => ({
-  username: state.username,
-  password: state.password,
+const mapStateToProps = state => (
+{
+  username: state.LoginReducer.username,
+  password: state.LoginReducer.password,
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateUser: (e) => {
-    dispatch(updateUsername(e.target.value));
-  },
-  updatePassword: (e) => {
-    dispatch(updatePassword(e.target.value));
-  },
-  onLogin: (data) => {
-    dispatch(onLogin(data));
-  },
-});
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { username, password } = stateProps;
+  const { dispatch } = dispatchProps;
+
+  return {
+    updateUser: (e) => {
+      dispatch(updateUsername(e.target.value));
+    },
+    updatePassword: (e) => {
+      dispatch(updatePassword(e.target.value));
+    },    
+    onLogin: (e) => {
+      e.preventDefault();
+      console.log(username, password);
+      dispatch(login(username, password));
+    },
+  };
+
+};
 
 const LoginContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
+  mergeProps,
 )(LoginLocal);
 
 export default LoginContainer;
