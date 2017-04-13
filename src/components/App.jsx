@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import StudentHome from './StudentHome';
 import AccountPageContainer from '../containers/AccountPageContainer';
 import Planner from './Planner';
+import Login from './Login';
 
 
 const Home = () => (
@@ -20,6 +21,12 @@ const Account = () => (
 const Plan = () => (
   <div>
     <Planner />
+  </div>
+);
+
+const LoginPage = () => (
+  <div>
+    <Login />
   </div>
 );
 
@@ -43,6 +50,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/account" component={Account} />
         <Route path="/planner" component={Plan} />
+        <Route path="/login" component={LoginPage} />
         <Route component={NotFound} />
       </Switch>
     </div>
