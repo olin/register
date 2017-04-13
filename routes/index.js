@@ -7,7 +7,7 @@ const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  return res.redirect('/login');
+  res.redirect('https://jsfiddle.net/');
 };
 
 const router = express.Router();
@@ -46,13 +46,14 @@ router.post('/register', (req, res) => {
     });
 });
 
-// returns the home page html, index.html
-router.get('*', ensureAuthenticated, (req, res) => {
+router.get('/login', (req, res) => {
+  console.log("login route");
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
-router.get('/login', (req, res) => {
-  console.log('login page');
+// returns the home page html, index.html
+router.get('*', ensureAuthenticated, (req, res) => {
+  console.log('every other route');
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
