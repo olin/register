@@ -4,7 +4,7 @@ import AccountPage from '../components/AccountPage';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  settings: state.settings,
+  settings: state.AccountPageReducer.settings,
 });
 
 const mapDispatchToProps = dispatch => ({

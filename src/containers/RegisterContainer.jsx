@@ -8,40 +8,26 @@ const mapStateToProps = state => ({
   confirmPassword: state.RegisterReducer.confirmPassword,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   updateNewUsername: (e) => {
-//     dispatch(updateNewUsername(e.target.value));
-//   },
-//   updateNewPassword: (e) => {
-//     dispatch(updateNewPassword(e.target.value));
-//   },
-//   updateConfirmPassword: (e) => {
-//     dispatch(updateConfirmPassword(e.target.value));
-//   },
-// });
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { username, password, confirmPassword } = stateProps;
+const mergeProps = (stateProps, dispatchProps) => {
+  const { username, password } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
     updateNewUsername: (e) => {
-    dispatch(updateNewUsername(e.target.value));
+      dispatch(updateNewUsername(e.target.value));
     },
     updateNewPassword: (e) => {
       dispatch(updateNewPassword(e.target.value));
     },
     updateConfirmPassword: (e) => {
       dispatch(updateConfirmPassword(e.target.value));
-    },   
+    },
     onRegister: (e) => {
       e.preventDefault();
-      console.log(username, password, 'register');
       dispatch(register(username, password));
     },
   };
-
-}
+};
 
 const RegisterContainer = connect(
   mapStateToProps,

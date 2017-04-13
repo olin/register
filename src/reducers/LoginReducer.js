@@ -18,7 +18,7 @@ const LoginReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         username: action.username,
         id: action.id,
-      })
+      });
     default:
       return state;
   }

@@ -40,30 +40,26 @@ export const receiveUser = json => ({
   id: json.id,
 });
 
-export const login = (username, password) => {
-  return (dispatch) => {
+export const login = (username, password) => (
+  (dispatch) => {
     const data = {
-      username: username,
-      password: password,
+      username,
+      password,
     };
     $.post('/login', data)
       .done(response => dispatch(receiveUser(response)))
       .fail((err, status) => console.log(err, status));
   }
-};
-
+);
 // Register backend interaction
-export const register = (username, password) => {
-  return (dispatch) => {
+export const register = (username, password) => (
+  (dispatch) => {
     const data = {
-      username: username,
-      password: password,
+      username,
+      password,
     };
-    console.log('here');
     $.post('/register', data)
-      .done(response => {
-        dispatch(receiveUser(response)
-      )})
+      .done(response => (dispatch(receiveUser(response))))
       .fail((err, status) => console.log(err, status));
   }
-}
+);

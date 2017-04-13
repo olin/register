@@ -45,7 +45,7 @@ RegisterNewUser.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   confirmPassword: PropTypes.string.isRequired,
-  updateNewUser: PropTypes.func.isRequired,
+  updateNewUsername: PropTypes.func.isRequired,
   updateNewPassword: PropTypes.func.isRequired,
   updateConfirmPassword: PropTypes.func.isRequired,
   onRegister: PropTypes.func.isRequired,

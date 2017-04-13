@@ -13,7 +13,7 @@ const StudentHome = ({ username }) => (
 );
 
 StudentHome.propTypes = {
-  username: PropTypes.string,
+  username: PropTypes.string.isRequired,
 };
 
 export default StudentHome;
