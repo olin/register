@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import StudentHome from './StudentHome';
-import AccountPageContainer from '../containers/AccountPageContainer';
+import SettingsPageContainer from '../containers/SettingsPageContainer';
 
 const Login = () => (
   <div>
@@ -16,9 +16,9 @@ const Home = () => (
   </div>
 );
 
-const Account = () => (
+const Settings = () => (
   <div>
-    <AccountPageContainer />
+    <SettingsPageContainer />
   </div>
 );
 
@@ -33,14 +33,14 @@ const App = () => (
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/account">Account</Link></li>
+        <li><Link to="/settings">Settings</Link></li>
       </ul>
 
       <hr />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
-        <Route path="/account" component={Account} />
+        <Route path="/settings" component={Settings} />
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Setting from './Setting';
 
-const AccountPage = ({ settings, onSettingToggle }) => (
+const SettingsPage = ({ settings, onSettingToggle }) => (
   <ul>
     {settings.map(setting =>
       <Setting
@@ -14,7 +14,7 @@ const AccountPage = ({ settings, onSettingToggle }) => (
   </ul>
 );
 
-AccountPage.propTypes = {
+SettingsPage.propTypes = {
   settings: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     checked: PropTypes.bool.isRequired,
@@ -22,4 +22,4 @@ AccountPage.propTypes = {
   onSettingToggle: PropTypes.func.isRequired,
 };
 
-export default AccountPage;
+export default SettingsPage;
