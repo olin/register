@@ -33,6 +33,7 @@ const RegisterNewUser = ({
         value={confirmPassword}
         onChange={updateConfirmPassword}
       />
+      <br />
       <button
         type="submit"
         value="Register"
