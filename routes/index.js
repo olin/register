@@ -1,13 +1,16 @@
 const express = require('express');
 const passport = require('passport');
-const Student = require('./../models/studentModel');
+const path = require('path');
+const Student = require('../models/studentModel');
+const Major = require('../models/majorModel');
+const Course = require('../models/courseModel');
 
 
 const router = express.Router();
 
 // returns the home page html, index.html
-router.get('/', (req, res) => {
-  res.render('index', {});
+router.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
 // log in with local strategy
@@ -36,4 +39,12 @@ router.post('/register', (req) => {
     });
 });
 
+// get grad requirements by major
+router.post('/requirements', (req, res) => {
+  console.log(req.user);
+  const data = {
+    user: req.user,
+  };
+  res.json(data);
+});
 module.exports = router;
