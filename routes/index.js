@@ -3,13 +3,6 @@ const passport = require('passport');
 const Student = require('./../models/studentModel');
 const path = require('path');
 
-const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('https://jsfiddle.net/');
-};
-
 const router = express.Router();
 
 // log in with local strategy
@@ -46,14 +39,8 @@ router.post('/register', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
-  console.log("login route");
-  res.sendFile(path.resolve(__dirname, '../public/index.html'));
-});
-
 // returns the home page html, index.html
-router.get('*', ensureAuthenticated, (req, res) => {
-  console.log('every other route');
+router.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
