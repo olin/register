@@ -2,6 +2,7 @@ const initialState = {
   username: '',
   password: '',
   id: '',
+  loggedIn: false,
 };
 
 const LoginReducer = (state = initialState, action) => {
@@ -18,6 +19,7 @@ const LoginReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         username: action.username,
         id: action.id,
+        loggedIn: true,
       });
     default:
       return state;
