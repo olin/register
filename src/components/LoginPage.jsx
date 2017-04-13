@@ -2,11 +2,11 @@ import React from 'react';
 import LoginContainer from '../containers/LoginContainer';
 import RegisterContainer from '../containers/RegisterContainer';
 
-const Login = () =>
+const LoginPage = () =>
   <div className="wrapper">
     <LoginContainer />
     <br />
     <RegisterContainer />
   </div>;
 
-export default Login;
+export default LoginPage;
