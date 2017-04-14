@@ -25,8 +25,8 @@ export const postRequirements = major => (
 );
 
 export const shouldPostRequirements = (state) => {
-  const major = state.major;
-  const loggedIn = state.loggedIn;
+  const major = state.LoginReducer.major;
+  const loggedIn = state.LoginReducer.loggedIn;
   if (!loggedIn || !major) return false;
   return true;
 };
