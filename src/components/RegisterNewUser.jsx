@@ -4,8 +4,6 @@ The user provides their name, an email, a password, and confirms
 their password.
 */
 import React, { PropTypes } from 'react';
-import $ from 'jquery';
-import styles from './../../public/stylesheets/register-new-user.css';
 
 const RegisterNewUser = ({
   username,

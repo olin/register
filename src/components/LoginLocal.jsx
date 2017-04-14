@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import $ from 'jquery';
-import styles from './../../public/stylesheets/login-local.css';
 
 const LoginLocal = ({ username, password, updateUser, updatePassword, onLogin }) => (
   <div>
