@@ -3,10 +3,8 @@ import React, { PropTypes } from 'react';
 const RegisterNewUser = ({
   username,
   password,
-  confirmPassword,
   updateNewUsername,
   updateNewPassword,
-  updateConfirmPassword,
   onRegister,
 }) => (
   <div>
@@ -27,13 +25,6 @@ const RegisterNewUser = ({
         onChange={updateNewPassword}
       />
       <br />
-      <input
-        placeholder="Confirm Password"
-        type="password"
-        value={confirmPassword}
-        onChange={updateConfirmPassword}
-      />
-      <br />
       <button
         type="submit"
         value="Register"
@@ -45,10 +36,8 @@ const RegisterNewUser = ({
 RegisterNewUser.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  confirmPassword: PropTypes.string.isRequired,
   updateNewUsername: PropTypes.func.isRequired,
   updateNewPassword: PropTypes.func.isRequired,
-  updateConfirmPassword: PropTypes.func.isRequired,
   onRegister: PropTypes.func.isRequired,
 };
 
