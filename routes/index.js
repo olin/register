@@ -38,9 +38,9 @@ router.post('/register', (req) => {
 //get student completed courses
 router.get('/completedcourses', (req) => {
   console.log(req)
-  Student.find({"completedCourses"}, (courses) => 
-    res.json({genreqs: courses})
-  )
+  // Student.find({"completedCourses"}, (courses) => 
+  //   res.json({genreqs: courses})
+  // )
 });
 
 module.exports = router;
