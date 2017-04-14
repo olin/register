@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateNewUsername, updateNewPassword, register } from '../actions/actions';
+import { updateRegisterUsername, updateRegisterPassword, register } from '../actions/actions';
 import RegisterNewUser from '../components/RegisterNewUser';
 
 const mapStateToProps = state => ({
@@ -12,11 +12,11 @@ const mergeProps = (stateProps, dispatchProps) => {
   const { dispatch } = dispatchProps;
 
   return {
-    updateNewUsername: (e) => {
-      dispatch(updateNewUsername(e.target.value));
+    updateRegisterUsername: (e) => {
+      dispatch(updateRegisterUsername(e.target.value));
     },
-    updateNewPassword: (e) => {
-      dispatch(updateNewPassword(e.target.value));
+    updateRegisterPassword: (e) => {
+      dispatch(updateRegisterPassword(e.target.value));
     },
     onRegister: (e) => {
       e.preventDefault();
