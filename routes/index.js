@@ -37,10 +37,11 @@ router.post('/register', (req, res) => {
 
 // get grad requirements by major
 router.post('/requirements', (req, res) => {
-  Major.findOne({ name: req.major }, (err, major) => {
+  Major.findOne({ name: req.body.major }, (err, major) => {
     if (err) {
       console.error(err);
     }
+    console.log(req.body.major);
     const data = {
       generalRequirements: major.generalRequirements,
       majorRequirements: major.majorRequirements,
