@@ -30,7 +30,7 @@ export default class LoginLocal extends React.Component {
       password: this.state.password,
     };
     $.post('/login', formData)
-      .error((err, status) => {
+      .fail((err, status) => {
         console.error(status);
       });
   }
