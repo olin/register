@@ -1,18 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import AddCourseForm from '../components/AddCourseForm';
-import postRequirementsIfNeeded from '../actions/actions';
+import { postRequirementsIfNeeded } from '../actions/actions';
 
 class AddCourseFormContainer extends Component {
 
   componentWillMount() {
-    const { loadReqs, major } = this.props;
-    loadReqs(major);
+    const { dispatch, major } = this.props;
+    dispatch(postRequirementsIfNeeded(major));
   }
 
   render() {
+    const { requirements } = this.props;
     return (
-      <AddCourseForm />
+      <AddCourseForm requirements={requirements} />
     );
   }
 }
@@ -28,10 +29,6 @@ const mapStateToProps = state => ({
   requirements: state.RequirementsReducer.generalRequirements,
 });
 
-const mapDispatchToProps = dispatch => ({
-  loadReqs: (major) => dispatch(postRequirementsIfNeeded(major)),
-});
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
 )(AddCourseFormContainer);
