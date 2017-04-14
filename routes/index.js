@@ -10,10 +10,7 @@ const router = express.Router();
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
-    res.json({
-      username: req.user.username,
-      id: req.user.id,
-    });
+    res.json(req.user);
   });
 
 // register new user
@@ -31,10 +28,7 @@ router.post('/register', (req, res) => {
             if (loginErr) {
               console.log(loginErr);
             }
-            res.json({
-              username: req.user.username,
-              id: req.user.id,
-            });
+            res.json(req.user);
           });
         }
       });
@@ -42,12 +36,27 @@ router.post('/register', (req, res) => {
 });
 
 // get grad requirements by major
-router.get('/requirements', (req, res) => {
-  console.log(req.user);
-  const data = {
-    user: req.user,
-  };
-  res.json(data);
+router.post('/requirements', (req, res) => {
+  Major.findOne({ name: req.major }, (err, major) => {
+    if (err) {
+      console.error(err);
+    }
+    const data = {
+      generalRequirements: major.generalRequirements,
+      majorRequirements: major.majorRequirements,
+    };
+    console.log(data);
+    res.json(data);
+  });
+});
+
+router.post('/coursesbyreq', (req, res) => {
+  Course.find({ requirements: req.requirement }, (err, courses) => {
+    if (err) {
+      console.log(err);
+    }
+    res.json(courses);
+  });
 });
 
 // returns the home page html, index.html
