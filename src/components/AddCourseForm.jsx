@@ -5,14 +5,13 @@ import CoursePulldown from './CoursePulldown';
 // courses that fill the requirements
 const AddCourseForm = ({ requirements }) => (
   <ul>
-    <li>{JSON.stringify(requirements)}</li>
-    {/*requirements.map(req =>
+    {requirements.map(req =>
       <CoursePulldown
         key={req.toString()}
         requirement={req}
         courses={[{ name: 'Course1', id: 'CourseID' }]}
       />,
-    )*/}
+    )}
   </ul>
 );
 
