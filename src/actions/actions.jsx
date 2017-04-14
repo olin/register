@@ -1,16 +1,19 @@
+import $ from 'jquery';
+
 export function toggleSetting(name) {
   return { type: 'TOGGLE_SETTING', name };
 }
 
-function getCourses() {
-  return fetch('/completedcourses')
-    .then(response => response.json())
-    .then(json => dispatch(resolvedGetCourses(json)))
-}
+export const resolvedGetCourses = data => ({
+  type: 'GET_COURSES',
+  data,
+});
 
-export function resolvedGetCourses(data){
-  return {
-    type: 'GET_COURSES',
-    data: data,
+export const getCourses = courses => (
+  (dispatch) => {
+    const data = { courses };
+    $.get('/completedcourses', data)
+      .done(response => (dispatch(resolvedGetCourses(response))))
+      .fail((err, status) => console.log(err, status));
   }
-}
+);

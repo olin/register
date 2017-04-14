@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ProgressTracker from '../components/ProgressTracker';
-import { resolvedGetCourses } from '../actions/actions';
+import { getCourses } from '../actions/actions';
 
 class ProgressTrackerContainer extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ class ProgressTrackerContainer extends Component {
   }
 
   componentWillMount() {
-  	const { dispatch } = this.props
-    dispatch(resolvedGetCourses())
+    const { dispatch } = this.props;
+    dispatch(getCourses());
   }
 
   render() {

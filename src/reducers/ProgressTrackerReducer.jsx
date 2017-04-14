@@ -9,7 +9,7 @@ const ProgressTrackerReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COURSES:
       return Object.assign({}, state, {
-      	genreqs: action.data,
+        genreqs: action.data,
       });
     default:
       return state;
