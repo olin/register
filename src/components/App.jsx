@@ -1,18 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './Header';
+import LoginPage from './LoginPage';
 import StudentHome from './StudentHome';
-import AccountPageContainer from '../containers/AccountPageContainer';
+import SettingsPageContainer from '../containers/SettingsPageContainer';
 
+const Login = () => (
+  <div>
+    <LoginPage />
+  </div>
+);
 
 const Home = () => (
   <div>
+    <Header />
     <StudentHome />
   </div>
 );
 
-const Account = () => (
+const Settings = () => (
   <div>
-    <AccountPageContainer />
+    <Header />
+    <SettingsPageContainer />
   </div>
 );
 
@@ -24,19 +33,12 @@ const NotFound = () => (
 
 const App = () => (
   <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/account">Account</Link></li>
-      </ul>
-
-      <hr />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/account" component={Account} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/settings" component={Settings} />
+      <Route component={NotFound} />
+    </Switch>
   </Router>
 );
 

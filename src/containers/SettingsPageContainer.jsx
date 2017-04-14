@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { toggleSetting } from '../actions/actions';
-import AccountPage from '../components/AccountPage';
+import SettingsPage from '../components/SettingsPage';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
@@ -13,9 +13,9 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const AccountPageContainer = connect(
+const SettingsPageContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AccountPage);
+)(SettingsPage);
 
-export default AccountPageContainer;
+export default SettingsPageContainer;
