@@ -8,11 +8,6 @@ const Course = require('../models/courseModel');
 
 const router = express.Router();
 
-// returns the home page html, index.html
-router.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../public/index.html'));
-});
-
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
@@ -40,11 +35,18 @@ router.post('/register', (req) => {
 });
 
 // get grad requirements by major
-router.post('/requirements', (req, res) => {
+router.get('/requirements', (req, res) => {
   console.log(req.user);
   const data = {
     user: req.user,
   };
   res.json(data);
 });
+
+// returns the home page html, index.html
+router.get('*', (req, res) => {
+  console.log('triggered');
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+});
+
 module.exports = router;
