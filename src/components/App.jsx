@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import StudentHome from './StudentHome';
-import LoginPage from './LoginPage';
 import AccountPageContainer from '../containers/AccountPageContainer';
 import Planner from './Planner';
-import Login from './Login';
+import LoginPage from './LoginPage';
 
 
 const Home = () => (
@@ -28,12 +27,6 @@ const Account = () => (
 const Plan = () => (
   <div>
     <Planner />
-  </div>
-);
-
-const LoginPage = () => (
-  <div>
-    <Login />
   </div>
 );
 
@@ -71,6 +64,16 @@ const App = ({ loggedIn }) => (
               <Redirect to="/login" />
             ) : (
               <Account />
+            )
+          )}
+        />
+        <Route
+          path="/planner"
+          render={() => (
+            !loggedIn ? (
+              <Redirect to="/login" />
+            ) : (
+              <Plan />
             )
           )}
         />
