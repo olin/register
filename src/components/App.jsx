@@ -1,6 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import React, { PropTypes } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 import StudentHome from './StudentHome';
+import LoginPage from './LoginPage';
 import AccountPageContainer from '../containers/AccountPageContainer';
 import Planner from './Planner';
 import Login from './Login';
@@ -9,6 +10,12 @@ import Login from './Login';
 const Home = () => (
   <div>
     <StudentHome />
+  </div>
+);
+
+const Login = () => (
+  <div>
+    <LoginPage />
   </div>
 );
 
@@ -36,7 +43,7 @@ const NotFound = () => (
   </div>
 );
 
-const App = () => (
+const App = ({ loggedIn }) => (
   <Router>
     <div>
       <ul>
@@ -47,14 +54,44 @@ const App = () => (
 
       <hr />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/account" component={Account} />
-        <Route path="/planner" component={Plan} />
-        <Route path="/login" component={LoginPage} />
+        <Route
+          exact path="/"
+          render={() => (
+            !loggedIn ? (
+              <Redirect to="/login" />
+            ) : (
+              <Home />
+            )
+          )}
+        />
+        <Route
+          path="/account"
+          render={() => (
+            !loggedIn ? (
+              <Redirect to="/login" />
+            ) : (
+              <Account />
+            )
+          )}
+        />
+        <Route
+          path="/login"
+          render={() => (
+            loggedIn ? (
+              <Redirect to="/" />
+            ) : (
+              <Login />
+            )
+          )}
+        />
         <Route component={NotFound} />
       </Switch>
     </div>
   </Router>
 );
+
+App.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+};
 
 export default App;

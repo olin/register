@@ -5,7 +5,6 @@ const Student = require('../models/studentModel');
 const Major = require('../models/majorModel');
 const Course = require('../models/courseModel');
 
-
 const router = express.Router();
 
 // log in with local strategy
@@ -18,18 +17,26 @@ router.post('/login', passport.authenticate('local'),
   });
 
 // register new user
-router.post('/register', (req) => {
+router.post('/register', (req, res) => {
   Student.register(new Student({ username: req.body.username }),
-    req.body.password, (err, account) => {
-      if (err) {
-        console.error(err);
+    req.body.password, (regErr, account) => {
+      if (regErr) {
+        console.error(regErr);
       }
-
-      passport.authenticate('login', (res) => {
-        res.json({
-          username: account.username,
-          id: account.id,
-        });
+      account.save((saveErr) => {
+        if (saveErr) {
+          console.log(saveErr);
+        } else {
+          req.login(account, (loginErr) => {
+            if (loginErr) {
+              console.log(loginErr);
+            }
+            res.json({
+              username: req.user.username,
+              id: req.user.id,
+            });
+          });
+        }
       });
     });
 });
@@ -45,7 +52,6 @@ router.get('/requirements', (req, res) => {
 
 // returns the home page html, index.html
 router.get('*', (req, res) => {
-  console.log('triggered');
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
