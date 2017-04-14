@@ -24,6 +24,21 @@ export const postRequirements = major => (
   }
 );
 
+export const shouldPostRequirements = (state) => {
+  const major = state.major;
+  const loggedIn = state.loggedIn;
+  if (!loggedIn || !major) return false;
+  return true;
+};
+
+export const postRequirementsIfNeeded = major => (
+  (dispatch, getState) => {
+    if (shouldPostRequirements(getState())) {
+      dispatch(postRequirements(major));
+    }
+  }
+);
+
 // Courses by requirements
 
 export const receiveCoursesByReq = (requirement, json) => ({
@@ -38,6 +53,9 @@ export const postCoursesByReq = requirement => (
     $.post('/coursesbyreq', data)
       .done(json => dispatch(receiveRequirements(requirement, json)))
       .fail((err, status) => console.error(err, status));
+  }
+);
+
 // Login Component
 export const updatePassword = password => ({
   type: 'UPDATE_PASSWORD',
@@ -69,7 +87,10 @@ export const updateConfirmPassword = password => ({
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.username,
-  id: json.id,
+  id: json._id,
+  plannedCourses: json.plannedCourses,
+  completedCourses: json.completedCourses,
+  major: json.major,
 });
 
 export const login = (username, password) => (
@@ -95,3 +116,4 @@ export const register = (username, password) => (
       .fail((err, status) => console.log(err, status));
   }
 );
+
