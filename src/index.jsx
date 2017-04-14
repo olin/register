@@ -1,21 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
 
 import ProgressTrackerContainer from './containers/ProgressTrackerContainer';
-import reducer from './reducers/ProgressTrackerReducer';
+import reducer from './reducers/reducers';
 
-const loggerMiddleware = createLogger();
+const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
 
 const store = createStore(
   reducer,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware,
-  ),
+  compose(applyMiddleware(thunk), devTools),
   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

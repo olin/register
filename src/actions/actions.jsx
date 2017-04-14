@@ -9,9 +9,12 @@ export const resolvedGetCourses = data => ({
   data,
 });
 
-export const getCourses = courses => (
+export const getCourses = (genreqs, majorreqs) => (
   (dispatch) => {
-    const data = { courses };
+    const data = {
+      genreqs,
+      majorreqs,
+    };
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))
       .fail((err, status) => console.log(err, status));

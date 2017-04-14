@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import ProgressTracker from '../components/ProgressTracker';
 import { getCourses } from '../actions/actions';
 
+const mapStateToProps = state => ({
+  genreqs: state.data,
+  majorreqs: state.data,
+});
+
 class ProgressTrackerContainer extends Component {
   constructor(props) {
     super(props);
   }
 
   componentWillMount() {
-    const { dispatch } = this.props;
-    dispatch(getCourses());
+    const { dispatch, genreqs, majorreqs } = this.props;
+    dispatch(getCourses(genreqs, majorreqs));
   }
 
   render() {
@@ -19,9 +24,10 @@ class ProgressTrackerContainer extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  genreqs: state.genreqs,
-  majorreqs: state.majorreqs,
-});
+
+ProgressTrackerContainer.PropTypes = {
+  genreqs: PropTypes.string.isRequired,
+  majorreqs: PropTypes.string.isRequired
+}
 
 export default connect(mapStateToProps)(ProgressTrackerContainer);

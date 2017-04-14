@@ -35,15 +35,14 @@ router.post('/register', (req) => {
     });
 });
 
-//get student completed courses
+// get student completed courses
 router.get('/completedcourses', (req, res) => {
-  console.log(req)
-  Student.find({},'completedCourses', (err, courses) => {
-    if (err){
-      res.json(err)
+  Student.find({}, 'completedCourses', (err, courses) => {
+    if (err) {
+      res.json(err);
     }
-    res.json({genreqs: courses})
-  })
+    res.json({ genreqs: courses });
+  });
 });
 
 module.exports = router;
