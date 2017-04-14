@@ -12,7 +12,7 @@ const StudentHome = () => (
     </Col>
     <Col sm={3} smPush={6} lg={2} lgPush={8}>
       <Alert bsStyle="danger">
-        <Glyphicon glyph="exclamation-sign" />  do yer course plan
+        <Glyphicon glyph="exclamation-sign" />   do yer course plan
       </Alert>
     </Col>
     <Col sm={6} smPull={3} lg={8} lgPull={2}>
