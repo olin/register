@@ -1,17 +1,26 @@
 import React, { PropTypes } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import Setting from './Setting';
+import NavPanel from './NavPanel';
 
 const SettingsPage = ({ settings, onSettingToggle }) => (
-  <ul>
-    {settings.map(setting =>
-      <Setting
-        name={setting.name}
-        key={setting.name}
-        {...setting}
-        onClick={() => onSettingToggle(setting.name)}
-      />,
-    )}
-  </ul>
+  <Row>
+    <Col sm={3} lg={2}>
+      <NavPanel />
+    </Col>
+    <Col sm={9} lg={10}>
+      <ul>
+        {settings.map(setting =>
+          <Setting
+            name={setting.name}
+            key={setting.name}
+            {...setting}
+            onClick={() => onSettingToggle(setting.name)}
+          />,
+        )}
+      </ul>
+    </Col>
+  </Row>
 );
 
 SettingsPage.propTypes = {
