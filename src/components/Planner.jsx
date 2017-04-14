@@ -1,7 +1,8 @@
 import React from 'react';
+import AddCourseFormContainer from '../containers/AddCourseFormContainer';
 
 const Planner = () => (
-  <h1>Plan Your Study</h1>
+  <AddCourseFormContainer />
 );
 
 export default Planner;
