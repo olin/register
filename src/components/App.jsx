@@ -1,15 +1,9 @@
 import React, { PropTypes } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
-import StudentHome from './StudentHome';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import Header from './Header';
 import LoginPage from './LoginPage';
-import AccountPageContainer from '../containers/AccountPageContainer';
-
-
-const Home = () => (
-  <div>
-    <StudentHome />
-  </div>
-);
+import StudentHomeContainer from '../containers/StudentHomeContainer';
+import SettingsPageContainer from '../containers/SettingsPageContainer';
 
 const Login = () => (
   <div>
@@ -17,9 +11,17 @@ const Login = () => (
   </div>
 );
 
-const Account = () => (
+const Home = () => (
   <div>
-    <AccountPageContainer />
+    <Header />
+    <StudentHomeContainer />
+  </div>
+);
+
+const Settings = () => (
+  <div>
+    <Header />
+    <SettingsPageContainer />
   </div>
 );
 
@@ -32,12 +34,6 @@ const NotFound = () => (
 const App = ({ loggedIn }) => (
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/account">Account</Link></li>
-      </ul>
-
-      <hr />
       <Switch>
         <Route
           exact path="/"
@@ -50,12 +46,12 @@ const App = ({ loggedIn }) => (
           )}
         />
         <Route
-          path="/account"
+          path="/settings"
           render={() => (
             !loggedIn ? (
               <Redirect to="/login" />
             ) : (
-              <Account />
+              <Settings />
             )
           )}
         />

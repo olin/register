@@ -8,10 +8,7 @@ const router = express.Router();
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
-    res.json({
-      username: req.user.username,
-      id: req.user.id,
-    });
+    res.json(req.user);
   });
 
 // register new user
@@ -29,10 +26,7 @@ router.post('/register', (req, res) => {
             if (loginErr) {
               console.log(loginErr);
             }
-            res.json({
-              username: req.user.username,
-              id: req.user.id,
-            });
+            res.json(req.user);
           });
         }
       });
