@@ -4,7 +4,7 @@ import styles from '../../public/stylesheets/setting.css';
 const Setting = ({ onClick, checked, name }) => (
   <li className={styles.setting}>
     <input name={name} id={name} type="checkbox" checked={checked} onClick={onClick} />
-    <label htmlFor={name}>{name}</label>
+    <label htmlFor={name} /><h4>{name}</h4>
   </li>
 );
 
