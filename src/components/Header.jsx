@@ -11,7 +11,7 @@ const Header = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
-        <NavItem eventKey={1} href="/"><Glyphicon glyph="cog" /></NavItem>
+        <NavItem eventKey={1} href="/settings"><Glyphicon glyph="cog" /></NavItem>
         <NavItem eventKey={2} href="#"><Glyphicon glyph="log-out" /></NavItem>
       </Nav>
     </Navbar.Collapse>
