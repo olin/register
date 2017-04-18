@@ -1,6 +1,5 @@
 import React from 'react';
-import GeneralRequirementsList from './GeneralRequirementsList';
-import MajorRequirementsList from './MajorRequirementsList';
+import RequirementsList from './RequirementsList';
 
 // This component is for displaying a student's plan of study.
 // It will have a block of general requirements and a block of
@@ -9,7 +8,7 @@ const PlanOfStudy = () => (
   <div>
     <p>Plan of Study</p>
     <p>General Requirements</p>
-    <GeneralRequirementsList
+    <RequirementsList
       requirements={[
         'Modeling and Simulation of the Physical World',
         'Linearity I',
@@ -30,7 +29,7 @@ const PlanOfStudy = () => (
       ]}
     />
     <p>Major Requirements</p>
-    <MajorRequirementsList
+    <RequirementsList
       requirements={[
         'Mechanical Engineering Math',
         'Mechanics of Solids and Structures',
