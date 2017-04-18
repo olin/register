@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import LoginPage from './LoginPage';
 import StudentHomeContainer from '../containers/StudentHomeContainer';
@@ -31,48 +31,26 @@ const NotFound = () => (
   </div>
 );
 
-const App = ({ loggedIn }) => (
+const App = () => (
   <Router>
     <div>
       <Switch>
         <Route
           exact path="/"
-          render={() => (
-            !loggedIn ? (
-              <Redirect to="/login" />
-            ) : (
-              <Home />
-            )
-          )}
+          render={Home}
         />
         <Route
           path="/settings"
-          render={() => (
-            !loggedIn ? (
-              <Redirect to="/login" />
-            ) : (
-              <Settings />
-            )
-          )}
+          component={Settings}
         />
         <Route
           path="/login"
-          render={() => (
-            loggedIn ? (
-              <Redirect to="/" />
-            ) : (
-              <Login />
-            )
-          )}
+          component={Login}
         />
         <Route component={NotFound} />
       </Switch>
     </div>
   </Router>
 );
-
-App.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
-};
 
 export default App;
