@@ -4,7 +4,7 @@ import WelcomeMessage from './WelcomeMessage';
 import PlanOfStudy from './PlanOfStudy';
 import NavPanel from './NavPanel';
 import Note from './Note';
-import styles from '../../public/stylesheets/homepage.css';
+import styles from '../../public/stylesheets/pages.css';
 
 // The wrapper for all components on a student home page
 const StudentHome = () => (
