@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, Glyphicon } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import styles from '../../public/stylesheets/header.css';
 
 const Header = () => (
