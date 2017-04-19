@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Setting from './Setting';
 import NavPanel from './NavPanel';
+import styles from '../../public/stylesheets/pages.css';
 
 const SettingsPage = ({ settings, onSettingToggle }) => (
   <Row>
@@ -9,7 +10,7 @@ const SettingsPage = ({ settings, onSettingToggle }) => (
       <NavPanel />
     </Col>
     <Col sm={9} lg={10}>
-      <ul>
+      <ul className={styles.mainbody}>
         {settings.map(setting =>
           <Setting
             name={setting.name}

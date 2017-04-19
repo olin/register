@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
+import styles from '../../public/stylesheets/setting.css';
 
 const Setting = ({ onClick, checked, name }) => (
-  <li>
-    <label htmlFor={name}>{name}
-      <input name={name} id={name} type="checkbox" checked={checked} onClick={onClick} />
-    </label>
+  <li className={styles.setting}>
+    <input name={name} id={name} type="checkbox" checked={checked} onClick={onClick} />
+    <label htmlFor={name} /><h4>{name}</h4>
   </li>
 );
 

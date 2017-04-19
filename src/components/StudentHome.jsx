@@ -4,6 +4,7 @@ import WelcomeMessage from './WelcomeMessage';
 import PlanOfStudy from './PlanOfStudy';
 import NavPanel from './NavPanel';
 import Note from './Note';
+import styles from '../../public/stylesheets/pages.css';
 
 // The wrapper for all components on a student home page
 const StudentHome = () => (
@@ -13,9 +14,11 @@ const StudentHome = () => (
       <NavPanel active={1} />
     </Col>
     <Col sm={3} smPush={6} lg={2} lgPush={8}>
-      <Note text="do yer course plan" />
+      <ul>
+        <Note text="do yer course plan" />
+      </ul>
     </Col>
-    <Col sm={6} smPull={3} lg={8} lgPull={2}>
+    <Col sm={6} smPull={3} lg={8} lgPull={2} className={styles.mainbody}>
       <h2>
         Student Home
       </h2>
