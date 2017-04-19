@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { autoRehydrate, persistStore } from 'redux-persist';
 import App from './components/App';
 import reducer from './reducers/AccountPageReducer';
 
@@ -13,12 +12,9 @@ const store = createStore(
   reducer,
   compose(
     devTools(),
-    autoRehydrate(),
   ),
 );
 /* eslint-enable */
-
-persistStore(store);
 
 render(
   <Provider store={store}>
