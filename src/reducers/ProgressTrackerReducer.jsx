@@ -7,10 +7,11 @@ const initialState = {
 
 const ProgressTrackerReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_COURSES:
+    case 'GET_COURSES':
+      console.log(action.data);
       return Object.assign({}, state, {
-        genreqs: action.data,
-        majorreqs: action.data,
+        genreqs: action.data.genreqs,
+        majorreqs: action.data.majorreqs,
       });
     default:
       return state;

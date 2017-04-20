@@ -37,8 +37,12 @@ router.get('/completedcourses', (req, res) => {
     if (err) {
       res.json(err);
     }
-    res.json({ genreqs: courses });
+    res.json({
+      genreqs: courses[0].id,
+      majorreqs: courses[1].id,
+    });
   });
+});
 
 // returns the home page html, index.html
 router.get('*', (req, res) => {
