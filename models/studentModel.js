@@ -6,7 +6,10 @@ const studentSchema = mongoose.Schema({
   name: String,
   olinId: String,
   entryYear: Number,
-  major: String,
+  major: {
+    type: String,
+    default: 'Mechanical Engineering',
+  },
   completedCourses: [mongoose.Schema.Types.ObjectId],
   plannedCourses: [mongoose.Schema.Types.ObjectId],
 });

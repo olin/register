@@ -28,8 +28,10 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-// this is called to authenticate the user's password
-passport.use(new LocalStrategy(Student.authenticate()));
+passport.use(new LocalStrategy({
+  usernameField: 'username',
+  passwordField: 'password',
+}, Student.authenticate()));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({

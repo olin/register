@@ -1,20 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { compose, createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import App from './components/App';
-import reducer from './reducers/AccountPageReducer';
+import thunk from 'redux-thunk';
+import { autoRehydrate, persistStore } from 'redux-persist';
+import App from './containers/AppContainer';
+import reducer from './reducers/reducers';
 
 const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
 
-/* eslint-disable no-underscore-dangle */
 const store = createStore(
   reducer,
   compose(
-    devTools(),
+    applyMiddleware(thunk),
+    autoRehydrate(),
+    devTools,
   ),
 );
-/* eslint-enable */
+
+
+persistStore(store);
 
 render(
   <Provider store={store}>

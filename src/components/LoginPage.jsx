@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginLocal from './LoginLocal';
-import RegisterNewUser from './RegisterNewUser';
+import LoginContainer from '../containers/LoginContainer';
+import RegisterContainer from '../containers/RegisterContainer';
 
 const LoginPage = () =>
   <div className="wrapper">
-    <LoginLocal />
+    <LoginContainer />
     <br />
-    <RegisterNewUser />
+    <RegisterContainer />
   </div>;
 
 export default LoginPage;
