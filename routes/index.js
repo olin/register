@@ -8,25 +8,27 @@ const router = express.Router();
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
-    res.json({
-      username: req.user.username,
-      id: req.user.id,
-    });
+    res.json(req.user);
   });
 
 // register new user
-router.post('/register', (req) => {
+router.post('/register', (req, res) => {
   Student.register(new Student({ username: req.body.username }),
-    req.body.password, (err, account) => {
-      if (err) {
-        console.error(err);
+    req.body.password, (regErr, account) => {
+      if (regErr) {
+        console.error(regErr);
       }
-
-      passport.authenticate('login', (res) => {
-        res.json({
-          username: account.username,
-          id: account.id,
-        });
+      account.save((saveErr) => {
+        if (saveErr) {
+          console.log(saveErr);
+        } else {
+          req.login(account, (loginErr) => {
+            if (loginErr) {
+              console.log(loginErr);
+            }
+            res.json(req.user);
+          });
+        }
       });
     });
 });
