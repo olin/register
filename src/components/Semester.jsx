@@ -5,13 +5,15 @@ const Semester = ({ num, courseList }) => (
   <div>
     { num }
     <li>
-      {courseList.map(course =>
-        <CourseBlock
-          key={course.id}
-          name={course.name}
-          completed={course.completed}
-        />
-      )};
+      <ul>
+        {courseList.map(course =>
+          <CourseBlock
+            key={course.id}
+            name={course.name}
+            completed={course.completed}
+          />
+        )};
+      </ul>
     </li>
   </div>
 );
