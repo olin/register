@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, Glyphicon } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import styles from '../../public/stylesheets/header.css';
 
 const Header = () => (
@@ -13,8 +14,12 @@ const Header = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <NavItem eventKey={1} href="/settings"><Glyphicon glyph="cog" /></NavItem>
-          <NavItem eventKey={2} href="#"><Glyphicon glyph="log-out" /></NavItem>
+          <LinkContainer to="/settings">
+            <NavItem eventKey={1}><Glyphicon glyph="cog" /></NavItem>
+          </LinkContainer>
+          <LinkContainer to="#">
+            <NavItem eventKey={2}><Glyphicon glyph="log-out" /></NavItem>
+          </LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
