@@ -19,12 +19,12 @@ export const updateUsername = username => ({
 
 // Register Component
 export const updateRegisterUsername = username => ({
-  type: 'UPDATE_NEW_USERNAME',
+  type: 'UPDATE_REGISTER_USERNAME',
   username,
 });
 
 export const updateRegisterPassword = password => ({
-  type: 'UPDATE_NEW_PASSWORD',
+  type: 'UPDATE_REGISTER_PASSWORD',
   password,
 });
 

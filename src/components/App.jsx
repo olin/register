@@ -37,23 +37,11 @@ const App = ({ loggedIn }) => (
       <Switch>
         <Route
           exact path="/"
-          render={() => (
-            !loggedIn ? (
-              <Redirect to="/login" />
-            ) : (
-              <Home />
-            )
-          )}
+          render={Home}
         />
         <Route
           path="/settings"
-          render={() => (
-            !loggedIn ? (
-              <Redirect to="/login" />
-            ) : (
-              <Settings />
-            )
-          )}
+          component={Settings}
         />
         <Route
           path="/login"

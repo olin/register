@@ -10,7 +10,7 @@ const RegisterReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         username: action.username,
       });
-    case 'UPDATE_Register_PASSWORD':
+    case 'UPDATE_REGISTER_PASSWORD':
       return Object.assign({}, state, {
         password: action.password,
       });
