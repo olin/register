@@ -32,7 +32,7 @@ export const updateRegisterPassword = password => ({
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.username,
-  id: json.id,
+  id: json._id,
   major: json.major,
   plannedCourses: json.plannedCourses,
   completedCourses: json.completedCourses,
