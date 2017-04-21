@@ -6,12 +6,14 @@ const Semester = ({ num, courseList }) => (
     { num }
     <li>
       <ul>
-        {courseList.map(course =>
-          <CourseBlock
-            key={course.id}
-            name={course.name}
-            completed={course.completed}
-          />
+        {courseList.map(course => 
+          if (course.semester == num) {
+            <CourseBlock
+              key={course.id}
+              name={course.name}
+              completed={course.completed}
+            />
+          }
         )};
       </ul>
     </li>
@@ -23,6 +25,9 @@ Semester.propTypes = {
   courseList: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    semester: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
   }).isRequired).isRequired,
 };
+
+export default Semester;
