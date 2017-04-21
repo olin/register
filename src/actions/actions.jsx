@@ -61,3 +61,18 @@ export const register = (username, password) => (
       .fail((err, status) => console.log(err, status));
   }
 );
+
+export const receiveCourses = json => ({
+  type: 'RECEIVE_COURSES',
+  courses: json.courses,
+});
+
+export const postCourses = course => (
+  (dispatch) => {
+    const allCourses = plannedCourseList.concat(completedCourseList);
+    data = { courseIds: allCourses };
+    $.post('/studentcourses', data)
+      .done(response => (dispatch(receiveCourses(response))))
+      .fail((err, status) => console.log(err, status));
+  }
+);
