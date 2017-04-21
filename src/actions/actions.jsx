@@ -62,15 +62,17 @@ export const register = (username, password) => (
   }
 );
 
+// Grab student courses from database
+
 export const receiveCourses = json => ({
   type: 'RECEIVE_COURSES',
   courses: json.courses,
 });
 
-export const postCourses = course => (
+export const postCourses = (plannedCourseList, completedCourseList) => (
   (dispatch) => {
     const allCourses = plannedCourseList.concat(completedCourseList);
-    data = { courseIds: allCourses };
+    const data = { courseIds: allCourses };
     $.post('/studentcourses', data)
       .done(response => (dispatch(receiveCourses(response))))
       .fail((err, status) => console.log(err, status));
