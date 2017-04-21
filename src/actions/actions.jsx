@@ -1,19 +1,10 @@
 import $ from 'jquery';
 
+// Progress Tracker Component
 export const resolvedGetCourses = data => ({
   type: 'GET_COURSES',
   data,
 });
-
-export const getCourses = (genreqs, majorreqs) => (
-  (dispatch) => {
-    const data = {
-      genreqs,
-      majorreqs,
-    };
-    $.get('/completedcourses', data)
-      .done(response => (dispatch(resolvedGetCourses(response))))
-      .fail((err, status) => console.log(err, status));
 
 // Account Page Component
 export const toggleSetting = name => ({
@@ -52,6 +43,19 @@ export const receiveUser = json => ({
   plannedCourses: json.plannedCourses,
   completedCourses: json.completedCourses,
 });
+
+// Get completed courses from backend
+export const getCourses = (genreqs, majorreqs) => (
+  (dispatch) => {
+    const data = {
+      genreqs,
+      majorreqs,
+    };
+    $.get('/completedcourses', data)
+      .done(response => (dispatch(resolvedGetCourses(response))))
+      .fail((err, status) => console.log(err, status));
+  }
+);
 
 export const login = (username, password) => (
   (dispatch) => {

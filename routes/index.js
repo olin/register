@@ -35,6 +35,7 @@ router.post('/register', (req, res) => {
 
 // get student completed courses
 router.get('/completedcourses', (req, res) => {
+  console.log(res.user);
   Student.find({}, 'completedCourses', (err, courses) => {
     if (err) {
       res.json(err);

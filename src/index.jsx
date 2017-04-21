@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import ProgressTrackerContainer from './containers/ProgressTrackerContainer';
 import App from './containers/AppContainer';
 import reducer from './reducers/reducers';
 
@@ -19,7 +18,7 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <ProgressTrackerContainer />
+    <App />
   </Provider>,
   document.getElementById('container'),
 );

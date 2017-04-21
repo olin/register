@@ -6,6 +6,7 @@ import { getCourses } from '../actions/actions';
 class ProgressTrackerContainer extends Component {
   constructor(props) {
     super(props);
+    this.handleGenreqs = this.handleGenreqs.bind(this);
   }
 
   componentWillMount() {
@@ -13,23 +14,37 @@ class ProgressTrackerContainer extends Component {
     dispatch(getCourses(genreqs, majorreqs));
   }
 
+  handleGenreqs(e) {
+    e.preventDefault();
+    console.log('test');
+    return (
+      <div>
+        <p>test</p>
+      </div>
+    );
+  }
+
   render() {
     const { genreqs, majorreqs } = this.props;
     return (
-      <ProgressTracker gen = { genreqs }
-      major = { majorreqs } />
+      <ProgressTracker
+        genreqs={genreqs}
+        majorreqs={majorreqs}
+        handleGenreqs={this.handleGenreqs}
+      />
     );
   }
 }
 
 ProgressTrackerContainer.PropTypes = {
+  handleGenreqs: PropTypes.func.isRequired,
   genreqs: PropTypes.string.isRequired,
-  majorreqs: PropTypes.string.isRequired
-}
+  majorreqs: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = state => ({
-  genreqs: state.genreqs,
-  majorreqs: state.majorreqs,
+  genreqs: state.ProgressTrackerReducer.genreqs,
+  majorreqs: state.ProgressTrackerReducer.majorreqs,
 });
 
 export default connect(mapStateToProps)(ProgressTrackerContainer);

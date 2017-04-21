@@ -1,5 +1,3 @@
-import { GET_COURSES } from '../actions/actions';
-
 const initialState = {
   genreqs: '0',
   majorreqs: '0',
