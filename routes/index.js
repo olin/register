@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const Student = require('./../models/studentModel');
+const StudentCourse = require('../models/studentCourseModel');
 const path = require('path');
 
 const router = express.Router();
@@ -31,6 +32,16 @@ router.post('/register', (req, res) => {
         }
       });
     });
+});
+
+router.post('/studentcourse', (req, res) => {
+  StudentCourse.findOne({ _id: req.body.courseid }, (err, course) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.json(course);
+    }
+  });
 });
 
 // returns the home page html, index.html
