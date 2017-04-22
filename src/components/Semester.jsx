@@ -3,30 +3,28 @@ import CourseBlock from './CourseBlock'; // this will be changed to a container 
 
 const Semester = ({ num, courseList }) => (
   <div>
-    { num }
+    Semester { num }
     <li>
       <ul>
-        {courseList.map(course => 
-          if (course.semester == num) {
-            <CourseBlock
-              key={course.id}
-              name={course.name}
-              completed={course.completed}
-            />
-          }
-        )};
+        {courseList.map(course =>
+          <CourseBlock
+            key={course.id}
+            name={course.name}
+            completed={course.grade !== 'N/A'}
+          />,
+        )}
       </ul>
     </li>
   </div>
 );
 
 Semester.propTypes = {
-  num: PropTypes.string.isRequired,
+  num: PropTypes.number.isRequired,
   courseList: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     semester: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
+    grade: PropTypes.string.isRequired,
   }).isRequired).isRequired,
 };
 
