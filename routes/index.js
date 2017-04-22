@@ -34,16 +34,6 @@ router.post('/register', (req, res) => {
     });
 });
 
-router.post('/studentcourse', (req, res) => {
-  StudentCourse.findOne({ _id: req.body.courseid }, (err, course) => {
-    if (err) {
-      console.error(err);
-    } else {
-      res.json(course);
-    }
-  });
-});
-
 // returns the home page html, index.html
 router.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
