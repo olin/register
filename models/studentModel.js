@@ -16,6 +16,7 @@ const studentSchema = mongoose.Schema({
     courseId: mongoose.Schema.Types.ObjectId,
     semester: String, //note that a planned course does not always need a semester
   }],
+
 });
 
 studentSchema.plugin(passportLocalMongoose);
