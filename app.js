@@ -14,7 +14,10 @@ const Student = require('./models/studentModel');
 const index = require('./routes/index');
 
 // connect to database
-mongoose.connect('mongodb://localhost/register');
+const mongoURI = process.env.MONGOURI || 'mongodb://olinjs:cynthiaandbill@ds111441.mlab.com:11441/olin-course-planner';
+mongoose.connect(mongoURI);
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+
 
 const app = express();
 

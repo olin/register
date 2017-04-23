@@ -7,8 +7,15 @@ const studentSchema = mongoose.Schema({
   olinId: String,
   entryYear: Number,
   major: String,
-  completedCourses: [mongoose.Schema.Types.ObjectId],
-  plannedCourses: [mongoose.Schema.Types.ObjectId],
+  completedCourses: [{
+    'courseId': mongoose.Schema.Types.ObjectId,
+    'grade': String,
+    'semester': String,
+  }],
+  plannedCourses: [{
+    'courseId': mongoose.Schema.Types.ObjectId,
+    'semester': String, //note that a planned course does not always need a semester
+  }],
 });
 
 studentSchema.plugin(passportLocalMongoose);
