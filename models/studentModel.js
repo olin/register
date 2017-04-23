@@ -8,13 +8,13 @@ const studentSchema = mongoose.Schema({
   entryYear: Number,
   major: String,
   completedCourses: [{
-    'courseId': mongoose.Schema.Types.ObjectId,
-    'grade': String,
-    'semester': String,
+    courseId: mongoose.Schema.Types.ObjectId,
+    grade: String,
+    semester: String,
   }],
   plannedCourses: [{
-    'courseId': mongoose.Schema.Types.ObjectId,
-    'semester': String, //note that a planned course does not always need a semester
+    courseId: mongoose.Schema.Types.ObjectId,
+    semester: String, //note that a planned course does not always need a semester
   }],
 });
 
