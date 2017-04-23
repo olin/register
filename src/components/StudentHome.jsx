@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import WelcomeMessage from './WelcomeMessage';
 import PlanOfStudy from './PlanOfStudy';
@@ -7,7 +7,7 @@ import Note from './Note';
 import styles from '../../public/stylesheets/pages.css';
 
 // The wrapper for all components on a student home page
-const StudentHome = () => (
+const StudentHome = ({ username }) => (
   <Row>
     {/* Col attributes resize/reorder for different size screens */}
     <Col sm={3} lg={2}>
@@ -22,10 +22,14 @@ const StudentHome = () => (
       <h2>
         Student Home
       </h2>
-      <WelcomeMessage student="Ariana Olson" />
+      <WelcomeMessage username={username} />
       <PlanOfStudy />
     </Col>
   </Row>
 );
+
+StudentHome.propTypes = {
+  username: PropTypes.string.isRequired,
+};
 
 export default StudentHome;
