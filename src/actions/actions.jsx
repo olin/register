@@ -1,8 +1,31 @@
 import $ from 'jquery';
 
+// Gen Reqs
+export const updateGenReq = data => ({
+  type: 'IS_GEN_REQ',
+  data,
+});
+
+export const resetGenReq = data => ({
+  type: 'RESET_GEN_REQ',
+  data,
+});
+
+//Major reqs
+export const updateMajorReq = data => ({
+  type: 'IS_MAJOR_REQ',
+  data,
+});
+
+export const resetMajorReq = data => ({
+  type: 'RESET_MAJOR_REQ',
+  data,
+});
+
+
 // Progress Tracker Component
 export const resolvedGetCourses = data => ({
-  type: 'GET_COURSES',
+  type: 'GET_COMPLETED_COURSES',
   data,
 });
 
