@@ -7,10 +7,12 @@ import styles from '../../public/stylesheets/pages.css';
 const CoursePlanner = ({ categories, onCourseSelect }) => (
   <Row>
     <Col sm={3} lg={2}>
-      <NavPanel />
+      <NavPanel active={2} />
     </Col>
     <Col sm={9} lg={10}>
       <ul className={styles.mainbody}>
+        <h2>Plan Your Study</h2>
+        <hr />
         {categories.map(category =>
           <AddCourseDropdown
             {...category}
