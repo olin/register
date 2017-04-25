@@ -19,8 +19,8 @@ export default class ProgressTracker extends Component {
     return (
       <div>
         <ul>
-          <li><a onClick={handleGenreqs} href="">General Requirements</a><p>{genreqs}</p></li>
-          <li><a onClick={handleMajorreqs} href="">Major Requirements</a><p>{majorreqs}</p></li>
+          <li><a onClick={handleGenreqs} href="">General Requirements</a><p>{genreqs}/16 courses</p></li>
+          <li><a onClick={handleMajorreqs} href="">Major Requirements</a><p>{majorreqs}/7 courses</p></li>
           <li><a href="">Math/Sci Requirements</a></li>
           <li><a href="">AHS Requirements</a></li>
           <li><a href="">Electives</a></li>
