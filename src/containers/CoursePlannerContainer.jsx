@@ -4,12 +4,12 @@ import CoursePlanner from '../components/CoursePlanner';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  requirements: state.CoursePlannerReducer.requirements,
+  categories: state.CoursePlannerReducer.categories,
 });
 
 const mapDispatchToProps = dispatch => ({
-  onCourseSelect: (courseId) => {
-    dispatch(selectCourse(courseId));
+  onCourseSelect: (catId, courseId) => {
+    dispatch(selectCourse(catId, courseId));
   },
 });
 

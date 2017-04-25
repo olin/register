@@ -7,8 +7,9 @@ export const toggleSetting = name => ({
 });
 
 // Course Planner Dropdown Component
-export const selectCourse = courseId => ({
+export const selectCourse = (catId, courseId) => ({
   type: 'SELECT_COURSE',
+  catId,
   courseId,
 });
 

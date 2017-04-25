@@ -1,7 +1,7 @@
 const initialState = {
-  requirements: [
+  categories: [
     {
-      id: 'uocd_req',
+      catId: 'uocd_req',
       category: 'UOCD',
       courses: [
         {
@@ -9,10 +9,10 @@ const initialState = {
           courseId: 'uocdcourseid',
         },
       ],
-      selected: '',
+      selected: ' ',
     },
     {
-      id: 'mech_math',
+      catId: 'mech_math',
       category: 'ME Math',
       courses: [
         {
@@ -28,7 +28,7 @@ const initialState = {
           courseId: 'MTH3170',
         },
       ],
-      selected: 'MTH3150',
+      selected: ' ',
     },
   ],
 };
@@ -38,13 +38,13 @@ const CoursePlannerReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SELECT_COURSE':
       return Object.assign({}, state, {
-        requirements: state.requirements.map((requirement) => {
-          if (requirement.courseId === action.courseId) {
-            return Object.assign({}, requirement, {
-              selected: requirement.courseId,
+        categories: state.categories.map((category) => {
+          if (category.catId === action.catId) {
+            return Object.assign({}, category, {
+              selected: action.courseId,
             });
           }
-          return requirement;
+          return category;
         }),
       });
     default:

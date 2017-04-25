@@ -4,18 +4,18 @@ import AddCourseDropdown from './AddCourseDropdown';
 import NavPanel from './NavPanel';
 import styles from '../../public/stylesheets/pages.css';
 
-const CoursePlanner = ({ requirements, onCourseSelect }) => (
+const CoursePlanner = ({ categories, onCourseSelect }) => (
   <Row>
     <Col sm={3} lg={2}>
       <NavPanel />
     </Col>
     <Col sm={9} lg={10}>
       <ul className={styles.mainbody}>
-        {requirements.map(requirement =>
+        {categories.map(category =>
           <AddCourseDropdown
-            {...requirement}
-            key={requirement.id}
-            onSelect={() => onCourseSelect(requirement.id)}
+            {...category}
+            key={category.catId}
+            onSelect={e => onCourseSelect(category.catId, e.target.value)}
           />,
         )}
       </ul>
@@ -24,8 +24,8 @@ const CoursePlanner = ({ requirements, onCourseSelect }) => (
 );
 
 CoursePlanner.propTypes = {
-  requirements: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.shape({
+    catId: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
