@@ -10,17 +10,19 @@ const CoursePlanner = ({ categories, onCourseSelect }) => (
       <NavPanel active={2} />
     </Col>
     <Col sm={9} lg={10}>
-      <ul className={styles.mainbody}>
+      <div className={styles.mainbody}>
         <h2>Plan Your Study</h2>
         <hr />
-        {categories.map(category =>
-          <AddCourseDropdown
-            {...category}
-            key={category.catId}
-            onSelect={e => onCourseSelect(category.catId, e.target.value)}
-          />,
-        )}
-      </ul>
+        <ul>
+          {categories.map(category =>
+            <AddCourseDropdown
+              {...category}
+              key={category.catId}
+              onSelect={e => onCourseSelect(category.catId, e.target.value)}
+            />,
+          )}
+        </ul>
+      </div>
     </Col>
   </Row>
 );
