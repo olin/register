@@ -1,9 +1,15 @@
 import $ from 'jquery';
 
-// Account Page Component
+// Settings Page Component
 export const toggleSetting = name => ({
   type: 'TOGGLE_SETTING',
   name,
+});
+
+// Course Planner Dropdown Component
+export const selectCourse = courseId => ({
+  type: 'SELECT_COURSE',
+  courseId,
 });
 
 // Login Component

@@ -4,6 +4,7 @@ import Header from './Header';
 import LoginPage from './LoginPage';
 import StudentHomeContainer from '../containers/StudentHomeContainer';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
+import CoursePlannerContainer from '../containers/CoursePlannerContainer';
 
 const Login = () => (
   <div>
@@ -25,6 +26,13 @@ const Settings = () => (
   </div>
 );
 
+const CoursePlanner = () => (
+  <div>
+    <Header />
+    <CoursePlannerContainer />
+  </div>
+);
+
 const NotFound = () => (
   <div>
     <h1>404: Nothing to see here.</h1>
@@ -42,6 +50,10 @@ const App = ({ loggedIn }) => (
         <Route
           path="/settings"
           component={Settings}
+        />
+        <Route
+          path="/plan"
+          component={CoursePlanner}
         />
         <Route
           path="/login"
