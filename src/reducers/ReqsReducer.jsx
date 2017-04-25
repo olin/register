@@ -1,15 +1,21 @@
 const initialState = {
+  isGenReq: false,
   isMajorReq: false,
 };
 
-const MajorReqsReducer = (state = initialState, action) => {
+const ReqsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'IS_GEN_REQ':
+      return Object.assign({}, state, {
+        isGenReq: true,
+      });
     case 'IS_MAJOR_REQ':
       return Object.assign({}, state, {
         isMajorReq: true,
       });
-    case 'RESET_MAJOR_REQ':
+    case 'RESET_REQ':
       return Object.assign({}, state, {
+        isGenReq: false,
         isMajorReq: false,
       });
     default:
@@ -17,4 +23,4 @@ const MajorReqsReducer = (state = initialState, action) => {
   }
 };
 
-export default MajorReqsReducer;
+export default ReqsReducer;

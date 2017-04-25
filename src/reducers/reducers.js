@@ -4,8 +4,7 @@ import LoginReducer from './LoginReducer';
 import RegisterReducer from './RegisterReducer';
 import AccountPageReducer from './AccountPageReducer';
 import PersistReducer from './PersistReducer';
-import GenReqsReducer from './GenReqsReducer';
-import MajorReqsReducer from './MajorReqsReducer';
+import ReqsReducer from './ReqsReducer';
 
 const registerApp = combineReducers({
   AccountPageReducer,
@@ -13,8 +12,7 @@ const registerApp = combineReducers({
   RegisterReducer,
   ProgressTrackerReducer,
   PersistReducer,
-  GenReqsReducer,
-  MajorReqsReducer,
+  ReqsReducer,
 });
 
 export default registerApp;

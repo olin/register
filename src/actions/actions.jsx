@@ -1,32 +1,25 @@
 import $ from 'jquery';
 
-// Gen Reqs
-export const updateGenReq = data => ({
+export const updateGenReq = (genreqs) => ({
   type: 'IS_GEN_REQ',
-  data,
+  genreqs,
 });
 
-export const resetGenReq = data => ({
-  type: 'RESET_GEN_REQ',
-  data,
-});
-
-//Major reqs
-export const updateMajorReq = data => ({
+export const updateMajorReq = (majorreqs) => ({
   type: 'IS_MAJOR_REQ',
-  data,
+  majorreqs,
 });
 
-export const resetMajorReq = data => ({
-  type: 'RESET_MAJOR_REQ',
-  data,
+export const resetReq = (genreqs, majorreqs) => ({
+  type: 'RESET_REQ',
+  genreqs,
+  majorreqs,
 });
-
 
 // Progress Tracker Component
 export const resolvedGetCourses = data => ({
   type: 'GET_COMPLETED_COURSES',
-  data,
+  data: data.completedcourses,
 });
 
 // Account Page Component
@@ -68,12 +61,8 @@ export const receiveUser = json => ({
 });
 
 // Get completed courses from backend
-export const getCourses = (genreqs, majorreqs) => (
+export const getCourses = (data) => (
   (dispatch) => {
-    const data = {
-      genreqs,
-      majorreqs,
-    };
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))
       .fail((err, status) => console.log(err, status));

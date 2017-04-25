@@ -7,9 +7,13 @@ const ProgressTrackerReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_COMPLETED_COURSES':
       console.log(action.data);
+      var data = action.data;
+      var result = data.map(function(a) {return a.courseId;});
+      console.log(result);
+      console.log(state);
       return Object.assign({}, state, {
-        genreqs: action.data.genreqs,
-        majorreqs: action.data.majorreqs,
+        genreqs: result,
+        majorreqs: result,
       });
     default:
       return state;

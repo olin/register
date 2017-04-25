@@ -1,15 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ProgressTracker from '../components/ProgressTracker';
-import { resetMajorReq, updateMajorReq, resetGenReq, updateGenReq, getCourses } from '../actions/actions';
+import { resetReq, updateGenReq, updateMajorReq, getCourses } from '../actions/actions';
 
 class ProgressTrackerContainer extends Component {
   constructor(props) {
     super(props);
     this.handleGenreqs = this.handleGenreqs.bind(this);
-    this.backGenReq = this.backGenReq.bind(this);
     this.handleMajorreqs = this.handleMajorreqs.bind(this);
-    this.backMajorReq = this.backMajorReq.bind(this);
+    this.backReq = this.backReq.bind(this);
   }
 
   componentWillMount() {
@@ -23,22 +22,16 @@ class ProgressTrackerContainer extends Component {
     dispatch(updateGenReq(isGenReq));
   }
 
-  backGenReq(e) {
-    const { dispatch, isGenReq } = this.props;
-    e.preventDefault();
-    dispatch(resetGenReq(isGenReq));
-  }
-
   handleMajorreqs(e) {
     const { dispatch, isMajorReq } = this.props;
     e.preventDefault();
     dispatch(updateMajorReq(isMajorReq));
   }
 
-  backMajorReq(e) {
-    const { dispatch, isMajorReq } = this.props;
+  backReq(e) {
+    const { dispatch, isGenReq, isMajorReq } = this.props;
     e.preventDefault();
-    dispatch(resetMajorReq(isMajorReq));
+    dispatch(resetReq(isGenReq));
   }
 
   render() {
@@ -48,11 +41,10 @@ class ProgressTrackerContainer extends Component {
         genreqs={genreqs}
         majorreqs={majorreqs}
         handleGenreqs={this.handleGenreqs}
-        backGenReq={this.backGenReq}
+        handleMajorreqs={this.handleMajorreqs}
+        backReq={this.backReq}
         isGenReq={isGenReq}
         isMajorReq={isMajorReq}
-        handleMajorreqs={this.handleMajorreqs}
-        backMajorReq={this.backMajorReq}
       />
     );
   }
@@ -69,8 +61,8 @@ ProgressTrackerContainer.propTypes = {
 const mapStateToProps = state => ({
   genreqs: state.ProgressTrackerReducer.genreqs,
   majorreqs: state.ProgressTrackerReducer.majorreqs,
-  isGenReq: state.GenReqsReducer.isGenReq,
-  isMajorReq: state.MajorReqsReducer.isMajorReq,
+  isGenReq: state.ReqsReducer.isGenReq,
+  isMajorReq: state.ReqsReducer.isMajorReq,
 });
 
 export default connect(mapStateToProps)(ProgressTrackerContainer);

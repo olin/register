@@ -2,17 +2,17 @@ import React, { Component, PropTypes } from 'react';
 
 export default class ProgressTracker extends Component {
   render() {
-    const { genreqs, majorreqs, handleGenreqs, backGenReq, isGenReq, isMajorReq, handleMajorreqs, backMajorReq } = this.props;
+    const { genreqs, majorreqs, handleGenreqs, handleMajorreqs, backReq, isGenReq, isMajorReq } = this.props;
     if (this.props.isGenReq) {
       return (
         <div>
-          <a onClick={backGenReq} href=""> ← back</a>
+          <a onClick={backReq} href=""> ← back</a>
         </div>
       );
     } else if (this.props.isMajorReq) {
       return (
         <div>
-          <a onClick={backMajorReq} href=""> ← back</a>
+          <a onClick={backReq} href=""> ← back</a>
         </div>
       );
     }
@@ -34,9 +34,8 @@ ProgressTracker.propTypes = {
   genreqs: PropTypes.string.isRequired,
   majorreqs: PropTypes.string.isRequired,
   handleGenreqs: PropTypes.func.isRequired,
-  backGenReq: PropTypes.func.isRequired,
+  handleMajorreqs: PropTypes.func.isRequired,
+  backReq: PropTypes.func.isRequired,
   isGenReq: PropTypes.bool.isRequired,
   isMajorReq: PropTypes.bool.isRequired,
-  handleMajorreqs: PropTypes.func.isRequired,
-  backMajorReq: PropTypes.func.isRequired,
 };
