@@ -3,14 +3,14 @@ import CourseBlock from './CourseBlock'; // this will be changed to a container 
 
 const Semester = ({ num, courseList }) => (
   <div>
-    Semester { num }
+    Semester { num }:
     <li>
       <ul>
         {courseList.map(course =>
           <CourseBlock
             key={course.id}
             name={course.name}
-            completed={course.grade !== 'N/A'}
+            completed={course.grade !== undefined}
           />,
         )}
       </ul>
@@ -18,13 +18,14 @@ const Semester = ({ num, courseList }) => (
   </div>
 );
 
+
 Semester.propTypes = {
   num: PropTypes.number.isRequired,
   courseList: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     semester: PropTypes.number.isRequired,
-    grade: PropTypes.string.isRequired,
+    grade: PropTypes.string,
   }).isRequired).isRequired,
 };
 
