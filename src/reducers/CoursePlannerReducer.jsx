@@ -6,7 +6,7 @@ const initialState = {
       courses: [
         {
           name: 'User Oriented Collaborative Design',
-          courseId: 'uocdcourseid',
+          courseId: 'ENGR2250',
         },
       ],
       selected: ' ',

@@ -5,7 +5,7 @@ const AddCourseDropdown = ({ onSelect, catId, category, courses, selected }) => 
   <FormGroup controlId={catId}>
     <ControlLabel>{category}</ControlLabel>
     <FormControl componentClass="select" value={selected} onChange={onSelect}>
-      <option key={'unselected'} value={'unselected'} />
+      <option key={' '} value={' '} />
       {courses.map(course =>
         <option key={course.courseId} value={course.courseId}>{course.name}</option>,
       )}
