@@ -13,10 +13,9 @@ const SettingsPage = ({ settings, onSettingToggle }) => (
       <ul className={styles.mainbody}>
         {settings.map(setting =>
           <Setting
-            name={setting.name}
-            key={setting.name}
             {...setting}
-            onClick={() => onSettingToggle(setting.name)}
+            key={setting.name}
+            onChange={() => onSettingToggle(setting.name)}
           />,
         )}
       </ul>
