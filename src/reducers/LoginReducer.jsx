@@ -5,6 +5,7 @@ const initialState = {
   major: '',
   plannedCourses: [],
   completedCourses: [],
+  allCourses: [],
   loggedIn: false,
 };
 
@@ -25,6 +26,7 @@ const LoginReducer = (state = initialState, action) => {
         major: action.major,
         plannedCourses: action.plannedCourses,
         completedCourses: action.completedCourses,
+        allCourses: action.courses,
         loggedIn: true,
       });
     default:

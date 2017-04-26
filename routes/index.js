@@ -9,7 +9,26 @@ const router = express.Router();
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
-    res.json(req.user);
+    // load all courses to send to state
+    Course.find({}, (err, courses) => {
+      if (err) {
+        console.error(err);
+      } else {
+        const data = {
+          user: {
+            username: req.user.username,
+            // eslint-disable-next-line no-underscore-dangle
+            id: req.user._id,
+            major: req.user.major,
+            plannedCourses: req.user.plannedCourses,
+            completedCourses: req.user.completedCourses,
+          },
+          courses,
+        };
+        console.log(data);
+        res.json(data);
+      }
+    });
   });
 
 // register new user
@@ -27,7 +46,19 @@ router.post('/register', (req, res) => {
             if (loginErr) {
               console.log(loginErr);
             }
-            res.json(req.user);
+            // load all courses to send to state
+            Course.find({}, (err, courses) => {
+              if (err) {
+                console.error(err);
+              } else {
+                const data = {
+                  user: req.user,
+                  courses,
+                };
+
+                res.json(data);
+              }
+            });
           });
         }
       });
