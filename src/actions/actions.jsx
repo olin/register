@@ -31,11 +31,12 @@ export const updateRegisterPassword = password => ({
 // Login backend interaction
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
-  username: json.username,
-  id: json._id,
-  major: json.major,
-  plannedCourses: json.plannedCourses,
-  completedCourses: json.completedCourses,
+  username: json.user.username,
+  id: json.user.id,
+  major: json.user.major,
+  plannedCourses: json.user.plannedCourses,
+  completedCourses: json.user.completedCourses,
+  courses: json.courses,
 });
 
 export const login = (username, password) => (
