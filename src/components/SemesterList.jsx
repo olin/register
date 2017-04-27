@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import SemesterContainer from '../containers/SemesterContainer';
+import SemesterReserveContainer from '../containers/SemesterReserveContainer';
 
-const nums = [1, 2, 3, 4, 5, 6, 7, 8];
-
-const SemesterList = () => (
+const SemesterList = ({ semesters }) => (
   <div>
     <h1>Plan by Semester</h1>
     <ul>
-      {nums.map(num =>
+      <hr />
+      {semesters.map(semester =>
         <SemesterContainer
-          key={'semester' + num.toString()}
-          num={num} // ownProps will grab this
+          key={semester}
+          semester={semester} // ownProps will grab this
         />,
       )}
+      <SemesterReserveContainer />
     </ul>
   </div>
 );
+
+SemesterList.propTypes = {
+  semesters: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default SemesterList;
