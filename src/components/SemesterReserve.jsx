@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import CourseBlockContainer from '../containers/CourseBlockContainer'; // this will be changed to a container later!
+import CourseBlockContainer from '../containers/CourseBlockContainer';
 
 const Semester = ({ courseList }) => (
   <div>

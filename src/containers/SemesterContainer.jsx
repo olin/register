@@ -13,7 +13,6 @@ const filterCourse = (semester, completedCourses, plannedCourses) => {
 
 const mapStateToProps = (state, ownProps) => (
   {
-    // key: ownProps.key,
     semester: ownProps.semester,
     courseList: filterCourse(
       ownProps.semester,
