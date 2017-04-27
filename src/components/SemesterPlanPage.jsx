@@ -1,9 +1,9 @@
 import React from 'react';
-import SemesterList from './SemesterList';
+import SemesterListContainer from '../containers/SemesterListContainer';
 
 const SemesterPlanPage = () => (
   <div>
-    <SemesterList />
+    <SemesterListContainer />
   </div>
 );
 
