@@ -25,7 +25,6 @@ router.post('/login', passport.authenticate('local'),
           },
           courses,
         };
-        // console.log(data);
         res.json(data);
       }
     });
@@ -67,15 +66,6 @@ router.post('/register', (req, res) => {
 
 // get student completed courses
 router.get('/completedcourses', (req, res) => {
-  console.log(req.user);
-  // var data = req.user.completedCourses;
-  // var result = data.map(function(a) {return a.courseId;});
-  // console.log(result);
-
-  // Course.find({_id:result[0]}, (err,course) => {
-  //   console.log(course);
-  // });
-
   res.json({
     completedcourses: req.user.completedCourses,
   });

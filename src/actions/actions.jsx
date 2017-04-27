@@ -84,7 +84,7 @@ export const getCourses = data => (
   (dispatch) => {
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))
-      .fail((err, status) => console.log(err, status));
+      .fail((err, status) => console.error(err, status));
   }
 );
 
@@ -96,7 +96,7 @@ export const login = (username, password) => (
     };
     $.post('/login', data)
       .done(response => dispatch(receiveUser(response)))
-      .fail((err, status) => console.log(err, status));
+      .fail((err, status) => console.error(err, status));
   }
 );
 // Register backend interaction
@@ -108,6 +108,6 @@ export const register = (username, password) => (
     };
     $.post('/register', data)
       .done(response => (dispatch(receiveUser(response))))
-      .fail((err, status) => console.log(err, status));
+      .fail((err, status) => console.error(err, status));
   }
 );

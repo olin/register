@@ -19,7 +19,6 @@ const ProgressTrackerReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'GET_COMPLETED_COURSES': {
-      console.log(action.data);
       const data = action.data;
       let genreqs = data.map(a => a.generalRequirements[0]);
       genreqs = genreqs.filter(n => n !== undefined);
@@ -46,8 +45,6 @@ const ProgressTrackerReducer = (state = initialState, action) => {
       const ahseTotal = sum(ahseCourses);
       const sciTotal = sum(sciCourses);
 
-      console.log(genreqs);
-      console.log(majorreqs);
       return Object.assign({}, state, {
         genreqs,
         majorreqs,
