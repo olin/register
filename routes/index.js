@@ -6,21 +6,6 @@ const path = require('path');
 
 const router = express.Router();
 
-const courseInfo = (courseList) => {
-  const augmentedCourses = [];
-  for (let i = 0; i < courseList.length; i += 1) {
-    Course.findOne({ _id: courseList[i].courseId }, (err, course) => {
-      if (err) {
-        console.error(err);
-      } else {
-        augmentedCourses.push({
-          courseInfo: course,
-          courseStudent: courseList[i],
-        });
-      }
-    });
-  }
-};
 // log in with local strategy
 router.post('/login', passport.authenticate('local'),
   (req, res) => {
@@ -34,13 +19,13 @@ router.post('/login', passport.authenticate('local'),
             username: req.user.username,
             // eslint-disable-next-line no-underscore-dangle
             id: req.user._id,
+            entryYear: req.user.entryYear,
             major: req.user.major,
             plannedCourses: req.user.plannedCourses,
             completedCourses: req.user.completedCourses,
           },
           courses,
         };
-        console.log(data);
         res.json(data);
       }
     });
@@ -55,11 +40,11 @@ router.post('/register', (req, res) => {
       }
       account.save((saveErr) => {
         if (saveErr) {
-          console.log(saveErr);
+          console.error(saveErr);
         } else {
           req.login(account, (loginErr) => {
             if (loginErr) {
-              console.log(loginErr);
+              console.error(loginErr);
             }
             // load all courses to send to state
             Course.find({}, (err, courses) => {
@@ -67,7 +52,15 @@ router.post('/register', (req, res) => {
                 console.error(err);
               } else {
                 const data = {
-                  user: req.user,
+                  user: {
+                    username: req.user.username,
+                    // eslint-disable-next-line no-underscore-dangle
+                    id: req.user._id,
+                    entryYear: req.user.entryYear,
+                    major: req.user.major,
+                    plannedCourses: req.user.plannedCourses,
+                    completedCourses: req.user.completedCourses,
+                  },
                   courses,
                 };
 
