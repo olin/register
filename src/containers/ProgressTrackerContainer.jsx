@@ -6,8 +6,8 @@ import { resetReq, updateGenReq, updateMajorReq, updateMathsci, updateAhse, upda
 class ProgressTrackerContainer extends Component {
   constructor(props) {
     super(props);
-    this.handleGenreqs = this.handleGenreqs.bind(this);
-    this.handleMajorreqs = this.handleMajorreqs.bind(this);
+    this.handleGenReqs = this.handleGenReqs.bind(this);
+    this.handleMajorReqs = this.handleMajorReqs.bind(this);
     this.handleMathsci = this.handleMathsci.bind(this);
     this.handleAhse = this.handleAhse.bind(this);
     this.handleEngr = this.handleEngr.bind(this);
@@ -19,13 +19,13 @@ class ProgressTrackerContainer extends Component {
     dispatch(getCourses());
   }
 
-  handleGenreqs(e) {
+  handleGenReqs(e) {
     const { dispatch, isGenReq } = this.props;
     e.preventDefault();
     dispatch(updateGenReq(isGenReq));
   }
 
-  handleMajorreqs(e) {
+  handleMajorReqs(e) {
     const { dispatch, isMajorReq } = this.props;
     e.preventDefault();
     dispatch(updateMajorReq(isMajorReq));
@@ -117,8 +117,8 @@ class ProgressTrackerContainer extends Component {
         engrTotal={engrTotal}
         sciTotal={sciTotal}
         ahseTotal={ahseTotal}
-        handleGenreqs={this.handleGenreqs}
-        handleMajorreqs={this.handleMajorreqs}
+        handleGenReqs={this.handleGenReqs}
+        handleMajorReqs={this.handleMajorReqs}
         handleMathsci={this.handleMathsci}
         handleAhse={this.handleAhse}
         handleEngr={this.handleEngr}

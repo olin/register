@@ -1,27 +1,27 @@
 import $ from 'jquery';
 
 export const updateGenReq = genreqs => ({
-  type: 'IS_GEN_REQ',
+  type: 'UPDATE_GEN_REQ',
   genreqs,
 });
 
 export const updateMajorReq = majorreqs => ({
-  type: 'IS_MAJOR_REQ',
+  type: 'UPDATE_MAJOR_REQ',
   majorreqs,
 });
 
 export const updateMathsci = mathsci => ({
-  type: 'IS_MATHSCI_REQ',
+  type: 'UPDATE_MATHSCI_REQ',
   mathsci,
 });
 
 export const updateAhse = ahse => ({
-  type: 'IS_AHSE_REQ',
+  type: 'UPDATE_AHSE',
   ahse,
 });
 
 export const updateEngr = engr => ({
-  type: 'IS_ENGR_REQ',
+  type: 'UPDATE_ENGR',
   engr,
 });
 

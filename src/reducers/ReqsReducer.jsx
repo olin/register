@@ -8,23 +8,23 @@ const initialState = {
 
 const ReqsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'IS_GEN_REQ':
+    case 'UPDATE_GEN_REQ':
       return Object.assign({}, state, {
         isGenReq: true,
       });
-    case 'IS_MAJOR_REQ':
+    case 'UPDATE_MAJOR_REQ':
       return Object.assign({}, state, {
         isMajorReq: true,
       });
-    case 'IS_MATHSCI_REQ':
+    case 'UPDATE_MATHSCI_REQ':
       return Object.assign({}, state, {
         isMathsci: true,
       });
-    case 'IS_AHSE_REQ':
+    case 'UPDATE_AHSE':
       return Object.assign({}, state, {
         isAhse: true,
       });
-    case 'IS_ENGR_REQ':
+    case 'UPDATE_ENGR':
       return Object.assign({}, state, {
         isEngr: true,
       });

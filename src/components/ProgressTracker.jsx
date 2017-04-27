@@ -7,19 +7,19 @@ const ProgressTracker = ({
   engrTotal,
   sciTotal,
   ahseTotal,
-  handleGenreqs,
-  handleMajorreqs,
+  handleGenReqs,
+  handleMajorReqs,
   handleMathsci,
   handleAhse,
   handleEngr }) => (
     <div>
       <ul>
         <li>
-          <a onClick={handleGenreqs} href="">General Requirements</a>
+          <a onClick={handleGenReqs} href="">General Requirements</a>
           <p>{genreqs.length}/16 courses</p>
         </li>
         <li>
-          <a onClick={handleMajorreqs} href="">Major Requirements</a>
+          <a onClick={handleMajorReqs} href="">Major Requirements</a>
           <p>{majorreqs.length}/7 courses</p>
         </li>
         <li>
@@ -41,8 +41,8 @@ const ProgressTracker = ({
 ProgressTracker.propTypes = {
   genreqs: PropTypes.arrayOf(PropTypes.string).isRequired,
   majorreqs: PropTypes.arrayOf(PropTypes.string).isRequired,
-  handleGenreqs: PropTypes.func.isRequired,
-  handleMajorreqs: PropTypes.func.isRequired,
+  handleGenReqs: PropTypes.func.isRequired,
+  handleMajorReqs: PropTypes.func.isRequired,
   handleMathsci: PropTypes.func.isRequired,
   handleAhse: PropTypes.func.isRequired,
   handleEngr: PropTypes.func.isRequired,
