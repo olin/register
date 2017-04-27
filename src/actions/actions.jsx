@@ -1,19 +1,37 @@
 import $ from 'jquery';
 
-export const updateGenReq = (genreqs) => ({
+export const updateGenReq = genreqs => ({
   type: 'IS_GEN_REQ',
   genreqs,
 });
 
-export const updateMajorReq = (majorreqs) => ({
+export const updateMajorReq = majorreqs => ({
   type: 'IS_MAJOR_REQ',
   majorreqs,
 });
 
-export const resetReq = (genreqs, majorreqs) => ({
+export const updateMathsci = mathsci => ({
+  type: 'IS_MATHSCI_REQ',
+  mathsci,
+});
+
+export const updateAhse = ahse => ({
+  type: 'IS_AHSE_REQ',
+  ahse,
+});
+
+export const updateEngr = engr => ({
+  type: 'IS_ENGR_REQ',
+  engr,
+});
+
+export const resetReq = (genreqs, majorreqs, mathsci, ahse, engr) => ({
   type: 'RESET_REQ',
   genreqs,
   majorreqs,
+  mathsci,
+  ahse,
+  engr,
 });
 
 // Progress Tracker Component
@@ -62,7 +80,7 @@ export const receiveUser = json => ({
 });
 
 // Get completed courses from backend
-export const getCourses = (data) => (
+export const getCourses = data => (
   (dispatch) => {
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))

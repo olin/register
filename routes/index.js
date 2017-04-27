@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const Student = require('./../models/studentModel');
-const Course = require('./../models/courseModel')
+const Course = require('./../models/courseModel');
 const path = require('path');
 
 const router = express.Router();
@@ -25,7 +25,7 @@ router.post('/login', passport.authenticate('local'),
           },
           courses,
         };
-        console.log(data);
+        // console.log(data);
         res.json(data);
       }
     });
