@@ -1,30 +1,28 @@
 import React, { PropTypes } from 'react';
-import CourseBlock from './CourseBlock'; // this will be changed to a container later!
+import CourseBlockContainer from '../containers/CourseBlockContainer'; // this will be changed to a container later!
 
-const Semester = ({ num, courseList }) => (
-  <div>
-    Semester { num }:
-    <li>
-      <ul>
-        {courseList.map(course =>
-          <CourseBlock
-            key={course.id}
-            name={course.name}
-            completed={course.grade !== undefined}
-          />,
-        )}
-      </ul>
-    </li>
-  </div>
+const Semester = ({ semester, courseList }) => (
+  <li>
+    { semester }:
+    <ul>
+      {courseList.map(course =>
+        <CourseBlockContainer
+          key={course.courseId.toString()}
+          course={course}
+        />,
+      )}
+    </ul>
+    <hr />
+  </li>
 );
 
 
 Semester.propTypes = {
-  num: PropTypes.number.isRequired,
+  semester: PropTypes.string.isRequired,
   courseList: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    semester: PropTypes.number.isRequired,
+    courseId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    semester: PropTypes.string,
     grade: PropTypes.string,
   }).isRequired).isRequired,
 };
