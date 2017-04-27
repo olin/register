@@ -11,15 +11,17 @@ const studentSchema = mongoose.Schema({
     courseId: mongoose.Schema.Types.ObjectId,
     title: String,
     credits: Number,
-    requirements: [String],
+    generalRequirements: [String],
+    otherRequirements: [String],
     grade: String,
     semester: String,
   }],
   plannedCourses: [{
-    courseId: mongoose.Schema.Types.ObjectId,  
+    courseId: mongoose.Schema.Types.ObjectId,
     title: String,
     credits: Number,
     requirements: [String],
+    generalRequirements: [String],
     semester: String, //note that a planned course does not always need a semester
   }],
 
