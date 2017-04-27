@@ -1,21 +1,22 @@
 import { connect } from 'react-redux';
 import Semester from '../components/Semester';
 
-const filterCourse = (num, completedCourses, plannedCourses) => {
+const filterCourse = (semester, completedCourses, plannedCourses) => {
   const filteredCompleted = completedCourses.filter(course =>
-    course.courseStudent.semester === num,
+    course.semester === semester,
   );
   const filteredPlanned = plannedCourses.filter(course =>
-    course.courseStudent.semester === num,
+    course.semester === semester,
   );
   return filteredPlanned.concat(filteredCompleted);
 };
 
 const mapStateToProps = (state, ownProps) => (
   {
-    num: ownProps.num,
+    // key: ownProps.key,
+    semester: ownProps.semester,
     courseList: filterCourse(
-      ownProps.num,
+      ownProps.semester,
       state.LoginReducer.completedCourses,
       state.LoginReducer.plannedCourses,
     ),
