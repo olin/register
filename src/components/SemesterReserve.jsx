@@ -18,7 +18,6 @@ const Semester = ({ courseList }) => (
   </div>
 );
 
-
 Semester.propTypes = {
   courseList: PropTypes.arrayOf(PropTypes.shape({
     courseId: PropTypes.string.isRequired,

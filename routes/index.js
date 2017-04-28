@@ -17,7 +17,6 @@ router.post('/login', passport.authenticate('local'),
         const data = {
           user: {
             username: req.user.username,
-            // eslint-disable-next-line no-underscore-dangle
             id: req.user._id,
             entryYear: req.user.entryYear,
             major: req.user.major,
@@ -54,7 +53,6 @@ router.post('/register', (req, res) => {
                 const data = {
                   user: {
                     username: req.user.username,
-                    // eslint-disable-next-line no-underscore-dangle
                     id: req.user._id,
                     entryYear: req.user.entryYear,
                     major: req.user.major,

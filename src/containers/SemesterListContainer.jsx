@@ -2,12 +2,8 @@ import { connect } from 'react-redux';
 import SemesterList from '../components/SemesterList';
 
 const shortenYear = (year) => {
-  const shortYearNumber = year % 100;
-  const shortYearString = shortYearNumber.toString();
-  if (shortYearString.length < 2) {
-    return '0' + shortYearString;
-  }
-  return shortYearString;
+  const yearString = year.toString();
+  return yearString.slice(2);
 };
 
 const makeSemesterList = (entryYear) => {
