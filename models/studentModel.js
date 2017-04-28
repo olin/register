@@ -2,16 +2,29 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const studentSchema = mongoose.Schema({
-  email: String,
+  username: String,
   name: String,
   olinId: String,
   entryYear: Number,
-  major: {
-    type: String,
-    default: 'Mechanical Engineering',
-  },
-  completedCourses: [mongoose.Schema.Types.ObjectId],
-  plannedCourses: [mongoose.Schema.Types.ObjectId],
+  major: String,
+  completedCourses: [{
+    courseId: mongoose.Schema.Types.ObjectId,
+    title: String,
+    credits: Number,
+    generalRequirements: [String],
+    otherRequirements: [String],
+    grade: String,
+    semester: String,
+  }],
+  plannedCourses: [{
+    courseId: mongoose.Schema.Types.ObjectId,
+    title: String,
+    credits: Number,
+    requirements: [String],
+    generalRequirements: [String],
+    semester: String, //note that a planned course does not always need a semester
+  }],
+
 });
 
 studentSchema.plugin(passportLocalMongoose);

@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react';
 
-const CourseBlock = ({ name, completed }) => (
+const CourseBlock = ({ title, registrarId, completed }) => (
   <li>
-    {name}
+    {registrarId}:{title} {completed.toString()}
   </li>
 );
 
 CourseBlock.propTypes = {
-  name: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  registrarId: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired, // for styling?
 };
 
 export default CourseBlock;

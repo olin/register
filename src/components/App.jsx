@@ -4,6 +4,9 @@ import Header from './Header';
 import LoginPage from './LoginPage';
 import StudentHomeContainer from '../containers/StudentHomeContainer';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
+import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
+import SemesterPlanPage from './SemesterPlanPage';
+
 
 const Login = () => (
   <div>
@@ -15,6 +18,7 @@ const Home = () => (
   <div>
     <Header />
     <StudentHomeContainer />
+    <ProgressTrackerContainer />
   </div>
 );
 
@@ -22,6 +26,13 @@ const Settings = () => (
   <div>
     <Header />
     <SettingsPageContainer />
+  </div>
+);
+
+const SemesterPlan = () => (
+  <div>
+    <Header />
+    <SemesterPlanPage />
   </div>
 );
 
@@ -42,6 +53,10 @@ const App = ({ loggedIn }) => (
         <Route
           path="/settings"
           component={Settings}
+        />
+        <Route
+          path="/semesterplan"
+          component={SemesterPlan}
         />
         <Route
           path="/login"
