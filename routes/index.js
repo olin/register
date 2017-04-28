@@ -17,8 +17,8 @@ router.post('/login', passport.authenticate('local'),
         const data = {
           user: {
             username: req.user.username,
-            // eslint-disable-next-line no-underscore-dangle
             id: req.user._id,
+            entryYear: req.user.entryYear,
             major: req.user.major,
             plannedCourses: req.user.plannedCourses,
             completedCourses: req.user.completedCourses,
@@ -39,11 +39,11 @@ router.post('/register', (req, res) => {
       }
       account.save((saveErr) => {
         if (saveErr) {
-          console.log(saveErr);
+          console.error(saveErr);
         } else {
           req.login(account, (loginErr) => {
             if (loginErr) {
-              console.log(loginErr);
+              console.error(loginErr);
             }
             // load all courses to send to state
             Course.find({}, (err, courses) => {
@@ -51,7 +51,14 @@ router.post('/register', (req, res) => {
                 console.error(err);
               } else {
                 const data = {
-                  user: req.user,
+                  user: {
+                    username: req.user.username,
+                    id: req.user._id,
+                    entryYear: req.user.entryYear,
+                    major: req.user.major,
+                    plannedCourses: req.user.plannedCourses,
+                    completedCourses: req.user.completedCourses,
+                  },
                   courses,
                 };
 

@@ -73,6 +73,7 @@ export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.user.username,
   id: json.user.id,
+  entryYear: json.user.entryYear,
   major: json.user.major,
   plannedCourses: json.user.plannedCourses,
   completedCourses: json.user.completedCourses,

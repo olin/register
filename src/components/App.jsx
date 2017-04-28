@@ -5,6 +5,8 @@ import LoginPage from './LoginPage';
 import StudentHomeContainer from '../containers/StudentHomeContainer';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
 import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
+import SemesterPlanPage from './SemesterPlanPage';
+
 
 const Login = () => (
   <div>
@@ -27,6 +29,13 @@ const Settings = () => (
   </div>
 );
 
+const SemesterPlan = () => (
+  <div>
+    <Header />
+    <SemesterPlanPage />
+  </div>
+);
+
 const NotFound = () => (
   <div>
     <h1>404: Nothing to see here.</h1>
@@ -44,6 +53,10 @@ const App = ({ loggedIn }) => (
         <Route
           path="/settings"
           component={Settings}
+        />
+        <Route
+          path="/semesterplan"
+          component={SemesterPlan}
         />
         <Route
           path="/login"
