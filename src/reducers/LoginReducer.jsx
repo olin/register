@@ -2,6 +2,7 @@ const initialState = {
   username: '',
   password: '',
   id: '',
+  entryYear: 0,
   major: '',
   plannedCourses: [],
   completedCourses: [],
@@ -23,6 +24,7 @@ const LoginReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         username: action.username,
         id: action.id,
+        entryYear: action.entryYear,
         major: action.major,
         plannedCourses: action.plannedCourses,
         completedCourses: action.completedCourses,
