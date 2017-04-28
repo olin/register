@@ -26,17 +26,21 @@ const ProgressTrackerReducer = (state = initialState, action) => {
       majorreqs = majorreqs.filter(n => n !== undefined);
 
       for (let i = 0; i < data.length; i += 1) {
-        if (data[i].registrarId.substring(0, 3) === 'MTH') {
-          mathCourses.push({ title: data[i].title, credits: data[i].credits });
-        }
-        if (data[i].registrarId.substring(0, 4) === 'ENGR') {
-          engrCourses.push({ title: data[i].title, credits: data[i].credits });
-        }
-        if (data[i].registrarId.substring(0, 4) === 'AHSE') {
-          ahseCourses.push({ title: data[i].title, credits: data[i].credits });
-        }
-        if (data[i].registrarId.substring(0, 3) === 'SCI') {
-          sciCourses.push({ title: data[i].title, credits: data[i].credits });
+        switch (data[i].registrarId.substring(0, 3)) {
+          case 'MTH':
+            mathCourses.push({ title: data[i].title, credits: data[i].credits });
+            break;
+          case 'ENG':
+            engrCourses.push({ title: data[i].title, credits: data[i].credits });
+            break;
+          case 'AHS':
+            ahseCourses.push({ title: data[i].title, credits: data[i].credits });
+            break;
+          case 'SCI':
+            sciCourses.push({ title: data[i].title, credits: data[i].credits });
+            break;
+          default:
+            break;
         }
       }
 
