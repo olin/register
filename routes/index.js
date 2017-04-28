@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const Student = require('./../models/studentModel');
-const Course = require('../models/courseModel');
+const Course = require('./../models/courseModel');
 const path = require('path');
 
 const router = express.Router();
@@ -69,6 +69,13 @@ router.post('/register', (req, res) => {
         }
       });
     });
+});
+
+// get student completed courses
+router.get('/completedcourses', (req, res) => {
+  res.json({
+    completedcourses: req.user.completedCourses,
+  });
 });
 
 // returns the home page html, index.html
