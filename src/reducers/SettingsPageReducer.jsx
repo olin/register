@@ -28,6 +28,8 @@ const SettingsPageReducer = (state = initialState, action) => {
           return setting;
         }),
       });
+    case 'persist/REHYDRATE':
+      return Object.assign({}, state, { persistedState: action.payload });
     default:
       return state;
   }
