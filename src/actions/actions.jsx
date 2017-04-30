@@ -40,7 +40,7 @@ export const resolvedGetCourses = data => ({
   data: data.completedcourses,
 });
 
-// Account Page Component
+// Settings Page Component
 export const toggleSetting = name => ({
   type: 'TOGGLE_SETTING',
   name,
@@ -52,6 +52,13 @@ export const changeSemester = (courseId, newSemester) => ({
   type: 'CHANGE_SEMESTER',
   courseId,
   newSemester,
+});
+
+// Course Planner Dropdown Component
+export const selectCourse = (catId, courseId) => ({
+  type: 'SELECT_COURSE',
+  catId,
+  courseId,
 });
 
 // Login Component

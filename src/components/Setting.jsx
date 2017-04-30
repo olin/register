@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import styles from '../../public/stylesheets/setting.css';
 
-const Setting = ({ onClick, checked, name }) => (
+const Setting = ({ onChange, checked, name }) => (
   <li className={styles.setting}>
-    <input name={name} id={name} type="checkbox" checked={checked} onClick={onClick} />
+    <input name={name} id={name} type="checkbox" checked={checked} onChange={onChange} />
     <label htmlFor={name} /><h4>{name}</h4>
   </li>
 );
 
 Setting.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   checked: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
 };

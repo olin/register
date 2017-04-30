@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import styles from './../../public/stylesheets/navpanel.css';
 
 
 const NavPanel = ({ active }) => (
   <div className={styles.navpanel}>
     <Nav className={styles.pills} stacked activeKey={active} >
-      <LinkContainer to="/">
+      <IndexLinkContainer to="/">
         <NavItem eventKey={1} className={styles.item}>Home</NavItem>
-      </LinkContainer>
-      <LinkContainer to="#">
+      </IndexLinkContainer>
+      <LinkContainer to="/plan">
         <NavItem eventKey={2} className={styles.item}>Create/Edit Plan of Study</NavItem>
       </LinkContainer>
       <LinkContainer to="#">

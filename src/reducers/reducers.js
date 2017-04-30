@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 import ProgressTrackerReducer from './ProgressTrackerReducer';
 import LoginReducer from './LoginReducer';
 import RegisterReducer from './RegisterReducer';
-import AccountPageReducer from './AccountPageReducer';
+import SettingsPageReducer from './SettingsPageReducer';
+import CoursePlannerReducer from './CoursePlannerReducer';
 import PersistReducer from './PersistReducer';
 import ReqsReducer from './ReqsReducer';
 
 const registerApp = combineReducers({
-  AccountPageReducer,
+  SettingsPageReducer,
+  CoursePlannerReducer,
   LoginReducer,
   RegisterReducer,
   ProgressTrackerReducer,
