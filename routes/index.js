@@ -18,6 +18,7 @@ router.post('/login', passport.authenticate('local'),
         const data = {
           user: {
             username: req.user.username,
+            name: req.user.name,
             id: req.user._id,
             entryYear: req.user.entryYear,
             major: req.user.major,

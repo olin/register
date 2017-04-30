@@ -7,7 +7,7 @@ import Note from './Note';
 import styles from '../../public/stylesheets/pages.css';
 
 // The wrapper for all components on a student home page
-const StudentHome = ({ username }) => (
+const StudentHome = ({ name }) => (
   <Row>
     {/* Col attributes resize/reorder for different size screens */}
     <Col sm={3} lg={2}>
@@ -22,14 +22,14 @@ const StudentHome = ({ username }) => (
       <h2>
         Student Home
       </h2>
-      <WelcomeMessage username={username} />
+      <WelcomeMessage name={name} />
       <PlanOfStudy />
     </Col>
   </Row>
 );
 
 StudentHome.propTypes = {
-  username: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default StudentHome;

@@ -1,6 +1,7 @@
 const initialState = {
   username: '',
   password: '',
+  name: '',
   id: '',
   entryYear: 0,
   major: '',
@@ -23,6 +24,7 @@ const LoginReducer = (state = initialState, action) => {
     case 'RECEIVE_USER':
       return Object.assign({}, state, {
         username: action.username,
+        name: action.name,
         id: action.id,
         entryYear: action.entryYear,
         major: action.major,

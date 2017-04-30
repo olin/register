@@ -79,6 +79,7 @@ export const updateRegisterPassword = password => ({
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.user.username,
+  name: json.user.name,
   id: json.user.id,
   entryYear: json.user.entryYear,
   major: json.user.major,
