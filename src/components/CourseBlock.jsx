@@ -5,13 +5,13 @@ const CourseBlock = ({
   registrarId,
   completed,
   connectDragSource,
-  isDragging,
 }) => {
-  const textColor = completed ? 'red' : 'black';
+  const textColor = completed ? 'gray' : 'black';
   return connectDragSource(
     <li
       style={{
         color: textColor,
+        fontStyle: 'italic',
       }}
     >
       {registrarId}:{title}
@@ -24,7 +24,6 @@ CourseBlock.propTypes = {
   registrarId: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired, // for styling?
   connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired,
 };
 
 export default CourseBlock;
