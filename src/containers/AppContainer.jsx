@@ -8,9 +8,4 @@ const mapStateToProps = state => ({
   loggedIn: state.LoginReducer.loggedIn,
 });
 
-// const AppDnD = DragDropContext(HTML5Backend)(App);
-// const AppContainer = connect(
-//   mapStateToProps,
-// )(AppDnD);
-
 export default connect(mapStateToProps)(DragDropContext(HTML5Backend)(App));
