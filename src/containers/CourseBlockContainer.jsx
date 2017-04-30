@@ -17,14 +17,15 @@ const courseSource = {
     return !props.completed;
   },
   endDrag(props, monitor) {
-    const item = monitor.getDropResult();
-    props.onDrop(item.courseId, item.newSemester);
+    if (monitor.didDrop()) {
+      const item = monitor.getDropResult();
+      props.onDrop(item.courseId, item.newSemester);
+    }
   },
 };
 
-const collect = (connect, monitor) => ({
+const collect = connect => ({
   connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging(),
 });
 
 const mapStateToProps = (state, ownProps) => {
