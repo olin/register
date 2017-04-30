@@ -48,6 +48,7 @@ export const toggleSetting = name => ({
 
 // Semester Plan Component
 export const changeSemester = (courseId, newSemester) => ({
+  // dispatched when course block dropped into new semester
   type: 'CHANGE_SEMESTER',
   courseId,
   newSemester,

@@ -8,4 +8,5 @@ const mapStateToProps = state => ({
   loggedIn: state.LoginReducer.loggedIn,
 });
 
+// Specify drag and drop backend (html5 in this case)
 export default connect(mapStateToProps)(DragDropContext(HTML5Backend)(App));

@@ -4,6 +4,7 @@ import Semester from '../components/Semester';
 
 const filterCourse = (semester, completedCourses, plannedCourses) => {
   const compare = (a, b) => {
+    // sort alphabetically by registrarId
     if (a.registrarId.toUpperCase() < b.registrarId.toUpperCase()) {
       return -1;
     }
@@ -18,20 +19,23 @@ const filterCourse = (semester, completedCourses, plannedCourses) => {
   return filteredPlanned.concat(filteredCompleted);
 };
 
+// How the target reacts to drag and drop events
 const semesterTarget = {
   drop(props, monitor) {
+    // return drop result available to the drag source
     const sourceCourse = monitor.getItem();
     return {
-      courseId: sourceCourse.course.courseId,
+      courseId: sourceCourse.courseId,
       newSemester: props.semester,
     };
   },
   canDrop(props, monitor) {
     const sourceCourse = monitor.getItem();
-    return props.semester !== sourceCourse.course.semester;
+    return props.semester !== sourceCourse.semester;
   },
 };
 
+// pass drag and drop props to component
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),

@@ -15,20 +15,23 @@ const filterCourse = (plannedCourses) => {
   return filteredPlanned;
 };
 
+// How the target reacts to drag and drop events
 const semesterTarget = {
   drop(props, monitor) {
+    // return drop result available to the drag sourc
     const sourceCourse = monitor.getItem();
     return {
-      courseId: sourceCourse.course.courseId,
+      courseId: sourceCourse.courseId,
       newSemester: undefined,
     };
   },
   canDrop(props, monitor) {
     const sourceCourse = monitor.getItem();
-    return sourceCourse.course.semester !== undefined;
+    return sourceCourse.semester !== undefined;
   },
 };
 
+// pass drag and drop props to component
 const collect = connect => ({
   connectDropTarget: connect.dropTarget(),
 });

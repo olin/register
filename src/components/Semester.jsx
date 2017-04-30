@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import CourseBlockContainer from '../containers/CourseBlockContainer';
 
 const Semester = ({ semester, courseList, connectDropTarget }) => (
+  // Indicate node should react to drop target events
   connectDropTarget(
     <li>
       { semester }:

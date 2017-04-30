@@ -7,6 +7,7 @@ const CourseBlock = ({
   connectDragSource,
 }) => {
   const textColor = completed ? 'gray' : 'black';
+  // Mark element as draggable node
   return connectDragSource(
     <li
       style={{
@@ -22,7 +23,7 @@ const CourseBlock = ({
 CourseBlock.propTypes = {
   title: PropTypes.string.isRequired,
   registrarId: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired, // for styling?
+  completed: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
 };
 
