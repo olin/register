@@ -15,7 +15,7 @@ const initialState = {
   ],
 };
 
-const AccountPageReducer = (state = initialState, action) => {
+const SettingsPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'TOGGLE_SETTING':
       return Object.assign({}, state, {
@@ -35,4 +35,4 @@ const AccountPageReducer = (state = initialState, action) => {
   }
 };
 
-export default AccountPageReducer;
+export default SettingsPageReducer;
