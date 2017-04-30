@@ -46,6 +46,13 @@ export const toggleSetting = name => ({
   name,
 });
 
+// Semester Plan Component
+export const changeSemester = (courseId, newSemester) => ({
+  type: 'CHANGE_SEMESTER',
+  courseId,
+  newSemester,
+});
+
 // Login Component
 export const updatePassword = password => ({
   type: 'UPDATE_PASSWORD',
