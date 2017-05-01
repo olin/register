@@ -6,6 +6,7 @@ import SettingsPageReducer from './SettingsPageReducer';
 import CoursePlannerReducer from './CoursePlannerReducer';
 import PersistReducer from './PersistReducer';
 import ReqsReducer from './ReqsReducer';
+import RequirementsReducer from './RequirementsReducer';
 
 const registerApp = combineReducers({
   SettingsPageReducer,
@@ -15,6 +16,7 @@ const registerApp = combineReducers({
   ProgressTrackerReducer,
   PersistReducer,
   ReqsReducer,
+  RequirementsReducer,
 });
 
 export default registerApp;

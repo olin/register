@@ -40,6 +40,13 @@ export const resolvedGetCourses = data => ({
   data: data.completedcourses,
 });
 
+// Requirements Component
+export const receiveRequirements = data => ({
+  type: 'RECEIVE_REQUIREMENTS',
+  generalRequirements: data.generalRequirements,
+  majorRequirements: data.majorRequirements,
+});
+
 // Settings Page Component
 export const toggleSetting = name => ({
   type: 'TOGGLE_SETTING',
@@ -79,6 +86,7 @@ export const updateRegisterPassword = password => ({
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.user.username,
+  name: json.user.name,
   id: json.user.id,
   entryYear: json.user.entryYear,
   major: json.user.major,
@@ -92,6 +100,15 @@ export const getCourses = data => (
   (dispatch) => {
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// Get graduation requirements from backend
+export const getRequirements = data => (
+  (dispatch) => {
+    $.get('/requirements', data)
+      .done(response => (dispatch(receiveRequirements(response))))
       .fail((err, status) => console.error(err, status));
   }
 );
