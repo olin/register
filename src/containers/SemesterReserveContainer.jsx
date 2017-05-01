@@ -18,7 +18,7 @@ const filterCourse = (plannedCourses) => {
 // How the target reacts to drag and drop events
 const semesterTarget = {
   drop(props, monitor) {
-    // return drop result available to the drag sourc
+    // return drop result available to the drag source
     const sourceCourse = monitor.getItem();
     return {
       courseId: sourceCourse.courseId,
