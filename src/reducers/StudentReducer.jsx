@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const username = (state='', action) => {
+const username = (state = '', action) => {
   switch (action.type) {
     case 'UPDATE_REGISTER_USERNAME':
       return action.username;
@@ -13,7 +13,7 @@ const username = (state='', action) => {
   }
 };
 
-const password = (state='', action) => {
+const password = (state = '', action) => {
   switch (action.type) {
     case 'UPDATE_PASSWORD':
       return action.password;
@@ -24,7 +24,7 @@ const password = (state='', action) => {
   }
 };
 
-const entryYear = (state = 0, action) => {
+export const entryYear = (state = 0, action) => {
   switch (action.type) {
     case 'RECEIVE_USER':
       return action.entryYear;
@@ -69,7 +69,7 @@ const loggedIn = (state = false, action) => {
   }
 };
 
-const genreqs = (state = 0, action) => {};
+// const genreqs = (state = 0, action) => {};
 
 const settings = (state = [
   {
@@ -87,18 +87,30 @@ const settings = (state = [
 ], action) => {
   switch (action.type) {
     case 'TOGGLE_SETTING':
-      return state.map(setting => {
+      return state.map((setting) => {
         if (setting.name === action.name) {
           return Object.assign({}, setting, {
             checked: !setting.checked,
           });
         }
         return setting;
-      })
+      });
     default:
       return state;
   }
 };
+
+export const Student = Object.assign({}, {
+  username,
+  password,
+  entryYear,
+  major,
+  plannedCourses,
+  completedCourses,
+  loggedIn,
+  // waiting to add genreqs until Progress Tracker stuff makes sense
+  settings,
+});
 
 const StudentReducer = combineReducers({
   username,
@@ -112,5 +124,4 @@ const StudentReducer = combineReducers({
   settings,
 });
 
-console.log(StudentReducer);
 export default StudentReducer;
