@@ -16,6 +16,11 @@ const SemesterList = ({ semesters, onSavePlan }) => (
       )}
       <SemesterReserveContainer />
     </ul>
+    <form onSubmit={onSavePlan}>
+      <button type="submit" value="UpdatePlan">
+        Save Plan of Study
+      </button>
+    </form>
   </div>
 );
 
