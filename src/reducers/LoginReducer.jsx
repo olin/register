@@ -31,6 +31,10 @@ const LoginReducer = (state = initialState, action) => {
         allCourses: action.courses,
         loggedIn: true,
       });
+    case 'LOGOUT_USER':
+      return Object.assign({}, state, {
+        loggedIn: false,
+      });
     default:
       return state;
   }

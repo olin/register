@@ -7,7 +7,7 @@ import SettingsPageContainer from '../containers/SettingsPageContainer';
 import CoursePlannerContainer from '../containers/CoursePlannerContainer';
 import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import SemesterPlanPage from './SemesterPlanPage';
-
+import LogoutContainer from '../containers/LogoutContainer';
 
 const Login = () => (
   <div>
@@ -69,6 +69,10 @@ const App = ({ loggedIn }) => (
         <Route
           path="/semesterplan"
           component={SemesterPlan}
+        />
+        <Route
+          path="/logout"
+          component={LogoutContainer}
         />
         <Route
           path="/login"

@@ -64,6 +64,12 @@ export const updateUsername = username => ({
   username,
 });
 
+// Logout Component
+export const logoutUser = data => ({
+  type: 'LOGOUT_USER',
+  data,
+});
+
 // Register Component
 export const updateRegisterUsername = username => ({
   type: 'UPDATE_REGISTER_USERNAME',
@@ -96,6 +102,16 @@ export const getCourses = data => (
   }
 );
 
+// logout
+export const logout = data => (
+  (dispatch) => {
+    $.get('/logout', data)
+      .done(response => (dispatch(logoutUser(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// login
 export const login = (username, password) => (
   (dispatch) => {
     const data = {
