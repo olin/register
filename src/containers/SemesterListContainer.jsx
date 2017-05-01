@@ -17,6 +17,10 @@ const makeSemesterList = (entryYear) => {
 
 const mapStateToProps = state => ({
   semesters: makeSemesterList(state.LoginReducer.entryYear),
+  onSavePlan: (e) => {
+    e.preventDefault();
+    // dispatch()
+  },
 });
 
 const SemesterListContainer = connect(
