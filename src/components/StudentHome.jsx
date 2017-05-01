@@ -1,13 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import WelcomeMessage from './WelcomeMessage';
-import PlanOfStudy from './PlanOfStudy';
+import WelcomeMessageContainer from '../containers/WelcomeMessageContainer';
+import RequirementsListContainer from '../containers/RequirementsListContainer';
 import NavPanel from './NavPanel';
 import Note from './Note';
 import styles from '../../public/stylesheets/pages.css';
 
 // The wrapper for all components on a student home page
-const StudentHome = ({ name }) => (
+const StudentHome = () => (
   <Row>
     {/* Col attributes resize/reorder for different size screens */}
     <Col sm={3} lg={2}>
@@ -22,14 +22,10 @@ const StudentHome = ({ name }) => (
       <h2>
         Student Home
       </h2>
-      <WelcomeMessage name={name} />
-      <PlanOfStudy />
+      <WelcomeMessageContainer />
+      <RequirementsListContainer />
     </Col>
   </Row>
 );
-
-StudentHome.propTypes = {
-  name: PropTypes.string.isRequired,
-};
 
 export default StudentHome;
