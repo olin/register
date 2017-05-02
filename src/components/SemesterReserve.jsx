@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import CourseBlockContainer from '../containers/CourseBlockContainer';
+import styles from './../../public/stylesheets/semester.css';
 
 const SemesterReserve = ({ courseList, connectDropTarget }) => (
   // Indicate node should react to drop target events
   connectDropTarget(
     <li>
-      Unassigned Courses:
+      <span className={styles.semesterheading}>Unassigned Courses:</span>
       <ul>
         {courseList.map(course =>
           <CourseBlockContainer
