@@ -7,17 +7,25 @@ const mapStateToProps = state => ({
   password: state.Student.registerPassword,
 });
 
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  updateRegisterUser: (e) => {
+    dispatch(updateRegisterUsername(e.target.value));
+  },
+  updateRegisterPwd: (e) => {
+    dispatch(updateRegisterPassword(e.target.value));
+  },
+});
+
 const mergeProps = (stateProps, dispatchProps) => {
   const { username, password } = stateProps;
-  const { dispatch } = dispatchProps;
+  const { dispatch, updateRegisterUser, updateRegisterPwd } = dispatchProps;
 
   return {
-    updateRegisterUsername: (e) => {
-      dispatch(updateRegisterUsername(e.target.value));
-    },
-    updateRegisterPassword: (e) => {
-      dispatch(updateRegisterPassword(e.target.value));
-    },
+    username,
+    password,
+    updateRegisterUser,
+    updateRegisterPwd,
     onRegister: (e) => {
       e.preventDefault();
       dispatch(register(username, password));
@@ -27,7 +35,7 @@ const mergeProps = (stateProps, dispatchProps) => {
 
 const RegisterContainer = connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
   mergeProps,
 )(RegisterNewUser);
 

@@ -3,7 +3,7 @@ The user provides their email and password. */
 import React, { PropTypes } from 'react';
 import styles from './../../public/stylesheets/login.css';
 
-const LoginLocal = ({ username, password, updateUser, updatePassword, onLogin }) => (
+const LoginLocal = ({ username, password, updateUser, updatePwd, onLogin }) => (
   <div className={styles.loginblock}>
     <form id="local-login" className="form-signin" onSubmit={onLogin}>
       <h2>Log In to an Existing Account</h2>
@@ -18,7 +18,7 @@ const LoginLocal = ({ username, password, updateUser, updatePassword, onLogin })
         placeholder="Password"
         type="password"
         value={password}
-        onChange={updatePassword}
+        onChange={updatePwd}
       />
       <br />
       <button
@@ -35,7 +35,7 @@ LoginLocal.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   updateUser: PropTypes.func.isRequired,
-  updatePassword: PropTypes.func.isRequired,
+  updatePwd: PropTypes.func.isRequired,
   onLogin: PropTypes.func.isRequired,
 };
 

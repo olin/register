@@ -7,8 +7,8 @@ import Note from './Note';
 const RegisterNewUser = ({
   username,
   password,
-  updateRegisterUsername,
-  updateRegisterPassword,
+  updateRegisterUser,
+  updateRegisterPwd,
   onRegister,
 }) => (
   <div className={styles.registerblock}>
@@ -19,14 +19,14 @@ const RegisterNewUser = ({
         placeholder="Email"
         type="text"
         value={username}
-        onChange={updateRegisterUsername}
+        onChange={updateRegisterUser}
       />
       <br />
       <input
         placeholder="Password"
         type="password"
         value={password}
-        onChange={updateRegisterPassword}
+        onChange={updateRegisterPwd}
       />
       <br />
       <button
@@ -40,8 +40,8 @@ const RegisterNewUser = ({
 RegisterNewUser.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  updateRegisterUsername: PropTypes.func.isRequired,
-  updateRegisterPassword: PropTypes.func.isRequired,
+  updateRegisterUser: PropTypes.func.isRequired,
+  updateRegisterPwd: PropTypes.func.isRequired,
   onRegister: PropTypes.func.isRequired,
 };
 

@@ -8,17 +8,25 @@ const mapStateToProps = state => ({
   password: state.Student.password,
 });
 
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  updateUser: (e) => {
+    dispatch(updateUsername(e.target.value));
+  },
+  updatePwd: (e) => {
+    dispatch(updatePassword(e.target.value));
+  },
+});
+
 const mergeProps = (stateProps, dispatchProps) => {
   const { username, password } = stateProps;
-  const { dispatch } = dispatchProps;
+  const { dispatch, updateUser, updatePwd } = dispatchProps;
 
   return {
-    updateUser: (e) => {
-      dispatch(updateUsername(e.target.value));
-    },
-    updatePassword: (e) => {
-      dispatch(updatePassword(e.target.value));
-    },
+    username,
+    password,
+    updateUser,
+    updatePwd,
     onLogin: (e) => {
       e.preventDefault();
       dispatch(login(username, password));
@@ -28,7 +36,7 @@ const mergeProps = (stateProps, dispatchProps) => {
 
 const LoginContainer = connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
   mergeProps,
 )(LoginLocal);
 
