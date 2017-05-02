@@ -142,6 +142,18 @@ export const register = (username, password) => (
   }
 );
 
+// Save plan of study backend
+export const updatePlan = plannedCourses => (
+  (dispatch) => {
+    const data = {
+      plannedCourses,
+    };
+    $.post('/updateplan', data)
+      .done(response => (dispatch(updatePlanSuccess(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
 // update login form username
 export const updateUsername = username => ({
   type: 'UPDATE_USERNAME',
