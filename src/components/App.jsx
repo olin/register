@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Header from './Header';
 import LoginPage from './LoginPage';
-import StudentHomeContainer from '../containers/StudentHomeContainer';
+import StudentHome from './StudentHome';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
 import CoursePlannerContainer from '../containers/CoursePlannerContainer';
 // import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
@@ -19,6 +19,8 @@ const Home = () => (
   <div>
     <Header />
     <StudentHomeContainer />
+    <StudentHome />
+    <ProgressTrackerContainer />
   </div>
 );
 
