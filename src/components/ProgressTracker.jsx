@@ -20,6 +20,9 @@ const ProgressTracker = ({
   handleEngr }) => (
     <div className={styles.trackerComponent}>
       <ul>
+        <div className={styles.progressTypeHeader}>
+          Credit Requirements
+        </div>
         <li>
           <a onClick={handleEngr} href="">Engineering Credits</a>
           <p>{engrTotal}/46 credits</p>
@@ -64,6 +67,9 @@ const ProgressTracker = ({
           </div>
         </div>
 
+        <div className={styles.progressTypeHeader}>
+          Course Requirements
+        </div>
         <li>
           <a onClick={handleGenReqs} href="">General Course Requirements</a>
           <p>{genreqs.length}/16 courses</p>
