@@ -2,15 +2,17 @@ import React, { PropTypes } from 'react';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 const AddCourseDropdown = ({ onSelect, catId, category, courses, selected }) => (
-  <FormGroup controlId={catId}>
-    <ControlLabel>{category}</ControlLabel>
-    <FormControl componentClass="select" value={selected} onChange={onSelect}>
-      <option key={' '} value={' '} />
-      {courses.map(course =>
-        <option key={course.courseId} value={course.courseId}>{course.name}</option>,
-      )}
-    </FormControl>
-  </FormGroup>
+  <li>
+    <FormGroup controlId={catId}>
+      <ControlLabel>{category}</ControlLabel>
+      <FormControl componentClass="select" value={selected} onChange={onSelect}>
+        <option key={' '} value={' '} />
+        {courses.map(course =>
+          <option key={course.courseCode} value={course.courseCode}>{course.title}</option>,
+        )}
+      </FormControl>
+    </FormGroup>
+  </li>
 );
 
 AddCourseDropdown.propTypes = {
@@ -18,8 +20,8 @@ AddCourseDropdown.propTypes = {
   catId: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   courses: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    courseId: PropTypes.string.isRequired,
+    courseCode: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   selected: PropTypes.string.isRequired,
 };

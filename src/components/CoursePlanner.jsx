@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import AddCourseDropdown from './AddCourseDropdown';
+import SelectedCourse from './SelectedCourse';
+import SearchFieldContainer from '../containers/SearchFieldContainer';
 import NavPanel from './NavPanel';
 import styles from '../../public/stylesheets/pages.css';
 
-const CoursePlanner = ({ categories, onCourseSelect }) => (
+const CoursePlanner = ({ categories, otherCourses, onCourseSelect, onCourseRemove }) => (
   <Row>
     <Col sm={3} lg={2}>
       <NavPanel active={2} />
@@ -13,6 +15,7 @@ const CoursePlanner = ({ categories, onCourseSelect }) => (
       <div className={styles.mainbody}>
         <h2>Plan Your Study</h2>
         <hr />
+        <h4>Specific Requirements</h4>
         <ul>
           {categories.map(category =>
             <AddCourseDropdown
@@ -22,6 +25,18 @@ const CoursePlanner = ({ categories, onCourseSelect }) => (
             />,
           )}
         </ul>
+        <h4>Other Courses</h4>
+        <ul>
+          {otherCourses.map(course =>
+            <SelectedCourse
+              {...course}
+              key={course.courseCode}
+              onDelete={() => onCourseRemove(course.courseCode)}
+            />,
+          )}
+        </ul>
+        <h4>Search All Courses</h4>
+        <SearchFieldContainer />
       </div>
     </Col>
   </Row>
@@ -32,12 +47,17 @@ CoursePlanner.propTypes = {
     catId: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      courseId: PropTypes.string.isRequired,
+      courseCode: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired).isRequired,
     selected: PropTypes.string.isRequired,
   }).isRequired).isRequired,
+  otherCourses: PropTypes.arrayOf(PropTypes.shape({
+    courseCode: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
   onCourseSelect: PropTypes.func.isRequired,
+  onCourseRemove: PropTypes.func.isRequired,
 };
 
 export default CoursePlanner;
