@@ -1,6 +1,6 @@
 const initialState = {};
 
-const PersistReducer = (state = initialState, action) => {
+const Persist = (state = initialState, action) => {
   switch (action.type) {
     case 'persist/REHYDRATE':
       return Object.assign({}, state, {
@@ -11,4 +11,4 @@ const PersistReducer = (state = initialState, action) => {
   }
 };
 
-export default PersistReducer;
+export default Persist;

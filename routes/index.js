@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const Student = require('./../models/studentModel');
 const Course = require('./../models/courseModel');
+const Major = require('../models/majorModel');
 const path = require('path');
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router.post('/login', passport.authenticate('local'),
         const data = {
           user: {
             username: req.user.username,
+            name: req.user.name,
             id: req.user._id,
             entryYear: req.user.entryYear,
             major: req.user.major,
@@ -53,6 +55,7 @@ router.post('/register', (req, res) => {
                 const data = {
                   user: {
                     username: req.user.username,
+                    name: req.user.name,
                     id: req.user._id,
                     entryYear: req.user.entryYear,
                     major: req.user.major,
@@ -71,10 +74,33 @@ router.post('/register', (req, res) => {
     });
 });
 
+// update student's plan of study
+router.post('/updateplan', (req, res) => {
+  Student.update(
+    { _id: req.user._id },
+    { plannedCourses: req.body.plannedCourses },
+    (err) => {
+      if (err) {
+        console.error(err);
+      }
+      res.json({ success: true });
+    });
+});
+
 // get student completed courses
 router.get('/completedcourses', (req, res) => {
   res.json({
     completedcourses: req.user.completedCourses,
+  });
+});
+
+router.get('/requirements', (req, res) => {
+  Major.findOne({ name: req.user.major }, (err, major) => {
+    const data = {
+      generalRequirements: major.generalRequirements,
+      majorRequirements: major.majorRequirements,
+    };
+    res.json(data);
   });
 });
 

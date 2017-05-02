@@ -39,7 +39,7 @@ const collect = connect => ({
 });
 
 const mapStateToProps = (state, ownProps) => {
-  const course = findCourseById(state.LoginReducer.allCourses, ownProps.course.courseId);
+  const course = findCourseById(state.Courses, ownProps.course.courseId);
   return {
     title: course.title,
     registrarId: course.registrarId,

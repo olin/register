@@ -11,7 +11,7 @@ export const updateMajorReq = majorreqs => ({
 });
 
 export const updateMathsci = mathsci => ({
-  type: 'UPDATE_MATHSCI_REQ',
+  type: 'UPDATE_MATHSCI',
   mathsci,
 });
 
@@ -37,7 +37,14 @@ export const resetReq = (genreqs, majorreqs, mathsci, ahse, engr) => ({
 // Progress Tracker Component
 export const resolvedGetCourses = data => ({
   type: 'GET_COMPLETED_COURSES',
-  data: data.completedcourses,
+  completedCourses: data.completedcourses,
+});
+
+// Requirements Component
+export const receiveRequirements = data => ({
+  type: 'RECEIVE_REQUIREMENTS',
+  generalRequirements: data.generalRequirements,
+  majorRequirements: data.majorRequirements,
 });
 
 // Settings Page Component
@@ -83,10 +90,17 @@ export const updateRegisterPassword = password => ({
   password,
 });
 
+// Update plan button
+export const updateSuccess = data => ({
+  type: 'UPDATE_PLAN_SUCCESS',
+  isSuccess: data.success,
+});
+
 // Login backend interaction
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.user.username,
+  name: json.user.name,
   id: json.user.id,
   entryYear: json.user.entryYear,
   major: json.user.major,
@@ -100,6 +114,15 @@ export const getCourses = data => (
   (dispatch) => {
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// Get graduation requirements from backend
+export const getRequirements = data => (
+  (dispatch) => {
+    $.get('/requirements', data)
+      .done(response => (dispatch(receiveRequirements(response))))
       .fail((err, status) => console.error(err, status));
   }
 );
@@ -124,6 +147,18 @@ export const register = (username, password) => (
     };
     $.post('/register', data)
       .done(response => (dispatch(receiveUser(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// Save plan of study backend
+export const updateplan = plannedCourses => (
+  (dispatch) => {
+    const data = {
+      plannedCourses,
+    };
+    $.post('/updateplan', data)
+      .done(response => (dispatch(updateSuccess(response))))
       .fail((err, status) => console.error(err, status));
   }
 );

@@ -3,8 +3,8 @@ import { updateRegisterUsername, updateRegisterPassword, register } from '../act
 import RegisterNewUser from '../components/RegisterNewUser';
 
 const mapStateToProps = state => ({
-  username: state.RegisterReducer.username,
-  password: state.RegisterReducer.password,
+  username: state.Student.registerUsername,
+  password: state.Student.registerPassword,
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
