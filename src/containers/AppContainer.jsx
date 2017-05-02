@@ -5,7 +5,7 @@ import App from '../components/App';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  loggedIn: state.LoginReducer.loggedIn,
+  loggedIn: state.Student.loggedIn,
 });
 
 // Specify drag and drop backend (html5 in this case)

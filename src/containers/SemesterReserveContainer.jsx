@@ -38,7 +38,7 @@ const collect = connect => ({
 
 const mapStateToProps = state => (
   {
-    courseList: filterCourse(state.LoginReducer.plannedCourses),
+    courseList: filterCourse(state.Student.plannedCourses),
   }
 );
 
