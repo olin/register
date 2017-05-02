@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import WelcomeMessageContainer from '../containers/WelcomeMessageContainer';
-import RequirementsListContainer from '../containers/RequirementsListContainer';
 import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import NavPanel from './NavPanel';
 import Note from './Note';
@@ -25,7 +24,6 @@ const StudentHome = () => (
       </h2>
       <WelcomeMessageContainer />
       <ProgressTrackerContainer />
-      <RequirementsListContainer />
     </Col>
   </Row>
 );

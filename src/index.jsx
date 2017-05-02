@@ -18,7 +18,6 @@ const store = createStore(
   ),
 );
 
-
 persistStore(store);
 
 render(

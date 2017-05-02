@@ -6,7 +6,7 @@ import StudentHome from './StudentHome';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
 import CoursePlannerContainer from '../containers/CoursePlannerContainer';
 import SemesterPlanPage from './SemesterPlanPage';
-
+import LogoutContainer from '../containers/LogoutContainer';
 
 const Login = () => (
   <div>
@@ -54,7 +54,13 @@ const App = ({ loggedIn }) => (
       <Switch>
         <Route
           exact path="/"
-          render={Home}
+          component={() => (
+            loggedIn ? (
+              <Home />
+            ) : (
+              <Redirect to="/login" />
+            )
+          )}
         />
         <Route
           path="/settings"
@@ -69,8 +75,12 @@ const App = ({ loggedIn }) => (
           component={SemesterPlan}
         />
         <Route
+          path="/logout"
+          component={LogoutContainer}
+        />
+        <Route
           path="/login"
-          render={() => (
+          component={() => (
             loggedIn ? (
               <Redirect to="/" />
             ) : (

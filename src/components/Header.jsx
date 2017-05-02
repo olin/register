@@ -17,7 +17,7 @@ const Header = () => (
           <LinkContainer to="/settings">
             <NavItem eventKey={1}><Glyphicon glyph="cog" /></NavItem>
           </LinkContainer>
-          <LinkContainer to="#">
+          <LinkContainer to="/logout">
             <NavItem eventKey={2}><Glyphicon glyph="log-out" /></NavItem>
           </LinkContainer>
         </Nav>

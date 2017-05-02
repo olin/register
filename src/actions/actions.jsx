@@ -103,11 +103,26 @@ export const receiveUser = json => ({
   courses: json.courses,
 });
 
+// Logout Component
+export const logoutUser = data => ({
+  type: 'LOGOUT_USER',
+  data,
+});
+
 // Get completed courses from backend
 export const getCourses = data => (
   (dispatch) => {
     $.get('/completedcourses', data)
       .done(response => (dispatch(resolvedGetCourses(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// logout
+export const logout = data => (
+  (dispatch) => {
+    $.get('/logout', data)
+      .done(response => (dispatch(logoutUser(response))))
       .fail((err, status) => console.error(err, status));
   }
 );
@@ -121,6 +136,7 @@ export const getRequirements = data => (
   }
 );
 
+// login
 export const login = (username, password) => (
   (dispatch) => {
     const data = {

@@ -84,7 +84,8 @@ class ProgressTrackerContainer extends Component {
       return (
         <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p className={styles.progressRatio}>{genreqs.length}/16 courses</p>
+          <p className={styles.progressRatio}>{genreqs.length}/16 General Requirement Courses</p>
+          <p className={styles.progressRatio}>Completed:</p>
           <ul className={styles.classList}>{genreqItems}</ul>
         </div>
       );
@@ -93,7 +94,8 @@ class ProgressTrackerContainer extends Component {
       return (
         <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p className={styles.progressRatio}>{majorreqs.length}/7 courses</p>
+          <p className={styles.progressRatio}>{majorreqs.length}/7 Major Requirement Courses</p>
+          <p className={styles.progressRatio}>Completed:</p>
           <ul className={styles.classList}>{majorreqItems}</ul>
         </div>
       );
@@ -103,7 +105,8 @@ class ProgressTrackerContainer extends Component {
       return (
         <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p className={styles.progressRatio}>{mathTotal + sciTotal}/30 credits</p>
+          <p className={styles.progressRatio}>{mathTotal + sciTotal}/30 Math and Science Credits</p>
+          <p className={styles.progressRatio}>Completed:</p>
           <ul className={styles.classList}>{mathvalues}{scivalues}</ul>
         </div>
       );
@@ -112,7 +115,8 @@ class ProgressTrackerContainer extends Component {
       return (
         <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p className={styles.progressRatio}>{ahseTotal}/28 credits</p>
+          <p className={styles.progressRatio}>{ahseTotal}/28 AHSE Credits</p>
+          <p className={styles.progressRatio}>Completed:</p>
           <ul className={styles.classList}>{ahsevalues}</ul>
         </div>
       );
@@ -121,7 +125,8 @@ class ProgressTrackerContainer extends Component {
       return (
         <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p className={styles.progressRatio}>{engrTotal}/46 credits</p>
+          <p className={styles.progressRatio}>{engrTotal}/46 Engineering Credits</p>
+          <p className={styles.progressRatio}>Completed:</p>
           <ul className={styles.classList}>{engrvalues}</ul>
         </div>
       );
