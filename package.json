@@ -37,6 +37,8 @@
     "react": "^15.4.2",
     "react-autosuggest": "^9.0.1",
     "react-bootstrap": "^0.30.9",
+    "react-dnd": "^2.3.0",
+    "react-dnd-html5-backend": "^2.3.0",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "react-router": "^4.1.1",
