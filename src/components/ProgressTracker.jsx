@@ -1,3 +1,5 @@
+/* The progress tracker component, showing students how many of their courses
+they have completed and thereby how many they have left to go. */
 import React, { PropTypes } from 'react';
 import styles from '../../public/stylesheets/progress-tracker.css';
 

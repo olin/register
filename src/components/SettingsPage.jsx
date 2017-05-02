@@ -1,3 +1,4 @@
+// The page that holds the user setting components.
 import React, { PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Setting from './Setting';
@@ -6,6 +7,7 @@ import styles from '../../public/stylesheets/pages.css';
 
 const SettingsPage = ({ settings, onSettingToggle }) => (
   <Row>
+    {/* col attributes resize/reorder for different size screens */}
     <Col sm={3} lg={2}>
       <NavPanel />
     </Col>
