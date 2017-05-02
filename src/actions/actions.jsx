@@ -116,12 +116,6 @@ export const logout = data => (
   }
 );
 
-// Update plan button
-export const updatePlanSuccess = data => ({
-  type: 'UPDATE_PLAN_SUCCESS',
-  isSuccess: data.success,
-});
-
 // login backend interaction
 export const login = (username, password) => (
   (dispatch) => {
