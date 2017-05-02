@@ -40,10 +40,25 @@ export const resolvedGetCourses = data => ({
   data: data.completedcourses,
 });
 
+// Requirements Component
+export const receiveRequirements = data => ({
+  type: 'RECEIVE_REQUIREMENTS',
+  generalRequirements: data.generalRequirements,
+  majorRequirements: data.majorRequirements,
+});
+
 // Settings Page Component
 export const toggleSetting = name => ({
   type: 'TOGGLE_SETTING',
   name,
+});
+
+// Semester Plan Component
+export const changeSemester = (courseId, newSemester) => ({
+  // dispatched when course block dropped into new semester
+  type: 'CHANGE_SEMESTER',
+  courseId,
+  newSemester,
 });
 
 // Course Planner Dropdown Component
@@ -79,6 +94,7 @@ export const updateRegisterPassword = password => ({
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.user.username,
+  name: json.user.name,
   id: json.user.id,
   entryYear: json.user.entryYear,
   major: json.user.major,
@@ -107,6 +123,12 @@ export const logout = data => (
   (dispatch) => {
     $.get('/logout', data)
       .done(response => (dispatch(logoutUser(response))))
+
+// Get graduation requirements from backend
+export const getRequirements = data => (
+  (dispatch) => {
+    $.get('/requirements', data)
+      .done(response => (dispatch(receiveRequirements(response))))
       .fail((err, status) => console.error(err, status));
   }
 );

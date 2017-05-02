@@ -1,6 +1,7 @@
 const initialState = {
   username: '',
   password: '',
+  name: '',
   id: '',
   entryYear: 0,
   major: '',
@@ -23,6 +24,7 @@ const LoginReducer = (state = initialState, action) => {
     case 'RECEIVE_USER':
       return Object.assign({}, state, {
         username: action.username,
+        name: action.name,
         id: action.id,
         entryYear: action.entryYear,
         major: action.major,
@@ -35,6 +37,17 @@ const LoginReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         loggedIn: false,
       });
+    case 'CHANGE_SEMESTER': {
+      const isCourseMatch = course => course.courseId === action.courseId;
+      const index = state.plannedCourses.findIndex(isCourseMatch);
+      const course = state.plannedCourses.find(isCourseMatch);
+      course.semester = action.newSemester;
+      const updatedPlanned = state.plannedCourses;
+      updatedPlanned[index] = course;
+      return Object.assign({}, state, {
+        plannedCourses: updatedPlanned,
+      });
+    }
     default:
       return state;
   }
