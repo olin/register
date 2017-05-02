@@ -61,6 +61,9 @@ class ProgressTrackerContainer extends Component {
       engrTotal,
       sciTotal,
       ahseTotal,
+      mathSciPerc,
+      engrPerc,
+      ahsePerc,
       mathCourses, engrCourses, sciCourses, ahseCourses } = this.props;
     if (isGenReq) {
       const genreqItems = genreqs.map(req => <li>{req}</li>);
@@ -117,6 +120,9 @@ class ProgressTrackerContainer extends Component {
         engrTotal={engrTotal}
         sciTotal={sciTotal}
         ahseTotal={ahseTotal}
+        mathSciPerc={mathSciPerc}
+        engrPerc={engrPerc}
+        ahsePerc={ahsePerc}
         handleGenReqs={this.handleGenReqs}
         handleMajorReqs={this.handleMajorReqs}
         handleMathsci={this.handleMathsci}
@@ -140,6 +146,9 @@ ProgressTrackerContainer.propTypes = {
   engrTotal: PropTypes.number.isRequired,
   sciTotal: PropTypes.number.isRequired,
   ahseTotal: PropTypes.number.isRequired,
+  mathSciPerc: PropTypes.string.isRequired,
+  engrPerc: PropTypes.string.isRequired,
+  ahsePerc: PropTypes.string.isRequired,
   mathCourses: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     credits: PropTypes.number.isRequired,
@@ -169,6 +178,9 @@ const mapStateToProps = state => ({
   engrTotal: state.ProgressTrackerReducer.engrTotal,
   sciTotal: state.ProgressTrackerReducer.sciTotal,
   ahseTotal: state.ProgressTrackerReducer.ahseTotal,
+  mathSciPerc: state.ProgressTrackerReducer.mathSciPerc,
+  ahsePerc: state.ProgressTrackerReducer.ahsePerc,
+  engrPerc: state.ProgressTrackerReducer.engrPerc,
   isGenReq: state.ReqsReducer.isGenReq,
   isMajorReq: state.ReqsReducer.isMajorReq,
   isMathsci: state.ReqsReducer.isMathsci,

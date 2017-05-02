@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import WelcomeMessage from './WelcomeMessage';
 import PlanOfStudy from './PlanOfStudy';
 import NavPanel from './NavPanel';
+import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import Note from './Note';
 import styles from '../../public/stylesheets/pages.css';
 
@@ -23,6 +24,7 @@ const StudentHome = ({ username }) => (
         Student Home
       </h2>
       <WelcomeMessage username={username} />
+      <ProgressTrackerContainer />
       <PlanOfStudy />
     </Col>
   </Row>

@@ -5,7 +5,7 @@ import LoginPage from './LoginPage';
 import StudentHomeContainer from '../containers/StudentHomeContainer';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
 import CoursePlannerContainer from '../containers/CoursePlannerContainer';
-import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
+// import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import SemesterPlanPage from './SemesterPlanPage';
 
 
@@ -19,7 +19,6 @@ const Home = () => (
   <div>
     <Header />
     <StudentHomeContainer />
-    <ProgressTrackerContainer />
   </div>
 );
 

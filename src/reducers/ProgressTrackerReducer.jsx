@@ -48,6 +48,12 @@ const ProgressTrackerReducer = (state = initialState, action) => {
       const engrTotal = sum(engrCourses);
       const ahseTotal = sum(ahseCourses);
       const sciTotal = sum(sciCourses);
+      const mathSciPercNum = Math.round((mathTotal + sciTotal) * 3.33);
+      const mathSciPerc = mathSciPercNum.toString().concat('%');
+      const engrPercNum = Math.round(engrTotal * 2.17);
+      const engrPerc = engrPercNum.toString().concat('%');
+      const ahsePercNum = Math.round(ahseTotal * 3.4);
+      const ahsePerc = ahsePercNum.toString().concat('%');
 
       return Object.assign({}, state, {
         genreqs,
@@ -60,6 +66,9 @@ const ProgressTrackerReducer = (state = initialState, action) => {
         engrTotal,
         ahseTotal,
         sciTotal,
+        mathSciPerc,
+        engrPerc,
+        ahsePerc,
       });
     }
     default: {
