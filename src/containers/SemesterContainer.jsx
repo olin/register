@@ -47,8 +47,8 @@ const mapStateToProps = (state, ownProps) => (
     semester: ownProps.semester,
     courseList: filterCourse(
       ownProps.semester,
-      state.LoginReducer.completedCourses,
-      state.LoginReducer.plannedCourses,
+      state.Student.completedCourses,
+      state.Student.plannedCourses,
     ),
   }
 );
