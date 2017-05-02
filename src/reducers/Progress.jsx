@@ -171,18 +171,6 @@ const isEngr = (state = false, action) => {
   }
 };
 
-
-// // converts progress into a string that can be used by
-//  // the progress bar in the ProgressTracker component
-// const mathSciPercNum = Math.round((mathCourses.creditTotal + sciCourses.creditTotal) * 3.33);
-// const mathSciPerc = mathSciPercNum.toString().concat('%');
-// const engrPercNum = Math.round(engrTotal * 2.17);
-// const engrPerc = engrPercNum.toString().concat('%');
-// const genReqsPercNum = Math.round(genreqs.length * 6.25);
-// const genReqsPerc = genReqsPercNum.toString().concat('%');
-// const majorReqsPercNum = Math.round(majorreqs.length * 14.28);
-// const majorReqsPerc = majorReqsPercNum.toString().concat('%');
-
 const progressFilter = combineReducers({
   isGenReq,
   isMajorReq,
