@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import AddCourseDropdown from './AddCourseDropdown';
+import UpdatePlanContainer from '../containers/UpdatePlanContainer';
 import NavPanel from './NavPanel';
 import styles from '../../public/stylesheets/pages.css';
 
@@ -24,6 +25,7 @@ const CoursePlanner = ({ categories, onCourseSelect }) => (
             />,
           )}
         </ul>
+        <UpdatePlanContainer />
       </div>
     </Col>
   </Row>
