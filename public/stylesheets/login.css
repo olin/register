@@ -3,6 +3,10 @@
     padding-top: 90px;
 }
 
+.alert {
+    display: inline-block;
+}
+
 .registerblock {
     text-align:center;
     padding-top: 50px;
