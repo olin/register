@@ -6,7 +6,7 @@ import SearchField from '../components/SearchField';
 const mapStateToProps = state => ({
   suggestions: state.CoursePlanner.suggestions,
   val: state.CoursePlanner.value,
-  courses: state.CoursePlanner.allCourses,
+  courses: state.Courses,
 });
 
 const mapDispatchToProps = dispatch => ({

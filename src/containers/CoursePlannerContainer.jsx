@@ -9,11 +9,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onCourseSelect: (catId, courseCode) => {
-    dispatch(selectCourse(catId, courseCode));
+  onCourseSelect: (catId, registrarId) => {
+    dispatch(selectCourse(catId, registrarId));
   },
-  onCourseRemove: (courseCode) => {
-    dispatch(removeCourse(courseCode));
+  onCourseRemove: (registrarId) => {
+    dispatch(removeCourse(registrarId));
   },
 });
 

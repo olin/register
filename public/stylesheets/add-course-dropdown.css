@@ -1,0 +1,8 @@
+.dropdown option {
+  cursor: pointer;
+  padding: 5px 20px;
+}
+
+.dropdown option:active option:hover {
+  background: #ddd;
+}

@@ -30,8 +30,8 @@ const CoursePlanner = ({ categories, otherCourses, onCourseSelect, onCourseRemov
           {otherCourses.map(course =>
             <SelectedCourse
               {...course}
-              key={course.courseCode}
-              onDelete={() => onCourseRemove(course.courseCode)}
+              key={course.registrarId}
+              onDelete={() => onCourseRemove(course.registrarId)}
             />,
           )}
         </ul>
@@ -47,13 +47,13 @@ CoursePlanner.propTypes = {
     catId: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.shape({
-      courseCode: PropTypes.string.isRequired,
+      registrarId: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     }).isRequired).isRequired,
     selected: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   otherCourses: PropTypes.arrayOf(PropTypes.shape({
-    courseCode: PropTypes.string.isRequired,
+    registrarId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   onCourseSelect: PropTypes.func.isRequired,

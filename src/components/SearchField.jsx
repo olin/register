@@ -8,7 +8,7 @@ const getSuggestions = ({ value, items }) => {
 
   return inputLength === 0 ? [] : items.filter(item =>
     item.title.toLowerCase().slice(0, inputLength) === inputValue ||
-    item.courseCode.toLowerCase().slice(0, inputLength) === inputValue);
+    item.registrarId.toLowerCase().slice(0, inputLength) === inputValue);
 };
 
 const getSuggestionValue = suggestion => suggestion.title;
@@ -41,12 +41,12 @@ const SearchField = ({ suggestions, val, courses, onChange, onUpdateSuggestions,
 
 SearchField.propTypes = {
   suggestions: PropTypes.arrayOf(PropTypes.shape({
-    courseCode: PropTypes.string.isRequired,
+    registrarId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   val: PropTypes.string.isRequired,
   courses: PropTypes.arrayOf(PropTypes.shape({
-    courseCode: PropTypes.string.isRequired,
+    registrarId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   onChange: PropTypes.func.isRequired,

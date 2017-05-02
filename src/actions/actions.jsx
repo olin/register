@@ -62,10 +62,10 @@ export const changeSemester = (courseId, newSemester) => ({
 });
 
 // Course Planner Dropdown Component
-export const selectCourse = (catId, courseCode) => ({
+export const selectCourse = (catId, registrarId) => ({
   type: 'SELECT_COURSE',
   catId,
-  courseCode,
+  registrarId,
 });
 
 export const addCourse = course => ({
@@ -73,9 +73,9 @@ export const addCourse = course => ({
   course,
 });
 
-export const removeCourse = courseCode => ({
+export const removeCourse = registrarId => ({
   type: 'REMOVE_COURSE',
-  courseCode,
+  registrarId,
 });
 
 // Course Planner Search Component
