@@ -16,7 +16,7 @@ const makeSemesterList = (entryYear) => {
 };
 
 const mapStateToProps = state => ({
-  semesters: makeSemesterList(state.LoginReducer.entryYear),
+  semesters: makeSemesterList(state.Student.entryYear),
 });
 
 const SemesterListContainer = connect(

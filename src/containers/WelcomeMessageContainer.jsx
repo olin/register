@@ -3,7 +3,7 @@ import WelcomeMessage from '../components/WelcomeMessage';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  name: state.LoginReducer.name,
+  name: state.Student.name,
 });
 
 const WelcomeMessageContainer = connect(

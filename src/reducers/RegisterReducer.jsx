@@ -1,7 +1,6 @@
 const initialState = {
   username: '',
   password: '',
-  confirmPassword: '',
 };
 
 const RegisterReducer = (state = initialState, action) => {
