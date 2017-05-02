@@ -1,3 +1,4 @@
+// The component that allows students to add courses to their plan of study.
 import React, { PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import AddCourseDropdown from './AddCourseDropdown';
@@ -8,6 +9,7 @@ import styles from '../../public/stylesheets/pages.css';
 
 const CoursePlanner = ({ categories, otherCourses, onCourseSelect, onCourseRemove }) => (
   <Row>
+    {/* col attributes resize/reorder for different size screens */}
     <Col sm={3} lg={2}>
       <NavPanel active={2} />
     </Col>

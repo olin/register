@@ -1,0 +1,17 @@
+.trackerComponent {
+  height: 500px;
+
+}
+
+.classList {
+  font-size : 10pt;
+}
+
+.progressRatio {
+  font-size : 12pt;
+  font-weight: bold;
+}
+
+.progressTypeHeader {
+  font-size : 14pt;
+}

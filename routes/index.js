@@ -32,7 +32,14 @@ router.post('/login', passport.authenticate('local'),
     });
   });
 
-// register new user
+// logout anyone who is logged in
+router.get('/logout',
+  (req, res) => {
+    req.logout();
+    res.sendStatus(200);
+  });
+
+// register new user with local strategy
 router.post('/register', (req, res) => {
   Student.register(new Student({ username: req.body.username }),
     req.body.password, (regErr, account) => {
@@ -64,7 +71,6 @@ router.post('/register', (req, res) => {
                   },
                   courses,
                 };
-
                 res.json(data);
               }
             });
@@ -81,6 +87,7 @@ router.get('/completedcourses', (req, res) => {
   });
 });
 
+// get major requirements
 router.get('/requirements', (req, res) => {
   Major.findOne({ name: req.user.major }, (err, major) => {
     const data = {
@@ -91,7 +98,7 @@ router.get('/requirements', (req, res) => {
   });
 });
 
-// returns the home page html, index.html
+// all other get requests get redirected to the home page
 router.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });

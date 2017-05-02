@@ -1,15 +1,15 @@
+// The home page for logged-in students.
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import WelcomeMessageContainer from '../containers/WelcomeMessageContainer';
-import RequirementsListContainer from '../containers/RequirementsListContainer';
+import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import NavPanel from './NavPanel';
 import Note from './Note';
 import styles from '../../public/stylesheets/pages.css';
 
-// The wrapper for all components on a student home page
 const StudentHome = () => (
   <Row>
-    {/* Col attributes resize/reorder for different size screens */}
+    {/* col attributes resize/reorder for different size screens */}
     <Col sm={3} lg={2}>
       <NavPanel active={1} />
     </Col>
@@ -23,7 +23,7 @@ const StudentHome = () => (
         Student Home
       </h2>
       <WelcomeMessageContainer />
-      <RequirementsListContainer />
+      <ProgressTrackerContainer />
     </Col>
   </Row>
 );

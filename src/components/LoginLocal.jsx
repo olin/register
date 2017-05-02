@@ -1,3 +1,5 @@
+/* The form that a user fills out to log in with an existing account.
+The user provides their email and password. */
 import React, { PropTypes } from 'react';
 import styles from './../../public/stylesheets/login-local.css';
 

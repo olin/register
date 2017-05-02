@@ -33,6 +33,10 @@ const LoginReducer = (state = initialState, action) => {
         allCourses: action.courses,
         loggedIn: true,
       });
+    case 'LOGOUT_USER':
+      return Object.assign({}, state, {
+        loggedIn: false,
+      });
     case 'CHANGE_SEMESTER': {
       const isCourseMatch = course => course.courseId === action.courseId;
       const index = state.plannedCourses.findIndex(isCourseMatch);

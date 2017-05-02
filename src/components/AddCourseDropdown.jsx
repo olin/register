@@ -1,3 +1,4 @@
+// A dropdown for adding courses to a student's course plan.
 import React, { PropTypes } from 'react';
 import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import styles from '../../public/stylesheets/add-course-dropdown.css';

@@ -5,9 +5,8 @@ import LoginPage from './LoginPage';
 import StudentHome from './StudentHome';
 import SettingsPageContainer from '../containers/SettingsPageContainer';
 import CoursePlannerContainer from '../containers/CoursePlannerContainer';
-import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import SemesterPlanPage from './SemesterPlanPage';
-
+import LogoutContainer from '../containers/LogoutContainer';
 
 const Login = () => (
   <div>
@@ -19,7 +18,6 @@ const Home = () => (
   <div>
     <Header />
     <StudentHome />
-    <ProgressTrackerContainer />
   </div>
 );
 
@@ -50,13 +48,20 @@ const NotFound = () => (
   </div>
 );
 
+// the app structure. react-router sends users between pages properly.
 const App = ({ loggedIn }) => (
   <Router>
     <div>
       <Switch>
         <Route
           exact path="/"
-          render={Home}
+          component={() => (
+            loggedIn ? (
+              <Home />
+            ) : (
+              <Redirect to="/login" />
+            )
+          )}
         />
         <Route
           path="/settings"
@@ -71,8 +76,13 @@ const App = ({ loggedIn }) => (
           component={SemesterPlan}
         />
         <Route
+          path="/logout"
+          component={LogoutContainer}
+        />
+        <Route
           path="/login"
-          render={() => (
+          // ternary operator to redirect logged-in users to home page
+          component={() => (
             loggedIn ? (
               <Redirect to="/" />
             ) : (

@@ -1,3 +1,4 @@
+// A single semester rendered as an <li>. SemesterList contains these.
 import React, { PropTypes } from 'react';
 import CourseBlockContainer from '../containers/CourseBlockContainer';
 

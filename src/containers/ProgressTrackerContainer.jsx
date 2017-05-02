@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ProgressTracker from '../components/ProgressTracker';
 import { resetReq, updateGenReq, updateMajorReq, updateMathsci, updateAhse, updateEngr, getCourses } from '../actions/actions';
+import styles from '../../public/stylesheets/progress-tracker.css';
 
 class ProgressTrackerContainer extends Component {
   constructor(props) {
@@ -56,56 +57,77 @@ class ProgressTrackerContainer extends Component {
   }
 
   render() {
-    const { genreqs, majorreqs, isGenReq, isMajorReq, isMathsci, isAhse, isEngr,
+    const { genreqs,
+      majorreqs,
+      isGenReq,
+      isMajorReq,
+      isMathsci,
+      isAhse,
+      isEngr,
       mathTotal,
       engrTotal,
       sciTotal,
       ahseTotal,
-      mathCourses, engrCourses, sciCourses, ahseCourses } = this.props;
+      engrPercent,
+      ahsePercent,
+      mathSciPercent,
+      genreqsPercent,
+      majorreqsPercent,
+      mathCourses,
+      engrCourses,
+      sciCourses,
+      ahseCourses,
+    } = this.props;
+
     if (isGenReq) {
       const genreqItems = genreqs.map(req => <li>{req}</li>);
       return (
-        <div>
+        <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p>{genreqs.length}/16 courses</p>
-          <ul>{genreqItems}</ul>
+          <p className={styles.progressRatio}>{genreqs.length}/16 General Requirement Courses</p>
+          <p className={styles.progressRatio}>Completed:</p>
+          <ul className={styles.classList}>{genreqItems}</ul>
         </div>
       );
     } else if (isMajorReq) {
       const majorreqItems = majorreqs.map(req => <li>{req}</li>);
       return (
-        <div>
+        <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p>{majorreqs.length}/7 courses</p>
-          <ul>{majorreqItems}</ul>
+          <p className={styles.progressRatio}>{majorreqs.length}/7 Major Requirement Courses</p>
+          <p className={styles.progressRatio}>Completed:</p>
+          <ul className={styles.classList}>{majorreqItems}</ul>
         </div>
       );
     } else if (isMathsci) {
       const mathvalues = mathCourses.map(a => <li>{a.title}: {a.credits} Math credits</li>);
       const scivalues = sciCourses.map(a => <li>{a.title}: {a.credits} Sci credits</li>);
       return (
-        <div>
+        <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p>{mathTotal + sciTotal}/30 credits</p>
-          <ul>{mathvalues}{scivalues}</ul>
+          <p className={styles.progressRatio}>{mathTotal + sciTotal}/30 Math and Science Credits</p>
+          <p className={styles.progressRatio}>Completed:</p>
+          <ul className={styles.classList}>{mathvalues}{scivalues}</ul>
         </div>
       );
     } else if (isAhse) {
       const ahsevalues = ahseCourses.map(a => <li>{a.title}: {a.credits} AHSE credits</li>);
       return (
-        <div>
+        <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p>{ahseTotal}/28 credits</p>
-          <ul>{ahsevalues}</ul>
+          <p className={styles.progressRatio}>{ahseTotal}/28 AHSE Credits</p>
+          <p className={styles.progressRatio}>Completed:</p>
+          <ul className={styles.classList}>{ahsevalues}</ul>
         </div>
       );
     } else if (isEngr) {
       const engrvalues = engrCourses.map(a => <li>{a.title}: {a.credits} Engr credits</li>);
       return (
-        <div>
+        <div className={styles.trackerComponent}>
           <a onClick={this.backReq} href=""> ← back</a>
-          <p>{engrTotal}/46 credits</p>
-          <ul>{engrvalues}</ul>
+          <p className={styles.progressRatio}>{engrTotal}/46 Engineering Credits</p>
+          <p className={styles.progressRatio}>Completed:</p>
+          <ul className={styles.classList}>{engrvalues}</ul>
         </div>
       );
     }
@@ -117,6 +139,11 @@ class ProgressTrackerContainer extends Component {
         engrTotal={engrTotal}
         sciTotal={sciTotal}
         ahseTotal={ahseTotal}
+        engrPercent={engrPercent}
+        ahsePercent={ahsePercent}
+        mathSciPercent={mathSciPercent}
+        genreqsPercent={genreqsPercent}
+        majorreqsPercent={majorreqsPercent}
         handleGenReqs={this.handleGenReqs}
         handleMajorReqs={this.handleMajorReqs}
         handleMathsci={this.handleMathsci}
@@ -140,6 +167,11 @@ ProgressTrackerContainer.propTypes = {
   engrTotal: PropTypes.number.isRequired,
   sciTotal: PropTypes.number.isRequired,
   ahseTotal: PropTypes.number.isRequired,
+  engrPercent: PropTypes.string.isRequired,
+  ahsePercent: PropTypes.string.isRequired,
+  mathSciPercent: PropTypes.string.isRequired,
+  genreqsPercent: PropTypes.string.isRequired,
+  majorreqsPercent: PropTypes.string.isRequired,
   mathCourses: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     credits: PropTypes.number.isRequired,
@@ -159,16 +191,21 @@ ProgressTrackerContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  genreqs: state.Progress.completedGeneralRequirements,
-  majorreqs: state.Progress.completedMajorRequirements,
-  mathCourses: state.Progress.mathCourses.courses,
+  genreqs: state.Progress.completedGeneralRequirements.courses,
+  majorreqs: state.Progress.completedMajorRequirements.courses,
+  mathCourses: state.Progress.mathSciCourses.mathCourses,
   engrCourses: state.Progress.engrCourses.courses,
-  sciCourses: state.Progress.sciCourses.courses,
+  sciCourses: state.Progress.mathSciCourses.sciCourses,
   ahseCourses: state.Progress.ahseCourses.courses,
-  mathTotal: state.Progress.mathCourses.creditTotal,
+  mathTotal: state.Progress.mathSciCourses.mathTotal,
   engrTotal: state.Progress.engrCourses.creditTotal,
-  sciTotal: state.Progress.sciCourses.creditTotal,
+  sciTotal: state.Progress.mathSciCourses.sciTotal,
   ahseTotal: state.Progress.ahseCourses.creditTotal,
+  engrPercent: state.Progress.engrCourses.percentString,
+  ahsePercent: state.Progress.ahseCourses.percentString,
+  mathSciPercent: state.Progress.mathSciCourses.percentString,
+  genreqsPercent: state.Progress.completedGeneralRequirements.percentString,
+  majorreqsPercent: state.Progress.completedMajorRequirements.percentString,
   isGenReq: state.Progress.progressFilter.isGenReq,
   isMajorReq: state.Progress.progressFilter.isMajorReq,
   isMathsci: state.Progress.progressFilter.isMathSci,

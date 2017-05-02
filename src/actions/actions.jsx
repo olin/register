@@ -53,15 +53,14 @@ export const toggleSetting = name => ({
   name,
 });
 
-// Semester Plan Component
+// dispatched when course block dropped into new semester
 export const changeSemester = (courseId, newSemester) => ({
-  // dispatched when course block dropped into new semester
   type: 'CHANGE_SEMESTER',
   courseId,
   newSemester,
 });
 
-// Course Planner Dropdown Component
+// update selected course in course planner dropdown
 export const selectCourse = (catId, registrarId) => ({
   type: 'SELECT_COURSE',
   catId,
@@ -89,29 +88,7 @@ export const updateSuggestions = suggestions => ({
   suggestions,
 });
 
-// Login Component
-export const updatePassword = password => ({
-  type: 'UPDATE_PASSWORD',
-  password,
-});
-
-export const updateUsername = username => ({
-  type: 'UPDATE_USERNAME',
-  username,
-});
-
-// Register Component
-export const updateRegisterUsername = username => ({
-  type: 'UPDATE_REGISTER_USERNAME',
-  username,
-});
-
-export const updateRegisterPassword = password => ({
-  type: 'UPDATE_REGISTER_PASSWORD',
-  password,
-});
-
-// Login backend interaction
+// login or register action successful
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
   username: json.user.username,
@@ -124,24 +101,22 @@ export const receiveUser = json => ({
   courses: json.courses,
 });
 
-// Get completed courses from backend
-export const getCourses = data => (
+// Logout Component
+export const logoutUser = data => ({
+  type: 'LOGOUT_USER',
+  data,
+});
+
+// logout
+export const logout = data => (
   (dispatch) => {
-    $.get('/completedcourses', data)
-      .done(response => (dispatch(resolvedGetCourses(response))))
+    $.get('/logout', data)
+      .done(response => (dispatch(logoutUser(response))))
       .fail((err, status) => console.error(err, status));
   }
 );
 
-// Get graduation requirements from backend
-export const getRequirements = data => (
-  (dispatch) => {
-    $.get('/requirements', data)
-      .done(response => (dispatch(receiveRequirements(response))))
-      .fail((err, status) => console.error(err, status));
-  }
-);
-
+// login backend interaction
 export const login = (username, password) => (
   (dispatch) => {
     const data = {
@@ -153,7 +128,8 @@ export const login = (username, password) => (
       .fail((err, status) => console.error(err, status));
   }
 );
-// Register backend interaction
+
+// register backend interaction
 export const register = (username, password) => (
   (dispatch) => {
     const data = {
@@ -162,6 +138,48 @@ export const register = (username, password) => (
     };
     $.post('/register', data)
       .done(response => (dispatch(receiveUser(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// update login form username
+export const updateUsername = username => ({
+  type: 'UPDATE_USERNAME',
+  username,
+});
+
+// update login form password
+export const updatePassword = password => ({
+  type: 'UPDATE_PASSWORD',
+  password,
+});
+
+// update register form username
+export const updateRegisterUsername = username => ({
+  type: 'UPDATE_REGISTER_USERNAME',
+  username,
+});
+
+// update register form password
+export const updateRegisterPassword = password => ({
+  type: 'UPDATE_REGISTER_PASSWORD',
+  password,
+});
+
+// get completed courses from backend
+export const getCourses = data => (
+  (dispatch) => {
+    $.get('/completedcourses', data)
+      .done(response => (dispatch(resolvedGetCourses(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
+// get graduation requirements from backend
+export const getRequirements = data => (
+  (dispatch) => {
+    $.get('/requirements', data)
+      .done(response => (dispatch(receiveRequirements(response))))
       .fail((err, status) => console.error(err, status));
   }
 );
