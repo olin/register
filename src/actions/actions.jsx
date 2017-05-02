@@ -67,6 +67,13 @@ export const selectCourse = (catId, courseId) => ({
   courseId,
 });
 
+// Update plan button
+export const updatePlanSuccess = data => ({
+  type: 'UPDATE_PLAN_SUCCESS',
+  isSuccess: data.success,
+});
+
+// Login backend interaction
 // login or register action successful
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
