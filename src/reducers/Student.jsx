@@ -2,8 +2,6 @@ import { combineReducers } from 'redux';
 
 const username = (state = '', action) => {
   switch (action.type) {
-    case 'UPDATE_REGISTER_USERNAME':
-      return action.username;
     case 'UPDATE_USERNAME':
       return action.username;
     case 'RECEIVE_USER':
@@ -17,8 +15,48 @@ const password = (state = '', action) => {
   switch (action.type) {
     case 'UPDATE_PASSWORD':
       return action.password;
+    case 'RECEIVE_USER':
+      return '';
+    default:
+      return state;
+  }
+};
+
+const registerUsername = (state = '', action) => {
+  switch (action.type) {
+    case 'UPDATE_REGISTER_USERNAME':
+      return action.username;
+    case 'RECEIVE_USER':
+      return '';
+    default:
+      return state;
+  }
+};
+
+const registerPassword = (state = '', action) => {
+  switch (action.type) {
     case 'UPDATE_REGISTER_PASSWORD':
       return action.password;
+    case 'RECEIVE_USER':
+      return '';
+    default:
+      return state;
+  }
+};
+
+const name = (state = '', action) => {
+  switch (action.type) {
+    case 'RECEIVE_USER':
+      return action.name;
+    default:
+      return state;
+  }
+};
+
+const id = (state = '', action) => {
+  switch (action.type) {
+    case 'RECEIVE_USER':
+      return action.id;
     default:
       return state;
   }
@@ -46,6 +84,13 @@ const plannedCourses = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_USER':
       return action.plannedCourses;
+    case 'CHANGE_SEMESTER': {
+      const isCourseMatch = course => course.courseId === action.courseId;
+      const index = state.findIndex(isCourseMatch);
+      const course = state[index];
+      course.semester = action.newSemester;
+      return state.slice(0, index).concat(course).concat(state.slice(index + 1));
+    }
     default:
       return state;
   }
@@ -69,9 +114,7 @@ const loggedIn = (state = false, action) => {
   }
 };
 
-// const genreqs = (state = 0, action) => {};
-
-const settings = (state = [
+const settingsInitialState = [
   {
     name: 'setting1',
     checked: false,
@@ -84,7 +127,9 @@ const settings = (state = [
     name: 'setting3',
     checked: false,
   },
-], action) => {
+];
+
+const settings = (state = settingsInitialState, action) => {
   switch (action.type) {
     case 'TOGGLE_SETTING':
       return state.map((setting) => {
@@ -100,28 +145,19 @@ const settings = (state = [
   }
 };
 
-export const Student = Object.assign({}, {
+const Student = combineReducers({
   username,
   password,
+  registerUsername,
+  registerPassword,
+  name,
+  id,
   entryYear,
   major,
   plannedCourses,
   completedCourses,
   loggedIn,
-  // waiting to add genreqs until Progress Tracker stuff makes sense
   settings,
 });
 
-const StudentReducer = combineReducers({
-  username,
-  password,
-  entryYear,
-  major,
-  plannedCourses,
-  completedCourses,
-  loggedIn,
-  // waiting to add genreqs until Progress Tracker stuff makes sense
-  settings,
-});
-
-export default StudentReducer;
+export default Student;

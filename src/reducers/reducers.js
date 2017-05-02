@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux';
-import ProgressTrackerReducer from './ProgressTrackerReducer';
-import StudentReducer, { Student } from './StudentReducer';
-import CoursePlannerReducer from './CoursePlannerReducer';
-import PersistReducer from './PersistReducer';
-import ReqsReducer from './ReqsReducer';
+import Student from './Student';
+import Major from './Major';
+import Courses from './Courses';
+import Progress from './Progress';
+import CoursePlanner from './CoursePlanner';
+import Persist from './Persist';
 
-console.log(Student);
-
-const registerApp = combineReducers(Student);
+const registerApp = combineReducers({
+  Student,
+  Major,
+  Courses,
+  Progress,
+  CoursePlanner,
+  Persist,
+});
 
 export default registerApp;
