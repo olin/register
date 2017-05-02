@@ -152,7 +152,7 @@ export const register = (username, password) => (
 );
 
 // Save plan of study backend
-export const updateplan = plannedCourses => (
+export const updatePlan = plannedCourses => (
   (dispatch) => {
     const data = {
       plannedCourses,
