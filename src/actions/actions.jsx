@@ -47,10 +47,31 @@ export const toggleSetting = name => ({
 });
 
 // Course Planner Dropdown Component
-export const selectCourse = (catId, courseId) => ({
+export const selectCourse = (catId, courseCode) => ({
   type: 'SELECT_COURSE',
   catId,
-  courseId,
+  courseCode,
+});
+
+export const addCourse = course => ({
+  type: 'ADD_COURSE',
+  course,
+});
+
+export const removeCourse = courseCode => ({
+  type: 'REMOVE_COURSE',
+  courseCode,
+});
+
+// Course Planner Search Component
+export const updateSearchField = newValue => ({
+  type: 'UPDATE_SEARCH_FIELD',
+  newValue,
+});
+
+export const updateSuggestions = suggestions => ({
+  type: 'UPDATE_SUGGESTIONS',
+  suggestions,
 });
 
 // Login Component
