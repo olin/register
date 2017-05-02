@@ -64,12 +64,6 @@ export const updateUsername = username => ({
   username,
 });
 
-// Logout Component
-export const logoutUser = data => ({
-  type: 'LOGOUT_USER',
-  data,
-});
-
 // Register Component
 export const updateRegisterUsername = username => ({
   type: 'UPDATE_REGISTER_USERNAME',
@@ -91,6 +85,12 @@ export const receiveUser = json => ({
   plannedCourses: json.user.plannedCourses,
   completedCourses: json.user.completedCourses,
   courses: json.courses,
+});
+
+// Logout Component
+export const logoutUser = data => ({
+  type: 'LOGOUT_USER',
+  data,
 });
 
 // Get completed courses from backend

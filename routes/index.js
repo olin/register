@@ -34,7 +34,7 @@ router.post('/login', passport.authenticate('local'),
 router.get('/logout',
   (req, res) => {
     req.logout();
-    res.redirect('/login');
+    res.send(200);
   });
 
 // register new user

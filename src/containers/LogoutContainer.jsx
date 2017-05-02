@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { logout } from '../actions/actions';
 
-class LogoutPage extends Component {
-
+class LogoutContainer extends Component {
   componentWillMount() {
-    // persistStore(store, config, callback).purge()
-    this.props.dispatch(logout);
+    const { dispatch, history } = this.props;
+    dispatch(logout());
+    console.log(history);
+    history.push('/login');
   }
 
   render() {
     return null;
   }
 }
-LogoutPage.propTypes = {
+LogoutContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  history: PropTypes.arrayOf(PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired).isRequired,
 };
 
-export default connect()(withRouter(LogoutPage));
+export default withRouter(connect()(LogoutContainer));
