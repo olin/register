@@ -1,7 +1,18 @@
 const initialState = {
   categories: [
     {
-      catId: 'uocd_req',
+      catId: 'ModSim',
+      category: 'ModSim',
+      courses: [
+        {
+          registrarId: 'MTH1111',
+          title: 'Modeling and Simulation of the Physical World',
+        },
+      ],
+      selected: 'MTH1111',
+    },
+    {
+      catId: 'UOCD',
       category: 'UOCD',
       courses: [
         {
@@ -12,7 +23,34 @@ const initialState = {
       selected: ' ',
     },
     {
-      catId: 'mech_math',
+      catId: 'ProbStat',
+      category: 'Probability and Statistics',
+      courses: [
+        {
+          registrarId: 'MTH2130',
+          title: 'Probability and Statistics',
+        },
+        {
+          registrarId: 'MTH2131',
+          title: 'Data Science',
+        },
+        {
+          registrarId: 'MTH2132',
+          title: 'Bayesian Inference and Reasoning',
+        },
+        {
+          registrarId: 'MTH2133',
+          title: 'Computational Bayesian Statistics',
+        },
+        {
+          registrarId: 'MTH2134',
+          title: 'Regional Analysis in Development',
+        },
+      ],
+      selected: ' ',
+    },
+    {
+      catId: 'me_math',
       category: 'ME Math',
       courses: [
         {

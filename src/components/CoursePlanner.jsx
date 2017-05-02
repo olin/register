@@ -13,7 +13,7 @@ const CoursePlanner = ({ categories, otherCourses, onCourseSelect, onCourseRemov
     </Col>
     <Col sm={9} lg={10}>
       <div className={styles.mainbody}>
-        <h2>Plan Your Study</h2>
+        <h2>Edit Your Plan of Study</h2>
         <hr />
         <h4>Specific Requirements</h4>
         <ul>
@@ -25,6 +25,7 @@ const CoursePlanner = ({ categories, otherCourses, onCourseSelect, onCourseRemov
             />,
           )}
         </ul>
+        <hr />
         <h4>Other Courses</h4>
         <ul>
           {otherCourses.map(course =>

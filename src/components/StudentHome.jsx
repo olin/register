@@ -15,7 +15,7 @@ const StudentHome = () => (
     </Col>
     <Col sm={3} smPush={6} lg={2} lgPush={8}>
       <ul>
-        <Note text="do yer course plan" />
+        <Note text="You haven't finished your plan of study! A draft is due November 4." />
       </ul>
     </Col>
     <Col sm={6} smPull={3} lg={8} lgPull={2} className={styles.mainbody}>
