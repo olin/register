@@ -1,0 +1,14 @@
+.course :global(.panel-body) {
+  padding: 10px;
+}
+
+.course button {
+  border: none;
+  color: #A8A8A8;
+  background-color: inherit;
+  float: right;
+}
+
+.course button:hover {
+  color: #383838;
+}
