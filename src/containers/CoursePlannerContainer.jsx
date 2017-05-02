@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
-import { selectCourse } from '../actions/actions';
+import { selectCourse, removeCourse } from '../actions/actions';
 import CoursePlanner from '../components/CoursePlanner';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
   categories: state.CoursePlanner.categories,
+  otherCourses: state.CoursePlanner.otherCourses,
 });
 
 const mapDispatchToProps = dispatch => ({
-  onCourseSelect: (catId, courseId) => {
-    dispatch(selectCourse(catId, courseId));
+  onCourseSelect: (catId, registrarId) => {
+    dispatch(selectCourse(catId, registrarId));
+  },
+  onCourseRemove: (registrarId) => {
+    dispatch(removeCourse(registrarId));
   },
 });
 

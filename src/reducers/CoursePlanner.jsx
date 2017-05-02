@@ -1,36 +1,83 @@
 const initialState = {
   categories: [
     {
-      catId: 'uocd_req',
+      catId: 'ModSim',
+      category: 'ModSim',
+      courses: [
+        {
+          registrarId: 'MTH1111',
+          title: 'Modeling and Simulation of the Physical World',
+        },
+      ],
+      selected: 'MTH1111',
+    },
+    {
+      catId: 'UOCD',
       category: 'UOCD',
       courses: [
         {
-          name: 'User Oriented Collaborative Design',
-          courseId: 'ENGR2250',
+          registrarId: 'ENGR2250',
+          title: 'User Oriented Collaborative Design',
         },
       ],
       selected: ' ',
     },
     {
-      catId: 'mech_math',
+      catId: 'ProbStat',
+      category: 'Probability and Statistics',
+      courses: [
+        {
+          registrarId: 'MTH2130',
+          title: 'Probability and Statistics',
+        },
+        {
+          registrarId: 'MTH2131',
+          title: 'Data Science',
+        },
+        {
+          registrarId: 'MTH2132',
+          title: 'Bayesian Inference and Reasoning',
+        },
+        {
+          registrarId: 'MTH2133',
+          title: 'Computational Bayesian Statistics',
+        },
+        {
+          registrarId: 'MTH2134',
+          title: 'Regional Analysis in Development',
+        },
+      ],
+      selected: ' ',
+    },
+    {
+      catId: 'me_math',
       category: 'ME Math',
       courses: [
         {
-          name: 'Partial Differential Equations',
-          courseId: 'MTH3120',
+          registrarId: 'MTH3120',
+          title: 'Partial Differential Equations',
         },
         {
-          name: 'Numerical Methods and Scientific Computing',
-          courseId: 'MTH3150',
+          registrarId: 'MTH3150',
+          title: 'Numerical Methods and Scientific Computing',
         },
         {
-          name: 'Nonlinear Dynamics and Chaos',
-          courseId: 'MTH3170',
+          registrarId: 'MTH3170',
+          title: 'Nonlinear Dynamics and Chaos',
         },
       ],
       selected: ' ',
     },
   ],
+  otherCourses: [
+    {
+      _id: '59079f09734d1d17cad13e75',
+      registrarId: 'OIE1000',
+      title: 'Olin Introductory Experience',
+    },
+  ],
+  value: '',
+  suggestions: [],
 };
 
 
@@ -41,11 +88,29 @@ const CoursePlanner = (state = initialState, action) => {
         categories: state.categories.map((category) => {
           if (category.catId === action.catId) {
             return Object.assign({}, category, {
-              selected: action.courseId,
+              selected: action.registrarId,
             });
           }
           return category;
         }),
+      });
+    case 'ADD_COURSE':
+      return Object.assign({}, state, {
+        otherCourses: state.otherCourses.concat(action.course),
+      });
+    case 'REMOVE_COURSE':
+      return Object.assign({}, state, {
+        otherCourses: state.otherCourses.filter(course =>
+          course.registrarId !== action.registrarId,
+        ),
+      });
+    case 'UPDATE_SEARCH_FIELD':
+      return Object.assign({}, state, {
+        value: action.newValue,
+      });
+    case 'UPDATE_SUGGESTIONS':
+      return Object.assign({}, state, {
+        suggestions: action.suggestions,
       });
     default:
       return state;

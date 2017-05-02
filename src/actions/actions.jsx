@@ -61,10 +61,31 @@ export const changeSemester = (courseId, newSemester) => ({
 });
 
 // update selected course in course planner dropdown
-export const selectCourse = (catId, courseId) => ({
+export const selectCourse = (catId, registrarId) => ({
   type: 'SELECT_COURSE',
   catId,
-  courseId,
+  registrarId,
+});
+
+export const addCourse = course => ({
+  type: 'ADD_COURSE',
+  course,
+});
+
+export const removeCourse = registrarId => ({
+  type: 'REMOVE_COURSE',
+  registrarId,
+});
+
+// Course Planner Search Component
+export const updateSearchField = newValue => ({
+  type: 'UPDATE_SEARCH_FIELD',
+  newValue,
+});
+
+export const updateSuggestions = suggestions => ({
+  type: 'UPDATE_SUGGESTIONS',
+  suggestions,
 });
 
 // login or register action successful
