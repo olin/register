@@ -1,8 +1,5 @@
-/*
-The form that a new user fills out to register a new account.
-The user provides their name, an email, a password, and confirms
-their password.
-*/
+/* The form that a new user fills out to register a new account.
+The user provides their name, an email, and a password. */
 import React, { PropTypes } from 'react';
 import styles from './../../public/stylesheets/register-new-user.css';
 
@@ -48,4 +45,3 @@ RegisterNewUser.propTypes = {
 };
 
 export default RegisterNewUser;
-

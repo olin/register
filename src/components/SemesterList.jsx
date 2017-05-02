@@ -1,3 +1,4 @@
+// A list containing Semester components.
 import React, { PropTypes } from 'react';
 import SemesterContainer from '../containers/SemesterContainer';
 import SemesterReserveContainer from '../containers/SemesterReserveContainer';

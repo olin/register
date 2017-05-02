@@ -1,7 +1,6 @@
+// A single requirement rendered as an <li>. RequirementsList contains these.
 import React, { PropTypes } from 'react';
 
-// A single requirement rendered as a list item
-// RequirementsList will contain these li's
 const Requirement = ({ requirement }) => (
   <li>
     {requirement}

@@ -4,7 +4,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const studentSchema = mongoose.Schema({
   username: String,
   name: String,
-  olinId: String,
+  olinId: String, // e.g. 12345678
   entryYear: Number,
   major: String,
   completedCourses: [{
@@ -22,9 +22,8 @@ const studentSchema = mongoose.Schema({
     credits: Number,
     requirements: [String],
     generalRequirements: [String],
-    semester: String, //note that a planned course does not always need a semester
+    semester: String, // note that a planned course doesn't always need a semester
   }],
-
 });
 
 studentSchema.plugin(passportLocalMongoose);

@@ -1,3 +1,4 @@
+// A single requirement rendered as an <li>. SettingsPage contains these.
 import React, { PropTypes } from 'react';
 import styles from '../../public/stylesheets/setting.css';
 
