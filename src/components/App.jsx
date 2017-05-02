@@ -18,8 +18,8 @@ const Login = () => (
 const Home = () => (
   <div>
     <Header />
-    <ProgressTrackerContainer />
     <StudentHome />
+    <ProgressTrackerContainer />
   </div>
 );
 
