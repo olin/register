@@ -6,6 +6,7 @@ import LoginLocal from '../components/LoginLocal';
 const mapStateToProps = state => ({
   username: state.Student.username,
   password: state.Student.password,
+  loginError: state.Student.loginError,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,12 +20,13 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
-  const { username, password } = stateProps;
+  const { username, password, loginError } = stateProps;
   const { dispatch, updateUser, updatePwd } = dispatchProps;
 
   return {
     username,
     password,
+    loginError,
     updateUser,
     updatePwd,
     onLogin: (e) => {
