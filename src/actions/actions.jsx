@@ -123,6 +123,9 @@ export const logout = data => (
   (dispatch) => {
     $.get('/logout', data)
       .done(response => (dispatch(logoutUser(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
 
 // Get graduation requirements from backend
 export const getRequirements = data => (
