@@ -260,7 +260,7 @@ const initialState = {
 };
 
 
-const CoursePlannerReducer = (state = initialState, action) => {
+const CoursePlanner = (state = initialState, action) => {
   switch (action.type) {
     case 'SELECT_COURSE':
       return Object.assign({}, state, {
@@ -296,4 +296,4 @@ const CoursePlannerReducer = (state = initialState, action) => {
   }
 };
 
-export default CoursePlannerReducer;
+export default CoursePlanner;

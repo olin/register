@@ -11,7 +11,7 @@ export const updateMajorReq = majorreqs => ({
 });
 
 export const updateMathsci = mathsci => ({
-  type: 'UPDATE_MATHSCI_REQ',
+  type: 'UPDATE_MATHSCI',
   mathsci,
 });
 
@@ -37,7 +37,7 @@ export const resetReq = (genreqs, majorreqs, mathsci, ahse, engr) => ({
 // Progress Tracker Component
 export const resolvedGetCourses = data => ({
   type: 'GET_COMPLETED_COURSES',
-  data: data.completedcourses,
+  completedCourses: data.completedcourses,
 });
 
 // Requirements Component
