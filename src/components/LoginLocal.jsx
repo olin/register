@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import styles from './../../public/stylesheets/login-local.css';
+import styles from './../../public/stylesheets/login.css';
 
 const LoginLocal = ({ username, password, updateUser, updatePassword, onLogin }) => (
   <div className={styles.loginblock}>
     <form id="local-login" className="form-signin" onSubmit={onLogin}>
-      <h2>Login with email and password</h2>
+      <h2>Log In to an Existing Account</h2>
       <input
         placeholder="Email"
         type="text"
