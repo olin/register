@@ -7,7 +7,6 @@ class LogoutContainer extends Component {
   componentWillMount() {
     const { dispatch, history } = this.props;
     dispatch(logout());
-    console.log(history);
     history.push('/login');
   }
 
