@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import WelcomeMessageContainer from '../containers/WelcomeMessageContainer';
-import RequirementsListContainer from '../containers/RequirementsListContainer';
+import ProgressTrackerContainer from '../containers/ProgressTrackerContainer';
 import NavPanel from './NavPanel';
 import Note from './Note';
 import styles from '../../public/stylesheets/pages.css';
@@ -23,7 +23,7 @@ const StudentHome = () => (
         Student Home
       </h2>
       <WelcomeMessageContainer />
-      <RequirementsListContainer />
+      <ProgressTrackerContainer />
     </Col>
   </Row>
 );
