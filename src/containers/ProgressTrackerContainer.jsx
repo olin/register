@@ -58,11 +58,11 @@ class ProgressTrackerContainer extends Component {
 
   render() {
     const { genreqs,
-      majorreqs, 
-      isGenReq, 
-      isMajorReq, 
-      isMathsci, 
-      isAhse, 
+      majorreqs,
+      isGenReq,
+      isMajorReq,
+      isMathsci,
+      isAhse,
       isEngr,
       mathTotal,
       engrTotal,

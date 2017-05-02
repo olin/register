@@ -26,33 +26,41 @@ const ProgressTracker = ({
         </li>
 
         <div className="progress">
-          <div className="progress-bar"
-            role="progressbar" 
-            style={{ width: engrPerc }} 
-          />
+          <div
+            className="progress-bar"
+            role="progressbar"
+            style={{ width: engrPerc }}
+          >
+            <span className="sr-only">Percent Complete</span>
+          </div>
         </div>
+
 
         <li>
           <a onClick={handleMathsci} href="">Math and Science Credits</a>
           <p>{mathTotal + sciTotal}/30 credits</p>
         </li>
         <div className="progress">
-          <div className="progress-bar"
+          <div
+            className="progress-bar"
             role="progressbar"
-            style={{width: mathSciPerc}}>
+            style={{ width: mathSciPerc }}
+          >
+            <span className="sr-only">Percent Complete</span>
           </div>
         </div>
-
 
         <li>
           <a onClick={handleAhse} href="">AHS and Entrepreneurship Credits</a>
           <p>{ahseTotal}/28 credits</p>
         </li>
         <div className="progress">
-          <div className="progress-bar"
-            role="progressbar" 
-            style={{width: ahsePerc}}>
-            <span className="sr-only">70% Complete</span>
+          <div
+            className="progress-bar"
+            role="progressbar"
+            style={{ width: ahsePerc }}
+          >
+            <span className="sr-only">Percent Complete</span>
           </div>
         </div>
 
@@ -61,20 +69,27 @@ const ProgressTracker = ({
           <p>{genreqs.length}/16 courses</p>
         </li>
         <div className="progress">
-          <div className="progress-bar"
-            role="progressbar" 
-            style={{width: genReqsPerc}}>
+          <div
+            className="progress-bar"
+            role="progressbar"
+            style={{ width: genReqsPerc }}
+          >
+            <span className="sr-only">Percent Complete</span>
           </div>
         </div>
+
 
         <li>
           <a onClick={handleMajorReqs} href="">Major Course Requirements</a>
           <p>{majorreqs.length}/7 courses</p>
         </li>
         <div className="progress">
-          <div className="progress-bar"
-            role="progressbar" 
-            style={{width: majorReqsPerc}}>
+          <div
+            className="progress-bar"
+            role="progressbar"
+            style={{ width: majorReqsPerc }}
+          >
+            <span className="sr-only">Percent Complete</span>
           </div>
         </div>
 
