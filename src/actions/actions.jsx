@@ -136,6 +136,10 @@ export const updatePlan = plannedCourses => (
     };
     $.post('/updateplan', data)
       .done(response => (dispatch(updatePlanSuccess(response))))
+      .fail((err, status) => console.error(err, status));
+  }
+);
+
 
 // update login form username
 export const updateUsername = username => ({
