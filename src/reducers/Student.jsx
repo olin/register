@@ -116,6 +116,34 @@ const loggedIn = (state = false, action) => {
   }
 };
 
+const registerError = (state = '', action) => {
+  switch (action.type) {
+    case 'REGISTER_ERROR':
+      return action.message;
+    case 'RECEIVE_USER':
+      return '';
+    case 'UPDATE_REGISTER_USERNAME':
+      return '';
+    default:
+      return state;
+  }
+};
+
+const loginError = (state = '', action) => {
+  switch (action.type) {
+    case 'LOGIN_ERROR':
+      return action.message;
+    case 'RECEIVE_USER':
+      return '';
+    case 'UPDATE_USERNAME':
+      return '';
+    case 'UPDATE_PASSWORD':
+      return '';
+    default:
+      return state;
+  }
+};
+
 const settingsInitialState = [
   {
     name: 'setting1',
@@ -159,6 +187,8 @@ const Student = combineReducers({
   plannedCourses,
   completedCourses,
   loggedIn,
+  registerError,
+  loginError,
   settings,
 });
 

@@ -2,6 +2,7 @@
 The user provides their name, an email, and a password. */
 import React, { PropTypes } from 'react';
 import styles from './../../public/stylesheets/login.css';
+import Note from './Note';
 
 const RegisterNewUser = ({
   username,
@@ -13,6 +14,7 @@ const RegisterNewUser = ({
   <div className={styles.registerblock}>
     <form id="register" className="form-signin" onSubmit={onRegister}>
       <h2>Register a New Account</h2>
+      {/* registerError ? <Note text={registerError} /> : null */}
       <input
         placeholder="Email"
         type="text"
