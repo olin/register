@@ -1,7 +1,7 @@
+// A list containing Requirement components, divided into general and major.
 import React, { PropTypes } from 'react';
 import Requirement from './Requirement';
 
-// A list containing Requirement components
 const RequirementsList = ({ generalRequirements, majorRequirements }) => (
   <div>
     <p>Plan of Study</p>

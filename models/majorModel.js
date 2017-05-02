@@ -4,13 +4,12 @@ const mongoose = require('mongoose');
 const majorSchema = mongoose.Schema({
   name: {
     type: String,
-    // This default is set mainly to show off what the major is
-    // intended to look like
+    // this default is mainly to show what a major looks like
     default: 'Mechanical Engineering',
   },
   generalRequirements: {
     type: [String],
-    // Because these are the same for every student, it makes sense to
+    // because these are the same for every student, it makes sense to
     // include default general requirements regardless of major
     default: [
       'ModSim Math',
@@ -34,9 +33,7 @@ const majorSchema = mongoose.Schema({
   },
   majorRequirements: {
     type: [String],
-    // This default is also set to communicate what a
-    // list of major requirements should contain.
-    // This should also be adaptable to a custom POS pretty easily
+    // this should be adaptable to a custom plan of study pretty easily
     default: [
       'Mechanical Engineering Math',
       'Mechanics of Solids and Structures',

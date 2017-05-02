@@ -50,6 +50,7 @@ const NotFound = () => (
   </div>
 );
 
+// the app structure. react-router sends users between pages properly.
 const App = ({ loggedIn }) => (
   <Router>
     <div>
@@ -82,6 +83,7 @@ const App = ({ loggedIn }) => (
         />
         <Route
           path="/login"
+          // ternary operator to redirect logged-in users to home page
           component={() => (
             loggedIn ? (
               <Redirect to="/" />

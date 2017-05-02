@@ -1,3 +1,4 @@
+// A draggable course block that users can move around in their plans.
 import React, { PropTypes } from 'react';
 
 const CourseBlock = ({

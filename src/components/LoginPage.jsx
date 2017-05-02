@@ -1,3 +1,4 @@
+// The user login and registration page.
 import React from 'react';
 import LoginContainer from '../containers/LoginContainer';
 import RegisterContainer from '../containers/RegisterContainer';
