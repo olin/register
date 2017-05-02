@@ -32,6 +32,13 @@ router.post('/login', passport.authenticate('local'),
     });
   });
 
+// logout anyone who is logged in
+router.get('/logout',
+  (req, res) => {
+    req.logout();
+    res.sendStatus(200);
+  });
+
 // register new user
 router.post('/register', (req, res) => {
   Student.register(new Student({ username: req.body.username }),
