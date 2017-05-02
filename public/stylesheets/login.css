@@ -3,7 +3,17 @@
     padding-top: 90px;
 }
 
-.loginblock input {
+.alert {
+    display: inline-block;
+}
+
+.registerblock {
+    text-align:center;
+    padding-top: 50px;
+}
+
+.loginblock input,
+.registerblock input {
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
     width: 450px;
     height: 42px;
@@ -11,11 +21,16 @@
     margin-bottom: 20px;
     border-radius:5px;
     font-size: 14px;
-    padding: 0 30px 0 50px;
+    padding: 0 20px;
     outline: none;
 }
 
-.loginblock button{
+.registerblock input {
+    box-sizing: border-box;
+}
+
+.loginblock button,
+.registerblock button{
     color: #fff;
     background-color: #59B2E0;
     border-radius: 5px;
@@ -24,7 +39,7 @@
     width: 150px;
 }
 
-.loginblock button:hover {
+.loginblock button:hover,
+.registerblock button:hover {
     background-color: #53A3CD;
-    border-radius: 5px;
 }
