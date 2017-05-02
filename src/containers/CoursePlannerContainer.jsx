@@ -4,7 +4,7 @@ import CoursePlanner from '../components/CoursePlanner';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  categories: state.CoursePlannerReducer.categories,
+  categories: state.CoursePlanner.categories,
 });
 
 const mapDispatchToProps = dispatch => ({

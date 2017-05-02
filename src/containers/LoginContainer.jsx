@@ -4,8 +4,8 @@ import LoginLocal from '../components/LoginLocal';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  username: state.LoginReducer.username,
-  password: state.LoginReducer.password,
+  username: state.Student.username,
+  password: state.Student.password,
 });
 
 const mergeProps = (stateProps, dispatchProps) => {

@@ -159,21 +159,21 @@ ProgressTrackerContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  genreqs: state.ProgressTrackerReducer.genreqs,
-  majorreqs: state.ProgressTrackerReducer.majorreqs,
-  mathCourses: state.ProgressTrackerReducer.mathCourses,
-  engrCourses: state.ProgressTrackerReducer.engrCourses,
-  sciCourses: state.ProgressTrackerReducer.sciCourses,
-  ahseCourses: state.ProgressTrackerReducer.ahseCourses,
-  mathTotal: state.ProgressTrackerReducer.mathTotal,
-  engrTotal: state.ProgressTrackerReducer.engrTotal,
-  sciTotal: state.ProgressTrackerReducer.sciTotal,
-  ahseTotal: state.ProgressTrackerReducer.ahseTotal,
-  isGenReq: state.ReqsReducer.isGenReq,
-  isMajorReq: state.ReqsReducer.isMajorReq,
-  isMathsci: state.ReqsReducer.isMathsci,
-  isAhse: state.ReqsReducer.isAhse,
-  isEngr: state.ReqsReducer.isEngr,
+  genreqs: state.Progress.completedGeneralRequirements,
+  majorreqs: state.Progress.completedMajorRequirements,
+  mathCourses: state.Progress.mathCourses.courses,
+  engrCourses: state.Progress.engrCourses.courses,
+  sciCourses: state.Progress.sciCourses.courses,
+  ahseCourses: state.Progress.ahseCourses.courses,
+  mathTotal: state.Progress.mathCourses.creditTotal,
+  engrTotal: state.Progress.engrCourses.creditTotal,
+  sciTotal: state.Progress.sciCourses.creditTotal,
+  ahseTotal: state.Progress.ahseCourses.creditTotal,
+  isGenReq: state.Progress.progressFilter.isGenReq,
+  isMajorReq: state.Progress.progressFilter.isMajorReq,
+  isMathsci: state.Progress.progressFilter.isMathSci,
+  isAhse: state.Progress.progressFilter.isAhse,
+  isEngr: state.Progress.progressFilter.isEngr,
 });
 
 export default connect(mapStateToProps)(ProgressTrackerContainer);

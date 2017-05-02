@@ -4,7 +4,7 @@ import SettingsPage from '../components/SettingsPage';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  settings: state.SettingsPageReducer.settings,
+  settings: state.Student.settings,
 });
 
 const mapDispatchToProps = dispatch => ({

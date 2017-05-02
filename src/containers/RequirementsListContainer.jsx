@@ -26,8 +26,8 @@ RequirementsListContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  generalRequirements: state.RequirementsReducer.generalRequirements,
-  majorRequirements: state.RequirementsReducer.majorRequirements,
+  generalRequirements: state.Major.generalRequirements,
+  majorRequirements: state.Major.majorRequirements,
 });
 
 export default connect(
