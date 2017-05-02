@@ -4,9 +4,9 @@ import SearchField from '../components/SearchField';
 
 // Connect with Presentational Component
 const mapStateToProps = state => ({
-  suggestions: state.CoursePlannerReducer.suggestions,
-  val: state.CoursePlannerReducer.value,
-  courses: state.CoursePlannerReducer.allCourses,
+  suggestions: state.CoursePlanner.suggestions,
+  val: state.CoursePlanner.value,
+  courses: state.CoursePlanner.allCourses,
 });
 
 const mapDispatchToProps = dispatch => ({
