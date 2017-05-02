@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import AddCourseDropdown from './AddCourseDropdown';
 import SelectedCourse from './SelectedCourse';
 import SearchFieldContainer from '../containers/SearchFieldContainer';
+import UpdatePlanContainer from '../containers/UpdatePlanContainer';
 import NavPanel from './NavPanel';
 import styles from '../../public/stylesheets/pages.css';
 
@@ -40,6 +41,7 @@ const CoursePlanner = ({ categories, otherCourses, onCourseSelect, onCourseRemov
         </ul>
         <h4>Search All Courses</h4>
         <SearchFieldContainer />
+        <UpdatePlanContainer />
       </div>
     </Col>
   </Row>

@@ -142,17 +142,11 @@ export const register = (username, password) => (
   }
 );
 
-// Save plan of study backend
-export const updatePlan = plannedCourses => (
-  (dispatch) => {
-    const data = {
-      plannedCourses,
-    };
-    $.post('/updateplan', data)
-      .done(response => (dispatch(updatePlanSuccess(response))))
-      .fail((err, status) => console.error(err, status));
-  }
-);
+// Update plan button
+export const updatePlanSuccess = data => ({
+  type: 'UPDATE_PLAN_SUCCESS',
+  isSuccess: data.success,
+});
 
 // Save plan of study backend
 export const updatePlan = plannedCourses => (

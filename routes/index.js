@@ -87,6 +87,19 @@ router.post('/register', (req, res) => {
     });
 });
 
+// update student's plan of study
+router.post('/updateplan', (req, res) => {
+  Student.update(
+    { _id: req.user._id },
+    { plannedCourses: req.body.plannedCourses },
+    (err) => {
+      if (err) {
+        console.error(err);
+      }
+      res.json({ success: true });
+    });
+});
+
 // get student completed courses
 router.get('/completedcourses', (req, res) => {
   res.json({
