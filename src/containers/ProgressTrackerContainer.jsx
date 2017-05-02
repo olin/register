@@ -68,11 +68,11 @@ class ProgressTrackerContainer extends Component {
       engrTotal,
       sciTotal,
       ahseTotal,
-      mathSciPerc,
-      engrPerc,
-      ahsePerc,
-      genReqsPerc,
-      majorReqsPerc,
+      engrPercent,
+      ahsePercent,
+      mathSciPercent,
+      genreqsPercent,
+      majorreqsPercent,
       mathCourses,
       engrCourses,
       sciCourses,
@@ -134,11 +134,11 @@ class ProgressTrackerContainer extends Component {
         engrTotal={engrTotal}
         sciTotal={sciTotal}
         ahseTotal={ahseTotal}
-        mathSciPerc={mathSciPerc}
-        engrPerc={engrPerc}
-        ahsePerc={ahsePerc}
-        genReqsPerc={genReqsPerc}
-        majorReqsPerc={majorReqsPerc}
+        engrPercent={engrPercent}
+        ahsePercent={ahsePercent}
+        mathSciPercent={mathSciPercent}
+        genreqsPercent={genreqsPercent}
+        majorreqsPercent={majorreqsPercent}
         handleGenReqs={this.handleGenReqs}
         handleMajorReqs={this.handleMajorReqs}
         handleMathsci={this.handleMathsci}
@@ -162,11 +162,11 @@ ProgressTrackerContainer.propTypes = {
   engrTotal: PropTypes.number.isRequired,
   sciTotal: PropTypes.number.isRequired,
   ahseTotal: PropTypes.number.isRequired,
-  mathSciPerc: PropTypes.string.isRequired,
-  engrPerc: PropTypes.string.isRequired,
-  ahsePerc: PropTypes.string.isRequired,
-  genReqsPerc: PropTypes.string.isRequired,
-  majorReqsPerc: PropTypes.string.isRequired,
+  engrPercent: PropTypes.string.isRequired,
+  ahsePercent: PropTypes.string.isRequired,
+  mathSciPercent: PropTypes.string.isRequired,
+  genreqsPercent: PropTypes.string.isRequired,
+  majorreqsPercent: PropTypes.string.isRequired,
   mathCourses: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     credits: PropTypes.number.isRequired,
@@ -186,21 +186,21 @@ ProgressTrackerContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  genreqs: state.Progress.completedGeneralRequirements,
-  majorreqs: state.Progress.completedMajorRequirements,
-  mathCourses: state.Progress.mathCourses.courses,
+  genreqs: state.Progress.completedGeneralRequirements.courses,
+  majorreqs: state.Progress.completedMajorRequirements.courses,
+  mathCourses: state.Progress.mathSciCourses.mathCourses,
   engrCourses: state.Progress.engrCourses.courses,
-  sciCourses: state.Progress.sciCourses.courses,
+  sciCourses: state.Progress.mathSciCourses.sciCourses,
   ahseCourses: state.Progress.ahseCourses.courses,
-  mathTotal: state.Progress.mathCourses.creditTotal,
+  mathTotal: state.Progress.mathSciCourses.mathTotal,
   engrTotal: state.Progress.engrCourses.creditTotal,
-  sciTotal: state.Progress.sciCourses.creditTotal,
+  sciTotal: state.Progress.mathSciCourses.sciTotal,
   ahseTotal: state.Progress.ahseCourses.creditTotal,
-  mathSciPerc: state.Progress.mathSciPerc,
-  ahsePerc: state.Progress.ahsePerc,
-  engrPerc: state.Progress.engrPerc,
-  genReqsPerc: state.Progress.genReqsPerc,
-  majorReqsPerc: state.Progress.majorReqsPerc,
+  engrPercent: state.Progress.engrCourses.percentString,
+  ahsePercent: state.Progress.ahseCourses.percentString,
+  mathSciPercent: state.Progress.mathSciCourses.percentString,
+  genreqsPercent: state.Progress.completedGeneralRequirements.percentString,
+  majorreqsPercent: state.Progress.completedMajorRequirements.percentString,
   isGenReq: state.Progress.progressFilter.isGenReq,
   isMajorReq: state.Progress.progressFilter.isMajorReq,
   isMathsci: state.Progress.progressFilter.isMathSci,

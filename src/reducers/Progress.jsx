@@ -8,11 +8,18 @@ const flatten = (acc, arr) => acc.concat(arr);
 // Arrays of completed requirements
 const completedGeneralRequirements = (state = [], action) => {
   switch (action.type) {
-    case 'GET_COMPLETED_COURSES':
-      return action.completedCourses
+    case 'GET_COMPLETED_COURSES': {
+      const courses = action.completedCourses
         .map(course => course.generalRequirements)
         .reduce(flatten, [])
         .filter(req => req !== undefined);
+      const percentNumber = Math.round(courses.length * 6.25);
+      const percentString = percentNumber.toString().concat('%');
+      return Object.assign({}, state, {
+        courses,
+        percentString,
+      });
+    }
     default:
       return state;
   }
@@ -20,11 +27,18 @@ const completedGeneralRequirements = (state = [], action) => {
 
 const completedMajorRequirements = (state = [], action) => {
   switch (action.type) {
-    case 'GET_COMPLETED_COURSES':
-      return action.completedCourses
+    case 'GET_COMPLETED_COURSES': {
+      const courses = action.completedCourses
         .map(course => course.majorRequirements)
         .reduce(flatten, [])
         .filter(req => req !== undefined);
+      const percentNumber = Math.round(courses.length * 6.25);
+      const percentString = percentNumber.toString().concat('%');
+      return Object.assign({}, state, {
+        courses,
+        percentString,
+      });
+    }
     default:
       return state;
   }
@@ -36,15 +50,25 @@ const progressInitialState = {
   creditTotal: 0,
 };
 
-const mathCourses = (state = progressInitialState, action) => {
+const mathSciCourses = (state = progressInitialState, action) => {
   switch (action.type) {
     case 'GET_COMPLETED_COURSES': {
-      const courses = action.completedCourses
+      const mathCourses = action.completedCourses
         .filter(course => course.registrarId.substring(0, 3) === 'MTH');
-      const creditTotal = courses.reduce(sumCredits, 0);
+      const sciCourses = action.completedCourses
+        .filter(course => course.registrarId.substring(0, 3) === 'SCI');
+      const mathTotal = mathCourses.reduce(sumCredits, 0);
+      const sciTotal = sciCourses.reduce(sumCredits, 0);
+      const creditTotal = mathTotal + sciTotal;
+      const percentNumber = Math.round(creditTotal * 2.17);
+      const percentString = percentNumber.toString().concat('%');
       return Object.assign({}, state, {
-        courses,
+        mathCourses,
+        sciCourses,
         creditTotal,
+        mathTotal,
+        sciTotal,
+        percentString,
       });
     }
     default:
@@ -52,15 +76,19 @@ const mathCourses = (state = progressInitialState, action) => {
   }
 };
 
+
 const engrCourses = (state = progressInitialState, action) => {
   switch (action.type) {
     case 'GET_COMPLETED_COURSES': {
       const courses = action.completedCourses
         .filter(course => course.registrarId.substring(0, 3) === 'ENG');
       const creditTotal = courses.reduce(sumCredits, 0);
+      const percentNumber = Math.round(creditTotal * 2.17);
+      const percentString = percentNumber.toString().concat('%');
       return Object.assign({}, state, {
         courses,
         creditTotal,
+        percentString,
       });
     }
     default:
@@ -74,25 +102,12 @@ const ahseCourses = (state = progressInitialState, action) => {
       const courses = action.completedCourses
         .filter(course => course.registrarId.substring(0, 3) === 'AHS');
       const creditTotal = courses.reduce(sumCredits, 0);
+      const percentNumber = Math.round(creditTotal * 3.57);
+      const percentString = percentNumber.toString().concat('%');
       return Object.assign({}, state, {
         courses,
         creditTotal,
-      });
-    }
-    default:
-      return state;
-  }
-};
-
-const sciCourses = (state = progressInitialState, action) => {
-  switch (action.type) {
-    case 'GET_COMPLETED_COURSES': {
-      const courses = action.completedCourses
-        .filter(course => course.registrarId.substring(0, 3) === 'SCI');
-      const creditTotal = courses.reduce(sumCredits, 0);
-      return Object.assign({}, state, {
-        courses,
-        creditTotal,
+        percentString,
       });
     }
     default:
@@ -156,6 +171,18 @@ const isEngr = (state = false, action) => {
   }
 };
 
+
+// // converts progress into a string that can be used by
+//  // the progress bar in the ProgressTracker component
+// const mathSciPercNum = Math.round((mathCourses.creditTotal + sciCourses.creditTotal) * 3.33);
+// const mathSciPerc = mathSciPercNum.toString().concat('%');
+// const engrPercNum = Math.round(engrTotal * 2.17);
+// const engrPerc = engrPercNum.toString().concat('%');
+// const genReqsPercNum = Math.round(genreqs.length * 6.25);
+// const genReqsPerc = genReqsPercNum.toString().concat('%');
+// const majorReqsPercNum = Math.round(majorreqs.length * 14.28);
+// const majorReqsPerc = majorReqsPercNum.toString().concat('%');
+
 const progressFilter = combineReducers({
   isGenReq,
   isMajorReq,
@@ -167,10 +194,9 @@ const progressFilter = combineReducers({
 const Progress = combineReducers({
   completedGeneralRequirements,
   completedMajorRequirements,
-  mathCourses,
+  mathSciCourses,
   engrCourses,
   ahseCourses,
-  sciCourses,
   progressFilter,
 });
 

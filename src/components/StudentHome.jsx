@@ -23,8 +23,8 @@ const StudentHome = () => (
       <h2>
         Student Home
       </h2>
-      <ProgressTrackerContainer />
       <WelcomeMessageContainer />
+      <ProgressTrackerContainer />
       <RequirementsListContainer />
     </Col>
   </Row>

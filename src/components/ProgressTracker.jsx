@@ -8,16 +8,17 @@ const ProgressTracker = ({
   engrTotal,
   sciTotal,
   ahseTotal,
-  mathSciPerc,
-  engrPerc,
-  ahsePerc,
-  genReqsPerc,
-  majorReqsPerc,
+  engrPercent,
+  ahsePercent,
+  mathSciPercent,
+  genreqsPercent,
+  majorreqsPercent,
   handleGenReqs,
   handleMajorReqs,
   handleMathsci,
   handleAhse,
-  handleEngr }) => (
+  handleEngr,
+  }) => (
     <div className={styles.trackerComponent}>
       <ul>
         <div className={styles.progressTypeHeader}>
@@ -32,7 +33,7 @@ const ProgressTracker = ({
           <div
             className="progress-bar"
             role="progressbar"
-            style={{ width: engrPerc }}
+            style={{ width: engrPercent }}
           >
             <span className="sr-only">Percent Complete</span>
           </div>
@@ -47,7 +48,7 @@ const ProgressTracker = ({
           <div
             className="progress-bar"
             role="progressbar"
-            style={{ width: mathSciPerc }}
+            style={{ width: mathSciPercent }}
           >
             <span className="sr-only">Percent Complete</span>
           </div>
@@ -61,7 +62,7 @@ const ProgressTracker = ({
           <div
             className="progress-bar"
             role="progressbar"
-            style={{ width: ahsePerc }}
+            style={{ width: ahsePercent }}
           >
             <span className="sr-only">Percent Complete</span>
           </div>
@@ -78,7 +79,7 @@ const ProgressTracker = ({
           <div
             className="progress-bar"
             role="progressbar"
-            style={{ width: genReqsPerc }}
+            style={{ width: genreqsPercent }}
           >
             <span className="sr-only">Percent Complete</span>
           </div>
@@ -93,7 +94,7 @@ const ProgressTracker = ({
           <div
             className="progress-bar"
             role="progressbar"
-            style={{ width: majorReqsPerc }}
+            style={{ width: majorreqsPercent }}
           >
             <span className="sr-only">Percent Complete</span>
           </div>
@@ -116,11 +117,11 @@ ProgressTracker.propTypes = {
   engrTotal: PropTypes.number.isRequired,
   sciTotal: PropTypes.number.isRequired,
   ahseTotal: PropTypes.number.isRequired,
-  mathSciPerc: PropTypes.string.isRequired,
-  engrPerc: PropTypes.string.isRequired,
-  ahsePerc: PropTypes.string.isRequired,
-  genReqsPerc: PropTypes.string.isRequired,
-  majorReqsPerc: PropTypes.string.isRequired,
+  engrPercent: PropTypes.string.isRequired,
+  ahsePercent: PropTypes.string.isRequired,
+  mathSciPercent: PropTypes.string.isRequired,
+  genreqsPercent: PropTypes.string.isRequired,
+  majorreqsPercent: PropTypes.string.isRequired,
 };
 
 export default ProgressTracker;
