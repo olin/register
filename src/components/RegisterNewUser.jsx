@@ -1,7 +1,7 @@
 /* The form that a new user fills out to register a new account.
 The user provides their name, an email, and a password. */
 import React, { PropTypes } from 'react';
-import styles from './../../public/stylesheets/register-new-user.css';
+import styles from './../../public/stylesheets/login.css';
 
 const RegisterNewUser = ({
   username,
@@ -12,8 +12,7 @@ const RegisterNewUser = ({
 }) => (
   <div className={styles.registerblock}>
     <form id="register" className="form-signin" onSubmit={onRegister}>
-      <h2>Register an account</h2>
-      <br />
+      <h2>Register a New Account</h2>
       <input
         placeholder="Email"
         type="text"
