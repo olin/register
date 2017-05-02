@@ -88,6 +88,13 @@ export const updateSuggestions = suggestions => ({
   suggestions,
 });
 
+// Update plan button
+export const updatePlanSuccess = data => ({
+  type: 'UPDATE_PLAN_SUCCESS',
+  isSuccess: data.success,
+});
+
+// Login backend interaction
 // login or register action successful
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
@@ -141,12 +148,6 @@ export const register = (username, password) => (
       .fail((err, status) => console.error(err, status));
   }
 );
-
-// Update plan button
-export const updatePlanSuccess = data => ({
-  type: 'UPDATE_PLAN_SUCCESS',
-  isSuccess: data.success,
-});
 
 // Save plan of study backend
 export const updatePlan = plannedCourses => (
