@@ -48,12 +48,19 @@ const ProgressTrackerReducer = (state = initialState, action) => {
       const engrTotal = sum(engrCourses);
       const ahseTotal = sum(ahseCourses);
       const sciTotal = sum(sciCourses);
+
+      //converts progress into a string that can be used by the bar in the ProgressTracker component
       const mathSciPercNum = Math.round((mathTotal + sciTotal) * 3.33);
       const mathSciPerc = mathSciPercNum.toString().concat('%');
       const engrPercNum = Math.round(engrTotal * 2.17);
       const engrPerc = engrPercNum.toString().concat('%');
-      const ahsePercNum = Math.round(ahseTotal * 3.4);
-      const ahsePerc = ahsePercNum.toString().concat('%');
+      const ahsePercNum = Math.round(ahseTotal * 3.57);
+      const ahsePerc = ahsePercNum.toString().concat('%'); 
+      const genReqsPercNum = Math.round(genreqs.length * 6.25);
+      const genReqsPerc = genReqsPercNum.toString().concat('%'); 
+      const majorReqsPercNum = Math.round(majorreqs.length * 14.28);
+      const majorReqsPerc = majorReqsPercNum.toString().concat('%'); 
+
 
       return Object.assign({}, state, {
         genreqs,
@@ -69,6 +76,8 @@ const ProgressTrackerReducer = (state = initialState, action) => {
         mathSciPerc,
         engrPerc,
         ahsePerc,
+        genReqsPerc,
+        majorReqsPerc,
       });
     }
     default: {

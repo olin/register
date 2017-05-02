@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import styles from '../../public/stylesheets/progress-tracker.css';
 
 const ProgressTracker = ({
   genreqs,
@@ -10,39 +11,41 @@ const ProgressTracker = ({
   mathSciPerc,
   engrPerc,
   ahsePerc,
+  genReqsPerc,
+  majorReqsPerc,
   handleGenReqs,
   handleMajorReqs,
   handleMathsci,
   handleAhse,
   handleEngr }) => (
-    <div>
+    <div className={styles.trackerComponent}>
       <ul>
         <li>
-          <a onClick={handleEngr} href="">Engineering</a>
+          <a onClick={handleEngr} href="">Engineering Credits</a>
           <p>{engrTotal}/46 credits</p>
         </li>
 
         <div className="progress">
           <div className="progress-bar"
             role="progressbar" 
-            style={{ width: engrPerc }} />
+            style={{ width: engrPerc }} 
+          />
         </div>
 
         <li>
-          <a onClick={handleMathsci} href="">Math and Science</a>
+          <a onClick={handleMathsci} href="">Math and Science Credits</a>
           <p>{mathTotal + sciTotal}/30 credits</p>
         </li>
         <div className="progress">
           <div className="progress-bar"
-            role="progressbar" 
+            role="progressbar"
             style={{width: mathSciPerc}}>
-            <span className="sr-only">70% Complete</span>
           </div>
         </div>
 
 
         <li>
-          <a onClick={handleAhse} href="">AHS and Entrepreneurship</a>
+          <a onClick={handleAhse} href="">AHS and Entrepreneurship Credits</a>
           <p>{ahseTotal}/28 credits</p>
         </li>
         <div className="progress">
@@ -54,13 +57,26 @@ const ProgressTracker = ({
         </div>
 
         <li>
-          <a onClick={handleGenReqs} href="">General Requirements</a>
+          <a onClick={handleGenReqs} href="">General Course Requirements</a>
           <p>{genreqs.length}/16 courses</p>
         </li>
+        <div className="progress">
+          <div className="progress-bar"
+            role="progressbar" 
+            style={{width: genReqsPerc}}>
+          </div>
+        </div>
+
         <li>
-          <a onClick={handleMajorReqs} href="">Major Requirements</a>
+          <a onClick={handleMajorReqs} href="">Major Course Requirements</a>
           <p>{majorreqs.length}/7 courses</p>
         </li>
+        <div className="progress">
+          <div className="progress-bar"
+            role="progressbar" 
+            style={{width: majorReqsPerc}}>
+          </div>
+        </div>
 
 
       </ul>
@@ -82,6 +98,8 @@ ProgressTracker.propTypes = {
   mathSciPerc: PropTypes.string.isRequired,
   engrPerc: PropTypes.string.isRequired,
   ahsePerc: PropTypes.string.isRequired,
+  genReqsPerc: PropTypes.string.isRequired,
+  majorReqsPerc: PropTypes.string.isRequired,
 };
 
 export default ProgressTracker;
