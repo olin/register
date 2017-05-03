@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import SemesterContainer from '../containers/SemesterContainer';
 import SemesterReserveContainer from '../containers/SemesterReserveContainer';
 
-const SemesterList = ({ semesters, onSavePlan }) => (
+const SemesterList = ({ semesters }) => (
   <div>
     <h1>Plan by Semester</h1>
     <ul>
@@ -21,7 +21,6 @@ const SemesterList = ({ semesters, onSavePlan }) => (
 
 SemesterList.propTypes = {
   semesters: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onSavePlan: PropTypes.func.isRequired,
 };
 
 export default SemesterList;
