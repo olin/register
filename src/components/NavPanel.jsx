@@ -13,8 +13,8 @@ const NavPanel = ({ active }) => (
       <LinkContainer to="/plan">
         <NavItem eventKey={2} className={styles.item}>Create/Edit Plan of Study</NavItem>
       </LinkContainer>
-      <LinkContainer to="#">
-        <NavItem eventKey={3} className={styles.item} disabled>Other Stuff</NavItem>
+      <LinkContainer to="/semesterplan">
+        <NavItem eventKey={3} className={styles.item}>Calendar</NavItem>
       </LinkContainer>
     </Nav>
   </div>
