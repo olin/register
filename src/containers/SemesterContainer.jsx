@@ -3,8 +3,15 @@ import { DropTarget } from 'react-dnd';
 import Semester from '../components/Semester';
 
 const filterCourse = (semester, completedCourses, plannedCourses) => {
-  const compare = (a, b) => {
-    // sort alphabetically by registrarId
+    const compareByCourseId = (a, b) => {
+    // sort alphabetically by courseId (where the course code is stored in plannedCourses)
+    if (a.courseId.toUpperCase() < b.courseId.toUpperCase()) {
+      return -1;
+    }
+    return 1;
+  };
+  const compareByRegistrarId = (a, b) => {
+    // sort alphabetically by registrarId (where the course code is stored in completedCourses)
     if (a.registrarId.toUpperCase() < b.registrarId.toUpperCase()) {
       return -1;
     }
@@ -12,10 +19,11 @@ const filterCourse = (semester, completedCourses, plannedCourses) => {
   };
   const filteredCompleted = completedCourses.filter(course =>
     course.semester === semester,
-  ).sort(compare);
+  ).sort(compareByRegistrarId);
+  console.log(plannedCourses, 'plannedCourses');
   const filteredPlanned = plannedCourses.filter(course =>
     course.semester === semester,
-  ).sort(compare);
+  ).sort(compareByCourseId);
   return filteredPlanned.concat(filteredCompleted);
 };
 
