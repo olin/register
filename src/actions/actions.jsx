@@ -101,6 +101,18 @@ export const receiveUser = json => ({
   courses: json.courses,
 });
 
+// register action unsuccessful
+export const registerError = message => ({
+  type: 'REGISTER_ERROR',
+  message,
+});
+
+// login action unsuccessful
+export const loginError = message => ({
+  type: 'LOGIN_ERROR',
+  message,
+});
+
 // Logout Component
 export const logoutUser = data => ({
   type: 'LOGOUT_USER',
@@ -125,7 +137,10 @@ export const login = (username, password) => (
     };
     $.post('/login', data)
       .done(response => dispatch(receiveUser(response)))
-      .fail((err, status) => console.error(err, status));
+      .fail((err) => {
+        const message = 'Error ' + err.status + ': ' + err.responseText;
+        dispatch(loginError(message));
+      });
   }
 );
 
@@ -138,7 +153,10 @@ export const register = (username, password) => (
     };
     $.post('/register', data)
       .done(response => (dispatch(receiveUser(response))))
-      .fail((err, status) => console.error(err, status));
+      .fail((err) => {
+        const message = 'Error ' + err.status + ': ' + err.responseText;
+        dispatch(registerError(message));
+      });
   }
 );
 

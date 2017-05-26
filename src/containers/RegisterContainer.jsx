@@ -5,19 +5,29 @@ import RegisterNewUser from '../components/RegisterNewUser';
 const mapStateToProps = state => ({
   username: state.Student.registerUsername,
   password: state.Student.registerPassword,
+  registerError: state.Student.registerError,
+});
+
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  updateRegisterUser: (e) => {
+    dispatch(updateRegisterUsername(e.target.value));
+  },
+  updateRegisterPwd: (e) => {
+    dispatch(updateRegisterPassword(e.target.value));
+  },
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
-  const { username, password } = stateProps;
-  const { dispatch } = dispatchProps;
+  const { username, password, registerError } = stateProps;
+  const { dispatch, updateRegisterUser, updateRegisterPwd } = dispatchProps;
 
   return {
-    updateRegisterUsername: (e) => {
-      dispatch(updateRegisterUsername(e.target.value));
-    },
-    updateRegisterPassword: (e) => {
-      dispatch(updateRegisterPassword(e.target.value));
-    },
+    username,
+    password,
+    registerError,
+    updateRegisterUser,
+    updateRegisterPwd,
     onRegister: (e) => {
       e.preventDefault();
       dispatch(register(username, password));
@@ -27,7 +37,7 @@ const mergeProps = (stateProps, dispatchProps) => {
 
 const RegisterContainer = connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
   mergeProps,
 )(RegisterNewUser);
 

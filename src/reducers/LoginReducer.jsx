@@ -9,6 +9,8 @@ const initialState = {
   completedCourses: [],
   allCourses: [],
   loggedIn: false,
+  loginError: '',
+  registerError: '',
 };
 
 const LoginReducer = (state = initialState, action) => {

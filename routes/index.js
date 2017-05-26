@@ -45,38 +45,40 @@ router.post('/register', (req, res) => {
     req.body.password, (regErr, account) => {
       if (regErr) {
         console.error(regErr);
-      }
-      account.save((saveErr) => {
-        if (saveErr) {
-          console.error(saveErr);
-        } else {
-          req.login(account, (loginErr) => {
-            if (loginErr) {
-              console.error(loginErr);
-            }
-            // load all courses to send to state
-            Course.find({}, (err, courses) => {
-              if (err) {
-                console.error(err);
-              } else {
-                const data = {
-                  user: {
-                    username: req.user.username,
-                    name: req.user.name,
-                    id: req.user._id,
-                    entryYear: req.user.entryYear,
-                    major: req.user.major,
-                    plannedCourses: req.user.plannedCourses,
-                    completedCourses: req.user.completedCourses,
-                  },
-                  courses,
-                };
-                res.json(data);
+        res.status(401).send(regErr.message);
+      } else {
+        account.save((saveErr) => {
+          if (saveErr) {
+            console.error(saveErr);
+          } else {
+            req.login(account, (loginErr) => {
+              if (loginErr) {
+                console.error(loginErr);
               }
+              // load all courses to send to state
+              Course.find({}, (err, courses) => {
+                if (err) {
+                  console.error(err);
+                } else {
+                  const data = {
+                    user: {
+                      username: req.user.username,
+                      name: req.user.name,
+                      id: req.user._id,
+                      entryYear: req.user.entryYear,
+                      major: req.user.major,
+                      plannedCourses: req.user.plannedCourses,
+                      completedCourses: req.user.completedCourses,
+                    },
+                    courses,
+                  };
+                  res.json(data);
+                }
+              });
             });
-          });
-        }
-      });
+          }
+        });
+      }
     });
 });
 
