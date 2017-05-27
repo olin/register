@@ -88,6 +88,13 @@ export const updateSuggestions = suggestions => ({
   suggestions,
 });
 
+// Update plan button
+export const updatePlanSuccess = data => ({
+  type: 'UPDATE_PLAN_SUCCESS',
+  isSuccess: data.success,
+});
+
+// Login backend interaction
 // login or register action successful
 export const receiveUser = json => ({
   type: 'RECEIVE_USER',
@@ -157,6 +164,18 @@ export const register = (username, password) => (
         const message = 'Error ' + err.status + ': ' + err.responseText;
         dispatch(registerError(message));
       });
+  }
+);
+
+// Save plan of study backend
+export const updatePlan = plannedCourses => (
+  (dispatch) => {
+    const data = {
+      plannedCourses,
+    };
+    $.post('/updateplan', data)
+      .done(response => (dispatch(updatePlanSuccess(response))))
+      .fail((err, status) => console.error(err, status));
   }
 );
 

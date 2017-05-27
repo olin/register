@@ -42,11 +42,18 @@ router.get('/logout',
 // register new user with local strategy
 router.post('/register', (req, res) => {
   Student.register(new Student({ username: req.body.username }),
-    req.body.password, (regErr, account) => {
+    req.body.password, (regErr, newAccount) => {
       if (regErr) {
         console.error(regErr);
         res.status(401).send(regErr.message);
       } else {
+        // hotfix. Redux demands these fields be filled,
+        // but they have no default values
+        const account = Object.assign(newAccount, {
+          name: 'Test User',
+          entryYear: '2001',
+          major: 'Mechanical Engineering',
+        });
         account.save((saveErr) => {
           if (saveErr) {
             console.error(saveErr);
@@ -79,6 +86,19 @@ router.post('/register', (req, res) => {
           }
         });
       }
+    });
+});
+
+// update student's plan of study
+router.post('/updateplan', (req, res) => {
+  Student.update(
+    { _id: req.user._id },
+    { plannedCourses: req.body.plannedCourses },
+    (err) => {
+      if (err) {
+        console.error(err);
+      }
+      res.json({ success: true });
     });
 });
 
